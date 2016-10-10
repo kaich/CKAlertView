@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'CKAlertView_Example' do
+  pod 'CKAlertView', :path => '../'
+
+  target 'CKAlertView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
