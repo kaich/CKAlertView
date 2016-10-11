@@ -1,0 +1,27 @@
+{
+  "name": "CKAlertView",
+  "version": "0.1.0",
+  "summary": "A short description of CKAlertView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/CKAlertView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "kaich": "chengkai1853@163.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/CKAlertView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "CKAlertView/Classes/**/*",
+  "dependencies": {
+    "SnapKit": [
+      "~> 3.0"
+    ]
+  }
+}

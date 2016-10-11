@@ -1,0 +1,6 @@
+framework module CKAlertView {
+  umbrella header "CKAlertView-umbrella.h"
+
+  export *
+  module * { export * }
+}

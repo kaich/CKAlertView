@@ -1,0 +1,19 @@
+PODS:
+  - CKAlertView (0.1.0):
+    - SnapKit (~> 3.0)
+  - SnapKit (3.0.2)
+
+DEPENDENCIES:
+  - CKAlertView (from `../`)
+
+EXTERNAL SOURCES:
+  CKAlertView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CKAlertView: d5368510f748c73326e1f78512545e1e0e0997ab
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+
+PODFILE CHECKSUM: 52cc18f3a504333b68352d84e3e12edab347abe0
+
+COCOAPODS: 1.1.0.rc.2
