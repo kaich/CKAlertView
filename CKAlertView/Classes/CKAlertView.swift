@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-let HexColor = {(hex :Int) in return UIColor.init(colorLiteralRed: ((Float)((hex & 0xFF0000) >> 16))/255.0, green: ((Float)((hex & 0xFF00) >> 8))/255.0, blue: ((Float)(hex & 0xFF))/255.0, alpha: 1) }
+let HexColor = {(hex :Int, alpha :Float) in return UIColor.init(colorLiteralRed: ((Float)((hex & 0xFF0000) >> 16))/255.0, green: ((Float)((hex & 0xFF00) >> 8))/255.0, blue: ((Float)(hex & 0xFF))/255.0, alpha: alpha) }
 let is4Inc = UIScreen.main.bounds.size.width == 320
 
 let kContentWidth = is4Inc ? 280 : 300
@@ -24,7 +24,7 @@ let kDefaultButtonHeight = 44
 let kDefaultButtonBackgroundColor = UIColor.clear
 
 let kMultiButtonHeight = 30
-let kMultiButtonBackgroundColor = HexColor(0x1768c9)
+let kMultiButtonBackgroundColor = HexColor(0x1768c9,1)
 
 public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     var overlayView = UIView()
@@ -85,14 +85,14 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     }
     
     
-    public func show(title alertTitle :String, message alertMessage :String, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
+    public func show(title alertTitle :String, message alertMessages :[String]?, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
         
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentMaker()
         componentMaker.delegate = self
         componentMaker.alertTitle = alertTitle
-        componentMaker.alertMessage = alertMessage
+        componentMaker.alertMessages = alertMessages
         componentMaker.cancelButtonTitle = cancelButtonTitle
         componentMaker.otherButtonTitles = otherButtonTitles
         componentMaker.makeLayout()

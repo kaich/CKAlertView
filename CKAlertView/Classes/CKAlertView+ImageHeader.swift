@@ -10,14 +10,14 @@ import Foundation
 
 extension CKAlertView {
     
-    public func show(image headerImage :UIImage?, title alertTitle :String?, message alertMessage :String, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
+    public func show(image headerImage :UIImage?, title alertTitle :String?, message alertMessages :[String]?, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentAdditionImageHeaderMaker()
         componentMaker.delegate = self
         componentMaker.alertTitle = alertTitle
         componentMaker.alertHeaderImage = headerImage
-        componentMaker.alertMessage = alertMessage
+        componentMaker.alertMessages = alertMessages
         componentMaker.cancelButtonTitle = cancelButtonTitle
         componentMaker.otherButtonTitles = otherButtonTitles
         componentMaker.makeLayout()
@@ -32,6 +32,11 @@ extension CKAlertView {
 class CKAlertViewAdditionImageHeaderView : CKAlertViewHeaderView {
     var headerImage :UIImage?
     
+    override func setup() {
+        super.setup()
+        textFont = UIFont.systemFont(ofSize: 15)
+    }
+
     override func makeLayout() {
         super.makeLayout()
         
@@ -58,16 +63,64 @@ class CKAlertViewAdditionImageHeaderView : CKAlertViewHeaderView {
     
 }
 
+
+class CKAlertViewBorderOnlyTwoFooterView : CKAlertViewFooterView {
+    
+    override func setup() {
+        textColor = HexColor(0x444444,1)
+        cancelButtonTitleColor = HexColor(0x444444,1)
+    }
+    
+    override func makeFooterTopHSplitLine() -> UIView? {
+        return nil
+    }
+    
+    override func layoutOnlyTwoButtons() {
+        
+        cancelButton.layer.borderColor = HexColor(0x999999,1).cgColor
+        cancelButton.layer.borderWidth = 1
+        cancelButton.layer.cornerRadius = 3
+        
+        cancelButton.snp.makeConstraints { (make) in
+            make.top.equalTo(self)
+            make.left.equalTo(self).offset(20)
+            make.height.equalTo(36)
+            make.bottom.equalTo(self).offset(-20)
+        }
+        
+        if let anotherButton = otherButtons.first {
+            anotherButton.layer.borderColor = HexColor(0x999999,1).cgColor
+            anotherButton.layer.borderWidth = 1
+            anotherButton.layer.cornerRadius = 3
+            
+            anotherButton.snp.makeConstraints { (make) in
+                make.left.equalTo(cancelButton.snp.right).offset(20)
+                make.top.bottom.equalTo(cancelButton)
+                make.width.height.equalTo(cancelButton)
+                make.right.equalTo(self).offset(-20)
+            }
+        }
+    }
+}
+
+
 class CKAlertViewComponentAdditionImageHeaderMaker :CKAlertViewComponentMaker {
     var alertHeaderImage :UIImage?
     
-    override func layoutHeader () {
+    override func layoutHeader() -> CKAlertViewComponent? {
         let headerView = CKAlertViewAdditionImageHeaderView()
         headerView.headerImage = alertHeaderImage
         headerView.alertTitle = alertTitle
-        headerView.makeLayout()
         
-        self.headerView = headerView
+        return headerView
+    }
+    
+    override func layoutFooter() -> CKAlertViewComponent? {
+        let footerView = CKAlertViewBorderOnlyTwoFooterView()
+        footerView.cancelButtonTitle = cancelButtonTitle
+        footerView.otherButtonTitles = otherButtonTitles
+        
+        return footerView
     }
     
 }

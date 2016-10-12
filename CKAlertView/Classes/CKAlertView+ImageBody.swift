@@ -57,12 +57,11 @@ class CKAlertViewImageBodyView: CKAlertViewBodyView {
 class CKAlertViewComponentImageBodyMaker :CKAlertViewComponentMaker {
     var alertBodyImage :UIImage?
     
-    override func layoutBody() {
+    override func layoutBody() -> CKAlertViewComponent? {
         let bodyView = CKAlertViewImageBodyView()
         bodyView.image = alertBodyImage
-        bodyView.makeLayout()
         
-        self.bodyView = bodyView
+        return bodyView
     }
     
 }
