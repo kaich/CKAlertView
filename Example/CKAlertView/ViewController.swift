@@ -45,5 +45,21 @@ class ViewController: UIViewController {
             self.lblMessage.text = "\(index) clicked,multi button alert dismissed"
         }
     }
+    
+    @IBAction func showImageBodyAlert(_ sender: AnyObject) {
+        alert = CKAlertView()
+        let image = UIImage(named: "sample_image")
+        alert?.show(title: "不知道如何删除应用程序，按照如下的步骤简单快捷，您可以选择如下解决方法", image: image, cancelButtonTitle: "我知道了", otherButtonTitles: ["查看详情"], completeBlock: { (index) in
+            self.lblMessage.text = "\(index) clicked, image message alert dismissed"
+        })
+    }
+    
+    @IBAction func showImageHeaderAlert(_ sender: AnyObject) {
+        alert = CKAlertView()
+        let image = UIImage(named: "repair_icon")
+        alert?.show(image: image, title: "开始学习swift", message: "如果你使用闭包来初始化属性的值，请记住在闭包执行时，实例的其它部分都还没有初始化。这意味着你不能够在闭包里访问其它的属性，就算这个属性有默认值也不允许", cancelButtonTitle: "不再提醒", otherButtonTitles: ["我知道了"], completeBlock: { (index) in
+            self.lblMessage.text = "\(index) clicked, image title alert dismissed"
+        })
+    }
 }
 

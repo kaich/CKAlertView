@@ -12,6 +12,7 @@ import SnapKit
 let HexColor = {(hex :Int) in return UIColor.init(colorLiteralRed: ((Float)((hex & 0xFF0000) >> 16))/255.0, green: ((Float)((hex & 0xFF00) >> 8))/255.0, blue: ((Float)(hex & 0xFF))/255.0, alpha: 1) }
 let is4Inc = UIScreen.main.bounds.size.width == 320
 
+let kContentWidth = is4Inc ? 280 : 300
 let kTitleFont = UIFont.boldSystemFont(ofSize: 17)
 let kMessageFont = UIFont.systemFont(ofSize: 13)
 let kCancelTitleColor = UIColor.gray
@@ -25,15 +26,28 @@ let kDefaultButtonBackgroundColor = UIColor.clear
 let kMultiButtonHeight = 30
 let kMultiButtonBackgroundColor = HexColor(0x1768c9)
 
-public class CKAlertView: UIViewController {
-    fileprivate var overlayView = UIView()
-    fileprivate var contentView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
-    fileprivate var headerView  = UIView()
-    fileprivate var bodyView    = UIView()
-    fileprivate var footerView  = UIView()
-    fileprivate var cancelButton :UIButton!
-    fileprivate var otherButtons = [UIButton]()
-    fileprivate var dismissCompleteBlock :((Int) -> Void)?
+public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
+    var overlayView = UIView()
+    var contentView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+    var componentMaker :CKAlertViewComponentBaseMaker!
+    
+    var headerView  :CKAlertViewComponent! {
+        get {
+           return componentMaker.headerView
+        }
+    }
+    var bodyView    :CKAlertViewComponent! {
+        get {
+            return componentMaker.bodyView
+        }
+    }
+    var footerView  :CKAlertViewComponent! {
+        get {
+            return componentMaker.footerView
+        }
+    }
+    
+    var dismissCompleteBlock :((Int) -> Void)?
     
     
     override public func viewDidLoad() {
@@ -61,6 +75,8 @@ public class CKAlertView: UIViewController {
         footerView.backgroundColor = UIColor.clear
         contentView.addSubview(footerView)
 
+        makeConstraint()
+        
     }
     
     override public func didReceiveMemoryWarning() {
@@ -69,158 +85,25 @@ public class CKAlertView: UIViewController {
     }
     
     
-    public func show(title alertTitle :String, message alertMessage :String, cancelButtonTitle :String, otherButtonTitles :[String]?, completeBlock :(((Int) -> Void))?) {
+    public func show(title alertTitle :String, message alertMessage :String, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
         
         dismissCompleteBlock = completeBlock
         
-        layoutHeader(title: alertTitle)
-        layoutBody(message: alertMessage)
-        layoutFooter(cancelButtonTitle: cancelButtonTitle, otherButtonTitles: otherButtonTitles)
+        let componentMaker = CKAlertViewComponentMaker()
+        componentMaker.delegate = self
+        componentMaker.alertTitle = alertTitle
+        componentMaker.alertMessage = alertMessage
+        componentMaker.cancelButtonTitle = cancelButtonTitle
+        componentMaker.otherButtonTitles = otherButtonTitles
+        componentMaker.makeLayout()
+        self.componentMaker = componentMaker
         
         show()
     }
     
-    
-    func layoutHeader(title alertTitle :String) {
-        let titleLabel = UILabel()
-        titleLabel.backgroundColor = UIColor.clear
-        titleLabel.numberOfLines = 0
-        titleLabel.textAlignment = .center
-        titleLabel.font = kTitleFont
-        titleLabel.text = alertTitle
-        headerView.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(headerView).offset(20)
-            make.left.equalTo(headerView).offset(20)
-            make.right.equalTo(headerView).offset(-20)
-            make.bottom.equalTo(headerView).offset(-10)
-        }
-    }
-    
-    func layoutBody(message alertMessage :String) {
-        let messageLabel = UILabel()
-        messageLabel.backgroundColor = UIColor.clear
-        messageLabel.numberOfLines = 0
-        messageLabel.font = kMessageFont
-        messageLabel.text = alertMessage
-        bodyView.addSubview(messageLabel)
-        messageLabel.snp.makeConstraints { (make) in
-            make.edges.equalTo(bodyView).inset(UIEdgeInsetsMake(0, 20, 20, 20))
-        }
-    }
-    
-    
-    func  layoutFooter(cancelButtonTitle: String,otherButtonTitles :[String]?) {
-        
-        let splitLineView = UIView()
-        splitLineView.backgroundColor = kSplitLineColor
-        footerView.addSubview(splitLineView)
-        splitLineView.snp.makeConstraints { (make) in
-            make.top.right.left.equalTo(footerView)
-            make.height.equalTo(kSplitLineWidth)
-        }
-        
-        cancelButton = UIButton()
-        cancelButton.setTitleColor(kCancelTitleColor, for: .normal)
-        cancelButton.setTitle(cancelButtonTitle, for: .normal)
-        cancelButton.addTarget(self, action: #selector(clickButton(sender:)), for: .touchUpInside)
-        footerView.addSubview(cancelButton)
-        
-        otherButtons = [UIButton]()
-        if let otherButtonTitles = otherButtonTitles {
-            for title in otherButtonTitles {
-                let otherButton = UIButton()
-                otherButton.setTitleColor(kCancelTitleColor, for: .normal)
-                otherButton.setTitle(title, for: .normal)
-                otherButton.addTarget(self, action: #selector(clickButton(sender:)), for: .touchUpInside)
-                footerView.addSubview(otherButton)
-                otherButtons.append(otherButton)
-            }
-        }
-        
-        if otherButtons.count > 0 {
-            
-            if otherButtons.count == 1 {
-                
-                let vMidSplitLineView = UIView()
-                vMidSplitLineView.backgroundColor = kSplitLineColor
-                footerView.addSubview(vMidSplitLineView)
-                
-                cancelButton.snp.makeConstraints { (make) in
-                    make.top.bottom.left.equalTo(footerView)
-                    make.height.equalTo(kDefaultButtonHeight)
-                }
-                
-                vMidSplitLineView.snp.makeConstraints({ (make) in
-                    make.left.equalTo(cancelButton.snp.right)
-                    make.top.bottom.height.equalTo(cancelButton)
-                    make.width.equalTo(kSplitLineWidth)
-                })
-                
-                if let anotherButton = otherButtons.first {
-                    anotherButton.snp.makeConstraints { (make) in
-                        make.left.equalTo(vMidSplitLineView.snp.right)
-                        make.top.bottom.right.equalTo(footerView)
-                        make.width.height.equalTo(cancelButton)
-                    }
-                }
-            }
-            else {
-                
-                cancelButton.backgroundColor = kMultiButtonBackgroundColor
-                cancelButton.setTitleColor(UIColor.white, for: .normal)
-                cancelButton.snp.makeConstraints { (make) in
-                    make.top.equalTo(footerView).offset(10)
-                    make.left.equalTo(footerView).offset(20)
-                    make.right.equalTo(footerView).offset(-20)
-                    make.height.equalTo(kMultiButtonHeight)
-                }
-                
-                for (index,emButton) in otherButtons.enumerated() {
-                    emButton.backgroundColor = kMultiButtonBackgroundColor
-                    emButton.setTitleColor(UIColor.white, for: .normal)
-                    emButton.snp.makeConstraints { (make) in
-                        make.left.equalTo(footerView).offset(20)
-                        make.right.equalTo(footerView).offset(-20)
-                        make.height.equalTo(kMultiButtonHeight)
-                        if index == 0 {
-                            make.top.equalTo(cancelButton.snp.bottom).offset(10)
-                        }
-                        else {
-                            let lastButton = otherButtons[index - 1]
-                            make.top.equalTo(lastButton.snp.bottom).offset(10)
-                            if index == otherButtons.count - 1 {
-                                make.bottom.equalTo(footerView).offset(-20)
-                            }
-                        }
-                    }
-                }
-            }
-            
-        }
-        else {
-            
-            cancelButton.snp.makeConstraints { (make) in
-                make.top.bottom.left.right.equalTo(footerView)
-                make.height.equalTo(kDefaultButtonHeight)
-            }
-        }
-        
-    }
-    
-    func  clickButton(sender :UIButton) {
-        dismiss()
-        
-        
-        //index of cancel button is 0
-        var index = 0
-        if otherButtons.contains(sender) {
-            index = otherButtons.index(of: sender)! + 1
-        }
-        
-        if let completeBlock = dismissCompleteBlock {
-            completeBlock(index)
-        }
+    func installComponentMaker(maker :CKAlertViewComponentBaseMaker) {
+        self.componentMaker = maker
+        maker.delegate = self
     }
     
     func show() {
@@ -244,20 +127,15 @@ public class CKAlertView: UIViewController {
     }
     
     
-    
-    public override func updateViewConstraints() {
-        
-        view.snp.makeConstraints { (make) in
-            make.edges.equalTo(view.superview!)
-        }
-        
+    func makeConstraint() {
+
         overlayView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
         
         contentView.snp.makeConstraints { (make) in
             make.center.equalTo(view.center)
-            make.width.equalTo(is4Inc ? 280 : 300)
+            make.width.equalTo(kContentWidth)
         }
         
         headerView.snp.makeConstraints { (make) in
@@ -275,8 +153,26 @@ public class CKAlertView: UIViewController {
             make.left.right.equalTo(contentView)
             make.bottom.equalTo(contentView)
         }
+    }
+    
+    
+    public override func updateViewConstraints() {
+        
+        view.snp.remakeConstraints { (make) in
+            make.edges.equalTo(view.superview!)
+        }
         
         super.updateViewConstraints()
     }
+    
+    //MARK: - CKAlertViewComponentDelegate
+    func  clickButton(at index :Int) {
+        dismiss()
+        
+        if let completeBlock = dismissCompleteBlock {
+            completeBlock(index)
+        }
+    }
 
 }
+

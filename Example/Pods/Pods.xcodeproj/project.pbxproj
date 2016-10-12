@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0062C4F94D6FFACA947778E5030AC699 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B1700C2C19AD11C2872C1C46EC8D4 /* Debugging.swift */; };
+		04272D2E1DACB6CD00B2FCF6 /* CKAlertView+ImageBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04272D2D1DACB6CD00B2FCF6 /* CKAlertView+ImageBody.swift */; };
+		04272D301DACDFCD00B2FCF6 /* CKAlertView+ImageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04272D2F1DACDFCD00B2FCF6 /* CKAlertView+ImageHeader.swift */; };
+		04272D321DACF23C00B2FCF6 /* CKAlertViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04272D311DACF23C00B2FCF6 /* CKAlertViewComponent.swift */; };
 		0526BAE146E2FE84E154E8EF6592DB41 /* UILayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4759EEB4180EAF3DA189AAE28199AC /* UILayoutGuide+Extensions.swift */; };
 		058C7FAA122F37F6A3CA7FA8DD963763 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1D10525428EE42117D40A1A64556D6 /* Foundation.framework */; };
 		06B12F0C93C9407819AC75C945865921 /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1BDEFD46348EE8C41DE053AEDBFD1B /* ConstraintOffsetTarget.swift */; };
@@ -80,6 +83,9 @@
 
 /* Begin PBXFileReference section */
 		041C7DFD4E40027278BABCCCD69743B2 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Source/ConstraintAttributes.swift; sourceTree = "<group>"; };
+		04272D2D1DACB6CD00B2FCF6 /* CKAlertView+ImageBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CKAlertView+ImageBody.swift"; sourceTree = "<group>"; };
+		04272D2F1DACDFCD00B2FCF6 /* CKAlertView+ImageHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CKAlertView+ImageHeader.swift"; sourceTree = "<group>"; };
+		04272D311DACF23C00B2FCF6 /* CKAlertViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAlertViewComponent.swift; sourceTree = "<group>"; };
 		0729DC38B02A17974FD7A7238FCB1836 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Source/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
 		0AB21FA0A2E5B45AB133215CC241236D /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Source/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
 		0B40FA1B22EFD0988E485A1A9764E499 /* Pods-CKAlertView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CKAlertView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -317,6 +323,9 @@
 			isa = PBXGroup;
 			children = (
 				968D23056C68461E841DFB1DD7C20C4A /* CKAlertView.swift */,
+				04272D311DACF23C00B2FCF6 /* CKAlertViewComponent.swift */,
+				04272D2D1DACB6CD00B2FCF6 /* CKAlertView+ImageBody.swift */,
+				04272D2F1DACDFCD00B2FCF6 /* CKAlertView+ImageHeader.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -573,7 +582,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04272D301DACDFCD00B2FCF6 /* CKAlertView+ImageHeader.swift in Sources */,
 				112CD1DD9E83D696C3DFB2934F823972 /* CKAlertView-dummy.m in Sources */,
+				04272D321DACF23C00B2FCF6 /* CKAlertViewComponent.swift in Sources */,
+				04272D2E1DACB6CD00B2FCF6 /* CKAlertView+ImageBody.swift in Sources */,
 				3CCC4CE3A170682CCF55E2A0BD7D79D0 /* CKAlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
