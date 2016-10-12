@@ -57,6 +57,13 @@ class CKAlertViewImageBodyView: CKAlertViewBodyView {
 class CKAlertViewComponentImageBodyMaker :CKAlertViewComponentMaker {
     var alertBodyImage :UIImage?
     
+    override func layoutHeader() -> CKAlertViewComponent? {
+        let headerView = layoutHeader()
+        headerView?.textFont = UIFont.systemFont(ofSize: 15)
+        
+        return headerView
+    }
+    
     override func layoutBody() -> CKAlertViewComponent? {
         let bodyView = CKAlertViewImageBodyView()
         bodyView.image = alertBodyImage

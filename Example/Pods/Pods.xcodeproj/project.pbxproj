@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0062C4F94D6FFACA947778E5030AC699 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B1700C2C19AD11C2872C1C46EC8D4 /* Debugging.swift */; };
+		040BE2DF1DAE542B00D33B64 /* CKAlertView+MajorAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BE2DE1DAE542B00D33B64 /* CKAlertView+MajorAction.swift */; };
 		04272D2E1DACB6CD00B2FCF6 /* CKAlertView+ImageBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04272D2D1DACB6CD00B2FCF6 /* CKAlertView+ImageBody.swift */; };
 		04272D301DACDFCD00B2FCF6 /* CKAlertView+ImageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04272D2F1DACDFCD00B2FCF6 /* CKAlertView+ImageHeader.swift */; };
 		04272D321DACF23C00B2FCF6 /* CKAlertViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04272D311DACF23C00B2FCF6 /* CKAlertViewComponent.swift */; };
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040BE2DE1DAE542B00D33B64 /* CKAlertView+MajorAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CKAlertView+MajorAction.swift"; sourceTree = "<group>"; };
 		041C7DFD4E40027278BABCCCD69743B2 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Source/ConstraintAttributes.swift; sourceTree = "<group>"; };
 		04272D2D1DACB6CD00B2FCF6 /* CKAlertView+ImageBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CKAlertView+ImageBody.swift"; sourceTree = "<group>"; };
 		04272D2F1DACDFCD00B2FCF6 /* CKAlertView+ImageHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CKAlertView+ImageHeader.swift"; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				04272D311DACF23C00B2FCF6 /* CKAlertViewComponent.swift */,
 				04272D2D1DACB6CD00B2FCF6 /* CKAlertView+ImageBody.swift */,
 				04272D2F1DACDFCD00B2FCF6 /* CKAlertView+ImageHeader.swift */,
+				040BE2DE1DAE542B00D33B64 /* CKAlertView+MajorAction.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04272D301DACDFCD00B2FCF6 /* CKAlertView+ImageHeader.swift in Sources */,
+				040BE2DF1DAE542B00D33B64 /* CKAlertView+MajorAction.swift in Sources */,
 				112CD1DD9E83D696C3DFB2934F823972 /* CKAlertView-dummy.m in Sources */,
 				04272D321DACF23C00B2FCF6 /* CKAlertViewComponent.swift in Sources */,
 				04272D2E1DACB6CD00B2FCF6 /* CKAlertView+ImageBody.swift in Sources */,

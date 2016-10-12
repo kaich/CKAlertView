@@ -137,45 +137,68 @@ class CKAlertViewBodyView: CKAlertViewComponent {
         self.textColor = UIColor.black
     }
     
+    
+    /// $ represent paragraph end
     override func makeLayout() {
         
         if let alertMessages = alertMessages {
+            var isParagraphBegin = false
             var lastMessageLabel :UILabel? = nil
             for (index,message) in alertMessages.enumerated() {
-                let messageLabel = UILabel()
-                messageLabel.backgroundColor = UIColor.clear
-                messageLabel.numberOfLines = 0
-                messageLabel.font = textFont
-                messageLabel.textColor = textColor
-                messageLabel.text = message
-                addSubview(messageLabel)
-                
-                if alertMessages.count == 1 {
-                    messageLabel.snp.makeConstraints({ (make) in
-                        make.left.equalTo(self).offset(20)
-                        make.right.equalTo(self).offset(-20)
-                        make.top.equalTo(self)
-                        make.bottom.equalTo(self).offset(-20)
-                    })
-                }
-                else {
-                    messageLabel.snp.makeConstraints { (make) in
-                        make.left.equalTo(self).offset(20)
-                        make.right.equalTo(self).offset(-20)
-                        if index == 0 {
+                if message == "$" {
+                    isParagraphBegin = true
+                } else {
+                    let messageLabel = UILabel()
+                    messageLabel.backgroundColor = UIColor.clear
+                    messageLabel.numberOfLines = 0
+                    messageLabel.font = textFont
+                    messageLabel.textColor = textColor
+                    messageLabel.attributedText = attributeString(by: message)
+                    addSubview(messageLabel)
+                    
+                    if alertMessages.count == 1 {
+                        messageLabel.snp.makeConstraints({ (make) in
+                            make.left.equalTo(self).offset(20)
+                            make.right.equalTo(self).offset(-20)
                             make.top.equalTo(self)
-                        } else {
-                            make.top.equalTo(lastMessageLabel!.snp.bottom)
-                            if index == alertMessages.count - 1 {
-                                make.bottom.equalTo(self).offset(-20)
+                            make.bottom.equalTo(self).offset(-20)
+                        })
+                    }
+                    else {
+                        messageLabel.snp.makeConstraints { (make) in
+                            make.left.equalTo(self).offset(20)
+                            make.right.equalTo(self).offset(-20)
+                            if index == 0 {
+                                make.top.equalTo(self)
+                            } else {
+                                if isParagraphBegin == true {
+                                    make.top.equalTo(lastMessageLabel!.snp.bottom).offset(10)
+                                    isParagraphBegin = false
+                                } else {
+                                    make.top.equalTo(lastMessageLabel!.snp.bottom).offset(3)
+                                }
+                                if index == alertMessages.count - 1 {
+                                    make.bottom.equalTo(self).offset(-20)
+                                }
                             }
                         }
+                        lastMessageLabel = messageLabel
                     }
-                    lastMessageLabel = messageLabel
                 }
             }
             
         }
+    }
+    
+    
+    func attributeString(by str :String) -> NSMutableAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 3
+        
+        var attrString = NSMutableAttributedString(string: str )
+        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        
+        return attrString
     }
     
 }

@@ -15,8 +15,8 @@ let is4Inc = UIScreen.main.nativeBounds.size.width / UIScreen.main.nativeScale =
 let kContentWidth = is4Inc ? 280 : 300
 let kTitleFont = UIFont.boldSystemFont(ofSize: 17)
 let kMessageFont = UIFont.systemFont(ofSize: 13)
-let kCancelTitleColor = UIColor.gray
-let kOtherTitleColor = UIColor.gray
+let kCancelTitleColor = HexColor(0x444444,1)
+let kOtherTitleColor = HexColor(0x444444,1)
 let kSplitLineColor = UIColor.gray
 let kSplitLineWidth = 0.5
 
@@ -26,9 +26,11 @@ let kDefaultButtonBackgroundColor = UIColor.clear
 let kMultiButtonHeight = 30
 let kMultiButtonBackgroundColor = HexColor(0x1768c9,1)
 
+
+/// Multi style alert. Surpport multi line message. Symbol $ represent paragraph end.
 public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     var overlayView = UIView()
-    var contentView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+    var contentView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: UIBlurEffect(style: .light)))
     var componentMaker :CKAlertViewComponentBaseMaker!
     
     var headerView  :CKAlertViewComponent! {
@@ -62,6 +64,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         view.addSubview(overlayView)
         
         let contentWidth = is4Inc ? 280 : 300
+        contentView.backgroundColor = HexColor(0xffffff,0.8)
         contentView.layer.cornerRadius = 5
         contentView.layer.masksToBounds = true
         view.addSubview(contentView)

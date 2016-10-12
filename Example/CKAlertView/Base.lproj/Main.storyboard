@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiL-cw-VUk">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -65,12 +65,21 @@
                                     <action selector="showImageHeaderAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="17i-PF-W76"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b82-I2-LeI">
+                                <frame key="frameInset" minX="201" minY="79" width="92" height="30"/>
+                                <state key="normal" title="主功能弹出框"/>
+                                <connections>
+                                    <action selector="showMajorActionAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vxS-XR-qXB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.6705882353" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fiL-cw-VUk" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="2dM-ar-jsr"/>
                             <constraint firstItem="3Xs-8B-Rl6" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="8Zy-XW-Wwb"/>
+                            <constraint firstItem="b82-I2-LeI" firstAttribute="leading" secondItem="USi-Vw-sLL" secondAttribute="trailing" constant="22" id="CIT-lH-A0c"/>
                             <constraint firstItem="fiL-cw-VUk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="CXX-C4-BqG"/>
+                            <constraint firstItem="b82-I2-LeI" firstAttribute="top" secondItem="ukZ-Ou-9vg" secondAttribute="bottom" constant="21" id="HsP-gH-7QS"/>
                             <constraint firstItem="T2X-Us-Duf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="QSk-up-1g8"/>
                             <constraint firstItem="USi-Vw-sLL" firstAttribute="top" secondItem="3Xs-8B-Rl6" secondAttribute="bottom" constant="21" id="R70-Tq-RKA"/>
                             <constraint firstItem="T2X-Us-Duf" firstAttribute="top" secondItem="tjf-Ju-Rdo" secondAttribute="bottom" constant="21" id="Yec-wo-vkb"/>

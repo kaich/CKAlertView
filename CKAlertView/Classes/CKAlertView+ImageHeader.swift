@@ -67,6 +67,7 @@ class CKAlertViewAdditionImageHeaderView : CKAlertViewHeaderView {
 class CKAlertViewBorderOnlyTwoFooterView : CKAlertViewFooterView {
     
     override func setup() {
+        super.setup()
         textColor = HexColor(0x444444,1)
         cancelButtonTitleColor = HexColor(0x444444,1)
     }
@@ -113,6 +114,12 @@ class CKAlertViewComponentAdditionImageHeaderMaker :CKAlertViewComponentMaker {
         headerView.alertTitle = alertTitle
         
         return headerView
+    }
+    
+    override func layoutBody() -> CKAlertViewComponent? {
+        let bodyView = super.layoutBody()
+        bodyView?.textColor = HexColor(0x666666,1)
+        return bodyView
     }
     
     override func layoutFooter() -> CKAlertViewComponent? {
