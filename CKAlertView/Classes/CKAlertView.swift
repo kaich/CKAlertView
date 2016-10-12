@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 let HexColor = {(hex :Int, alpha :Float) in return UIColor.init(colorLiteralRed: ((Float)((hex & 0xFF0000) >> 16))/255.0, green: ((Float)((hex & 0xFF00) >> 8))/255.0, blue: ((Float)(hex & 0xFF))/255.0, alpha: alpha) }
-let is4Inc = UIScreen.main.bounds.size.width == 320
+let is4Inc = UIScreen.main.nativeBounds.size.width / UIScreen.main.nativeScale == 320
 
 let kContentWidth = is4Inc ? 280 : 300
 let kTitleFont = UIFont.boldSystemFont(ofSize: 17)
@@ -109,6 +109,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     func show() {
         let ownWindow = UIApplication.shared.keyWindow! as UIWindow
         ownWindow.addSubview(view)
+        ownWindow.rootViewController?.addChildViewController(self)
         
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.65, initialSpringVelocity: 1, options: .curveLinear, animations: {
             self.contentView.layoutIfNeeded()
@@ -121,7 +122,8 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         UIView.animate(withDuration: 0.3, animations: { 
                 self.view.alpha = 0
             }) { (_) in
-           self.view.removeFromSuperview()
+            self.view.removeFromSuperview()
+            self.removeFromParentViewController()
         }
         
     }
@@ -130,11 +132,11 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     func makeConstraint() {
 
         overlayView.snp.makeConstraints { (make) in
-            make.edges.equalTo(view)
+            make.top.right.bottom.left.equalTo(view)
         }
         
         contentView.snp.makeConstraints { (make) in
-            make.center.equalTo(view.center)
+            make.center.equalTo(view.snp.center)
             make.width.equalTo(kContentWidth)
         }
         
@@ -159,11 +161,12 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     public override func updateViewConstraints() {
         
         view.snp.remakeConstraints { (make) in
-            make.edges.equalTo(view.superview!)
+            make.top.right.bottom.left.equalTo(view.superview!)
         }
         
         super.updateViewConstraints()
     }
+    
     
     //MARK: - CKAlertViewComponentDelegate
     func  clickButton(at index :Int) {

@@ -117,6 +117,7 @@ class CKAlertViewComponentAdditionImageHeaderMaker :CKAlertViewComponentMaker {
     
     override func layoutFooter() -> CKAlertViewComponent? {
         let footerView = CKAlertViewBorderOnlyTwoFooterView()
+        footerView.delegate = delegate
         footerView.cancelButtonTitle = cancelButtonTitle
         footerView.otherButtonTitles = otherButtonTitles
         
