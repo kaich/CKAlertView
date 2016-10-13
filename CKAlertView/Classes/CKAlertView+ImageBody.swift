@@ -66,7 +66,7 @@ class CKAlertViewComponentImageBodyMaker :CKAlertViewComponentMaker {
     var alertBodyImage :UIImage?
     
     override func layoutHeader() -> CKAlertViewComponent? {
-        let headerView = layoutHeader()
+        let headerView = super.layoutHeader()
         headerView?.textFont = UIFont.systemFont(ofSize: 15)
         
         return headerView

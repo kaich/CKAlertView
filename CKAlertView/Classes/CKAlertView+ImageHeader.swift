@@ -18,7 +18,7 @@ extension CKAlertView {
     /// - parameter cancelButtonTitle: 取消按钮标题
     /// - parameter otherButtonTitles: 其他按钮标题
     /// - parameter completeBlock:     点击按钮后的回调
-    public func show(headerImage :UIImage?, title alertTitle :String?, message alertMessages :[String]?, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
+    public func show(image headerImage :UIImage?, title alertTitle :String?, message alertMessages :[String]?, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentAdditionImageHeaderMaker()

@@ -5,9 +5,15 @@
 [![License](https://img.shields.io/cocoapods/l/CKAlertView.svg?style=flat)](http://cocoapods.org/pods/CKAlertView)
 [![Platform](https://img.shields.io/cocoapods/p/CKAlertView.svg?style=flat)](http://cocoapods.org/pods/CKAlertView)
 
-## Example
+## Alert Style
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+提供多种样式的弹出框，尽量少的代码提供给扩展弹出框样式。目前支持样式如下：  	
+![Standard One Button](./Screenshot/standard_one.png)
+![Standard Two Buttons](./Screenshot/standard_two.png)
+![Standard Multi Buttons](./Screenshot/standard_multi.png)
+![Body Image](./Screenshot/body_image.png)
+![Icon Header](./Screenshot/header_image.png)
+![Major Action](./Screenshot/major_action.png)
 
 ## Requirements
 
