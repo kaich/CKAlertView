@@ -9,7 +9,15 @@
 import Foundation
 
 extension CKAlertView {
+   
     
+    ///  显示图片作为弹出框主体的弹出框
+    ///
+    /// - parameter alertTitle:       标题
+    /// - parameter bodyImage:        主体图片
+    /// - parameter cancelButtonTitle: 取消按钮标题
+    /// - parameter otherButtonTitles: 其他按钮标题
+    /// - parameter completeBlock:     点击按钮后的回调
     public func show(title alertTitle :String, image bodyImage :UIImage?, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
         
         dismissCompleteBlock = completeBlock

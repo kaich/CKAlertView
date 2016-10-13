@@ -27,7 +27,7 @@ let kMultiButtonHeight = 30
 let kMultiButtonBackgroundColor = HexColor(0x1768c9,1)
 
 
-/// Multi style alert. Surpport multi line message. Symbol $ represent paragraph end.
+/// 多种样式的弹出框，支持多行和多段落的弹出框消息。区分段落以$结尾(Multi style alert. Surpport multi line message. Symbol $ represent paragraph end).
 public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     var overlayView = UIView()
     var contentView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: UIBlurEffect(style: .light)))
@@ -87,23 +87,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    public func show(title alertTitle :String, message alertMessages :[String]?, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
-        
-        dismissCompleteBlock = completeBlock
-        
-        let componentMaker = CKAlertViewComponentMaker()
-        componentMaker.delegate = self
-        componentMaker.alertTitle = alertTitle
-        componentMaker.alertMessages = alertMessages
-        componentMaker.cancelButtonTitle = cancelButtonTitle
-        componentMaker.otherButtonTitles = otherButtonTitles
-        componentMaker.makeLayout()
-        self.componentMaker = componentMaker
-        
-        show()
-    }
-    
+
     func installComponentMaker(maker :CKAlertViewComponentBaseMaker) {
         self.componentMaker = maker
         maker.delegate = self
@@ -180,5 +164,34 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         }
     }
 
+}
+
+
+extension CKAlertView {
+    
+    
+    /// 标准弹出框
+    ///
+    /// - parameter alertTitle:        标题
+    /// - parameter alertMessages:     主体,$代表段落的结尾
+    /// - parameter cancelButtonTitle: 取消按钮标题
+    /// - parameter otherButtonTitles: 其他按钮标题
+    /// - parameter completeBlock:     点击按钮后的回调
+    public func show(title alertTitle :String, message alertMessages :[String]?, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
+        
+        dismissCompleteBlock = completeBlock
+        
+        let componentMaker = CKAlertViewComponentMaker()
+        componentMaker.delegate = self
+        componentMaker.alertTitle = alertTitle
+        componentMaker.alertMessages = alertMessages
+        componentMaker.cancelButtonTitle = cancelButtonTitle
+        componentMaker.otherButtonTitles = otherButtonTitles
+        componentMaker.makeLayout()
+        self.componentMaker = componentMaker
+        
+        show()
+    }
+    
 }
 
