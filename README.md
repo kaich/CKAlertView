@@ -8,12 +8,12 @@
 ## Alert Style
 
 提供多种样式的弹出框，尽量少的代码提供给扩展弹出框样式。目前支持样式如下：  	
-![Standard One Button](./Screenshot/standard_one.png)
-![Standard Two Buttons](./Screenshot/standard_two.png)
-![Standard Multi Buttons](./Screenshot/standard_multi.png)
-![Body Image](./Screenshot/body_image.png)
-![Icon Header](./Screenshot/header_image.png)
-![Major Action](./Screenshot/major_action.png)
+![Standard One Button](./Screenshot/standard_one.png =250x)
+![Standard Two Buttons](./Screenshot/standard_two.png =250x)
+![Standard Multi Buttons](./Screenshot/standard_multi.png =250x)
+![Body Image](./Screenshot/body_image.png =250x)
+![Icon Header](./Screenshot/header_image.png =250x)
+![Major Action](./Screenshot/major_action.png =250x)
 
 ## Requirements
 
