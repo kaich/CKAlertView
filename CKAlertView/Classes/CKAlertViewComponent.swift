@@ -195,7 +195,7 @@ class CKAlertViewBodyView: CKAlertViewComponent {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 3
         
-        var attrString = NSMutableAttributedString(string: str )
+        let attrString = NSMutableAttributedString(string: str )
         attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
         
         return attrString
