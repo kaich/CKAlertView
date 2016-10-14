@@ -153,13 +153,15 @@ class CKAlertViewBodyView: CKAlertViewComponent {
                     messageLabel.numberOfLines = 0
                     messageLabel.font = textFont
                     messageLabel.textColor = textColor
+                    messageLabel.textAlignment = .center
                     messageLabel.attributedText = attributeString(by: message)
                     addSubview(messageLabel)
                     
                     if alertMessages.count == 1 {
                         messageLabel.snp.makeConstraints({ (make) in
-                            make.left.equalTo(self).offset(20)
-                            make.right.equalTo(self).offset(-20)
+                            make.left.greaterThanOrEqualTo(self).offset(20)
+                            make.right.lessThanOrEqualTo(self).offset(-20)
+                            make.centerX.equalTo(self)
                             make.top.equalTo(self)
                             make.bottom.equalTo(self).offset(-20)
                         })
