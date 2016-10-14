@@ -26,7 +26,9 @@
 <img src="./Screenshot/major_action.png" width="200">
 
 
-## Requirements
+## Note
+
+* 测试中在Xcode8中会出现代码不提示的问题，输入`CKAlertView()show`会弹出代码提示，目前没有发现问题所在，可能是xcode8的bug    
 
 ## Installation
 
