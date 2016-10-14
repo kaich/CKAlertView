@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension CKAlertView {
+public extension CKAlertView {
     
     ///  显示带图标的标题栏的弹出框
     ///

@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension CKAlertView {
+public extension CKAlertView {
    
     
     ///  显示图片作为弹出框主体的弹出框

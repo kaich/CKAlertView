@@ -166,7 +166,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
 }
 
 
-extension CKAlertView {
+public extension CKAlertView {
     
     
     /// 标准弹出框

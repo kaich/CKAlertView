@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension CKAlertView {
+public extension CKAlertView {
     
     
     /// 显示突出主功能按钮的弹出框(主功能按钮长,取消按钮和其他按钮居其下方）
