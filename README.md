@@ -24,11 +24,13 @@
 <img src="./Screenshot/body_image.png" width="200">
 <img src="./Screenshot/header_image.png" width="200">
 <img src="./Screenshot/major_action.png" width="200">
+<img src="./Screenshot/extension_circular_progress.png" width="200">
 
 
 ## Note
 
-* 测试中在Xcode8中会出现代码不提示的问题，输入`CKAlertView()show`会弹出代码提示，目前没有发现问题所在，可能是xcode8的bug    
+* 该项目的目的是利用高的可重用性代码进行收集编写各种各样的AlertView，所以暂时未为完全自定义界面提供接口。之后会添加该方法
+* 监听值的类型请继承CKAlertView，参考CKCircularProgressAlertView
 
 ## Installation
 
