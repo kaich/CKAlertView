@@ -77,6 +77,7 @@ class CKAlertViewComponentMaker : CKAlertViewComponentBaseMaker {
     override func layoutHeader() -> CKAlertViewComponent? {
         let headerView = CKAlertViewHeaderView()
         headerView.alertTitle = alertTitle
+        headerView.delegate = delegate
         
         return headerView
     }
@@ -84,6 +85,7 @@ class CKAlertViewComponentMaker : CKAlertViewComponentBaseMaker {
     override func layoutBody() -> CKAlertViewComponent? {
         let bodyView = CKAlertViewBodyView()
         bodyView.alertMessages = alertMessages
+        bodyView.delegate = delegate
         
         return bodyView
     }

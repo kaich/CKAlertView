@@ -1,19 +1,26 @@
 PODS:
-  - CKAlertView (0.1.0):
+  - CKAlertView/Core (0.1.1):
     - SnapKit (~> 3.0.2)
+  - CKAlertView/Extension (0.1.1):
+    - CKAlertView/Core
+    - DACircularProgress
+    - SnapKit (~> 3.0.2)
+  - DACircularProgress (2.3.1)
   - SnapKit (3.0.2)
 
 DEPENDENCIES:
-  - CKAlertView (from `../`)
+  - CKAlertView/Core (from `../`)
+  - CKAlertView/Extension (from `../`)
 
 EXTERNAL SOURCES:
   CKAlertView:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CKAlertView: 695798cfe6b2d7464611d956460c08895989b32b
+  CKAlertView: 207115159f7fb5686237c2cb0d4db3133238f046
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: 52cc18f3a504333b68352d84e3e12edab347abe0
+PODFILE CHECKSUM: 63b28ba61154cb1b3a671d235016b8270f6c9a8a
 
 COCOAPODS: 1.1.0.rc.2

@@ -68,5 +68,39 @@ class ViewController: UIViewController {
             self.lblMessage.text = "\(index) clicked, major action alert dismissed"
         }
     }
+    
+    //MARK: - extension
+    var progress :Float = 0.0
+    var progressMessage :String? = ""
+    var message :String? = "正在从网络下载图片"
+    var detailMessage :String? = "已用时间 00:00:00"
+    var timer :Timer? = nil
+    @IBAction func showCircularProgressAlert(_ sender: AnyObject) {
+        timer?.invalidate()
+        progress = 0.0
+        alert = CKCircularProgressAlertView()
+        if let alert = self.alert as? CKCircularProgressAlertView {
+            alert.show(title: "图片下载", progress: progress, progressMessage: progressMessage , message: message , detailMessage: detailMessage, cancelButtonTitle: "隐藏窗口", completeBlock: {(index) in
+                self.lblMessage.text = "\(index) clicked, major action alert dismissed"
+            })
+        }
+        timer = Timer.scheduledTimer(timeInterval: 1,
+                            target: self,
+                            selector: #selector(self.updateTime),
+                            userInfo: nil,
+                            repeats: true)
+    }
+    
+    func updateTime() {
+        if let alert = self.alert as? CKCircularProgressAlertView {
+            progress = (progress + 0.1) / 1
+            progressMessage = "\(progress * 10)/100"
+            detailMessage = "已用时间 \(progress * 10)"
+            
+            alert.progress = progress
+            alert.progressMessage = progressMessage!
+            alert.alertDetailMessage = detailMessage!
+        }
+    }
 }
 

@@ -23,14 +23,12 @@ public extension CKAlertView {
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentMajorActionMaker()
-        componentMaker.delegate = self
         componentMaker.alertTitle = alertTitle
         componentMaker.alertMessages = alertMessages
         componentMaker.cancelButtonTitle = cancelButtonTitle
         componentMaker.otherButtonTitles = [majorButtonTitle,anotherButtonTitle]
-        componentMaker.makeLayout()
         
-        self.componentMaker = componentMaker
+        installComponentMaker(maker: componentMaker)
         
         show()
     }

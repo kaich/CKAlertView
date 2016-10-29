@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'CKAlertView_Example' do
-  pod 'CKAlertView', :path => '../'
+  pod 'CKAlertView',:subspecs => ['Core','Extension'] , :path => '../'
 
   target 'CKAlertView_Tests' do
     inherit! :search_paths

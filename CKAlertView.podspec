@@ -30,15 +30,25 @@ Use simple code to display defined multi styles alert view. Detail refer to READ
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'CKAlertView/Classes/**/*'
+  s.default_subspecs = 'Core'
+
+  s.subspec 'Core' do |ss|
+     ss.source_files = 'CKAlertView/Classes/Core/*'
+     ss.resource_bundles = {
+       'CKAlertView' => ['CKAlertView/Assets/*.png']
+     }
+  end
+
+  s.subspec 'Extension' do |ss|
+     ss.dependency 'CKAlertView/Core'
+     ss.dependency 'DACircularProgress'
+     ss.source_files = 'CKAlertView/Classes/Extension/*'
+  end
   
-  # s.resource_bundles = {
-  #   'CKAlertView' => ['CKAlertView/Assets/*.png']
-  # }
+
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
    s.frameworks = 'UIKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
    s.dependency 'SnapKit', '~> 3.0.2'
 
    s.requires_arc = true

@@ -22,7 +22,6 @@ public extension CKAlertView {
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentAdditionImageHeaderMaker()
-        componentMaker.delegate = self
         componentMaker.alertTitle = alertTitle
         componentMaker.alertHeaderImage = headerImage
         componentMaker.alertMessages = alertMessages
@@ -30,7 +29,7 @@ public extension CKAlertView {
         componentMaker.otherButtonTitles = otherButtonTitles
         componentMaker.makeLayout()
         
-        self.componentMaker = componentMaker
+        installComponentMaker(maker: componentMaker)
         
         show()
     }

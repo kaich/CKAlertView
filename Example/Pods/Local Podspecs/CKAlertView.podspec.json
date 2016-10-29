@@ -1,6 +1,6 @@
 {
   "name": "CKAlertView",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "Custom Mutil Styles Alert View.",
   "description": "Use simple code to display defined multi styles alert view. Detail refer to README.md.",
   "homepage": "https://github.com/kaich/CKAlertView",
@@ -13,17 +13,40 @@
   },
   "source": {
     "git": "https://github.com/kaich/CKAlertView.git",
-    "tag": "0.1.0"
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "CKAlertView/Classes/**/*",
+  "default_subspecs": "Core",
   "frameworks": "UIKit",
   "dependencies": {
     "SnapKit": [
       "~> 3.0.2"
     ]
   },
-  "requires_arc": true
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "CKAlertView/Classes/Core/*",
+      "resource_bundles": {
+        "CKAlertView": [
+          "CKAlertView/Assets/*.png"
+        ]
+      }
+    },
+    {
+      "name": "Extension",
+      "dependencies": {
+        "CKAlertView/Core": [
+
+        ],
+        "DACircularProgress": [
+
+        ]
+      },
+      "source_files": "CKAlertView/Classes/Extension/*"
+    }
+  ]
 }

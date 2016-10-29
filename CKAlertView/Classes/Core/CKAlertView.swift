@@ -26,6 +26,14 @@ let kDefaultButtonBackgroundColor = UIColor.clear
 let kMultiButtonHeight = 30
 let kMultiButtonBackgroundColor = HexColor(0x1768c9,1)
 
+public extension UIImage {
+    static func make(name: String) -> UIImage? {
+        let bundle = Bundle(for: CKAlertView.self)
+        let imageName = "CKAlertView.bundle/\(name)"
+        return UIImage(named: imageName , in: bundle, compatibleWith: nil)
+    }
+}
+
 
 /// 多种样式的弹出框，支持多行和多段落的弹出框消息。区分段落以$结尾(Multi style alert. Surpport multi line message. Symbol $ represent paragraph end).
 public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
@@ -89,7 +97,8 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
 
     func installComponentMaker(maker :CKAlertViewComponentBaseMaker) {
         self.componentMaker = maker
-        maker.delegate = self
+        self.componentMaker.delegate = self
+        self.componentMaker.makeLayout()
     }
     
     func show() {
@@ -181,13 +190,13 @@ public extension CKAlertView {
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentMaker()
-        componentMaker.delegate = self
         componentMaker.alertTitle = alertTitle
         componentMaker.alertMessages = alertMessages
         componentMaker.cancelButtonTitle = cancelButtonTitle
         componentMaker.otherButtonTitles = otherButtonTitles
-        componentMaker.makeLayout()
-        self.componentMaker = componentMaker
+        
+        
+        installComponentMaker(maker: componentMaker)
         
         show()
     }
