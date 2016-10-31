@@ -78,11 +78,11 @@ class ViewController: UIViewController {
     @IBAction func showCircularProgressAlert(_ sender: AnyObject) {
         timer?.invalidate()
         progress = 0.0
-        alert = CKCircularProgressAlertView()
+        alert = CKCircularProgressAlertView(title: "图片下载", progress: progress, progressMessage: progressMessage , message: message , detailMessage: detailMessage, cancelButtonTitle: "隐藏窗口", completeBlock: {(index) in
+            self.lblMessage.text = "\(index) clicked, major action alert dismissed"
+        })
         if let alert = self.alert as? CKCircularProgressAlertView {
-            alert.show(title: "图片下载", progress: progress, progressMessage: progressMessage , message: message , detailMessage: detailMessage, cancelButtonTitle: "隐藏窗口", completeBlock: {(index) in
-                self.lblMessage.text = "\(index) clicked, major action alert dismissed"
-            })
+            alert.show()
         }
         timer = Timer.scheduledTimer(timeInterval: 1,
                             target: self,

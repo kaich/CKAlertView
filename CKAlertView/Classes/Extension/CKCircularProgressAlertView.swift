@@ -62,7 +62,8 @@ public class CKCircularProgressAlertView : CKAlertView {
     /// - parameter detailMessage:     详细内容
     /// - parameter cancelButtonTitle: 取消按钮文字
     /// - parameter completeBlock:     完成回调
-    public func show(title alertTitle :String, progress :Float, progressMessage :String? ,  message alertMessage :String?,  detailMessage :String?,  cancelButtonTitle :String, completeBlock :(((Int) -> Void))? = nil) {
+    public init(title alertTitle :String, progress :Float, progressMessage :String? ,  message alertMessage :String?,  detailMessage :String?,  cancelButtonTitle :String, completeBlock :(((Int) -> Void))? = nil) {
+        super.init(nibName: nil, bundle: nil)
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentCircularProgressMaker()
@@ -77,9 +78,16 @@ public class CKCircularProgressAlertView : CKAlertView {
         componentMaker.progress = progress
         componentMaker.progressMessage = progressMessage
         
-        show()
     }
     
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    public override func show() {
+        super.show()
+    }
 }
 
 
