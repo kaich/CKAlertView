@@ -53,6 +53,8 @@ public class CKCircularProgressAlertView : CKAlertView {
         }
     }
     
+
+    
     
     /// 显示圆形进度条的弹出框
     ///
@@ -162,9 +164,10 @@ class CKAlertViewCircularProgressBodyView : CKAlertViewBodyView {
         }
         
         lblProgressMessage.font = UIFont.systemFont(ofSize: 16)
+        lblProgressMessage.textColor = UIColor.black
         addSubview(lblProgressMessage)
         lblProgressMessage.snp.makeConstraints { (make) in
-            make.centerX.centerX.equalTo(progressView)
+            make.centerX.centerY.equalTo(progressView)
         }
         
         lblMessage.textColor = HexColor(0x333333, 1)

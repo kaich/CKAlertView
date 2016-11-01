@@ -59,6 +59,14 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     
     var dismissCompleteBlock :((Int) -> Void)?
     
+    var _isShow = false
+    public var isShow :Bool {
+        get {
+            return  _isShow
+        }
+    }
+    
+    
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -105,9 +113,12 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         let ownWindow = UIApplication.shared.keyWindow! as UIWindow
         ownWindow.addSubview(view)
         ownWindow.rootViewController?.addChildViewController(self)
+        updateViewConstraints()
         
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.65, initialSpringVelocity: 1, options: .curveLinear, animations: {
+            self.view.alpha = 1
             self.contentView.layoutIfNeeded()
+            self._isShow = true
         })
         
     }
@@ -119,6 +130,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
             }) { (_) in
             self.view.removeFromSuperview()
             self.removeFromParentViewController()
+            self._isShow = false
         }
         
     }
