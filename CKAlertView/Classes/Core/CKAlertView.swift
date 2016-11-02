@@ -123,17 +123,26 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         
     }
     
-    public func dismiss(completeBlock :((Void) -> Void)? = nil) {
+    public func dismiss(isAnimate :Bool = true, completeBlock :((Void) -> Void)? = nil) {
         
-        UIView.animate(withDuration: 0.3, animations: { 
-                self.view.alpha = 0
-            }) { (_) in
+        let dismissBlock = {
             self.view.removeFromSuperview()
             self.removeFromParentViewController()
             self._isShow = false
             if let completeBlock = completeBlock {
                 completeBlock()
             }
+        }
+        
+        if isAnimate == true {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.alpha = 0
+            }) { (_) in
+                dismissBlock()
+            }
+        }
+        else {
+            dismissBlock()
         }
         
     }
