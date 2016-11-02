@@ -58,15 +58,13 @@
                                     <action selector="showImageBodyAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hAP-n2-O3s"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USi-Vw-sLL">
-                                <frame key="frameInset" minX="102" minY="79" width="77" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USi-Vw-sLL">
                                 <state key="normal" title="图片头"/>
                                 <connections>
                                     <action selector="showImageHeaderAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="17i-PF-W76"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b82-I2-LeI">
-                                <frame key="frameInset" minX="201" minY="79" width="92" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b82-I2-LeI">
                                 <state key="normal" title="主功能弹出框"/>
                                 <connections>
                                     <action selector="showMajorActionAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vxS-XR-qXB"/>
