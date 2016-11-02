@@ -7,7 +7,7 @@
 
 ## Usage
 
-简单的使用方式，调用如下方式代码就可以显示你要的弹出框
+简单的使用方式，调用如下方式代码就可以显示你要的弹出框,具体用法参考`Example`
 
 	CKAlertView().show(title: "无法安装‘爱奇艺视频播放’，因苹果系统的限制您可以选择如下方法解决", message: ["Swift 是一门进行 iOS 和 OS X 应用开发的新语言。然而，如果你有 C 或者 Objective-C 开发经验的话，你会发现 Swift 的很多内容都是你熟悉的"], cancelButtonTitle: "确定", otherButtonTitles: nil){ index in
             self.lblMessage.text = "One button alert dismissed"
@@ -24,6 +24,13 @@
 <img src="./Screenshot/body_image.png" width="200">
 <img src="./Screenshot/header_image.png" width="200">
 <img src="./Screenshot/major_action.png" width="200">
+
+显示自定义弹出框：		
+
+<img src="./Screenshot/custom_view.png" width="200">
+
+Extension：   	
+
 <img src="./Screenshot/extension_circular_progress.png" width="200">
 
 
@@ -32,6 +39,9 @@
 * 该项目的目的是利用高的可重用性代码进行收集编写各种各样的AlertView，所以暂时未为完全自定义界面提供接口。之后会添加该方法
 * 监听值的类型请继承CKAlertView，参考CKCircularProgressAlertView
 
+## relase 
+* 0.1.4 显示自定义的弹出框
+
 ## Installation
 
 CKAlertView is available through [CocoaPods](http://cocoapods.org). To install
@@ -39,6 +49,10 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod "CKAlertView"
+```
+If you want to include 'Extension' module, please install as below.
+```ruby
+pod "CKAlertView", :subspecs => ['Core','Extension']
 ```
 
 ## Author

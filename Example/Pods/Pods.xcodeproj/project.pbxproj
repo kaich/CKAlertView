@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0035C71B78824241E502ED6EED8B6AC7 /* DALabeledCircularProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = B7DA20152C5BC9C2F7444E45DE1A3AC9 /* DALabeledCircularProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		005EAFE99CDC24916F1C99CF434E2499 /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F7F636219F1EEC823E647DF2ADDC7 /* ConstraintView+Extensions.swift */; };
+		04ECABA71DC9931E00B060C8 /* CKAlertView+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ECABA61DC9931E00B060C8 /* CKAlertView+Custom.swift */; };
 		08D9E5714BBC7AE59763B731B4A1D00A /* close_28x28@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53D463B63F4A6B7FA9B48A866DD3D761 /* close_28x28@2x.png */; };
 		0D5226BC5C54762999D8D1CD4BB8DC17 /* DACircularProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948EC652EB6AA89AF28AEBD51FEB4819 /* DACircularProgress.framework */; };
 		0F2CDF1DC40DB6C7FEFB7F1A951EAA81 /* Pods-CKAlertView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 376F944CE4FB2189A7FC0C3BBBC49238 /* Pods-CKAlertView_Example-dummy.m */; };
@@ -121,6 +122,7 @@
 /* Begin PBXFileReference section */
 		01655AE69B4A5663E2C70D32C7BD9B7C /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
 		03BCC327114F66E89035BD6166A6C414 /* CKAlertView+ImageHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CKAlertView+ImageHeader.swift"; sourceTree = "<group>"; };
+		04ECABA61DC9931E00B060C8 /* CKAlertView+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CKAlertView+Custom.swift"; sourceTree = "<group>"; };
 		054443A5BBADA4FDB16366F941A4AFDF /* CKAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CKAlertView.modulemap; sourceTree = "<group>"; };
 		05DC23CD2AD15F16C55AA7AC79ED46E3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		090EC4391BC2354A3CCFD516DF661615 /* DACircularProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DACircularProgressView.m; path = DACircularProgress/DACircularProgressView.m; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 				03BCC327114F66E89035BD6166A6C414 /* CKAlertView+ImageHeader.swift */,
 				6343379D6BED549A3761678591B65E19 /* CKAlertView+MajorAction.swift */,
 				8D1E56539BA9A5277FF3CF4B25ACBC88 /* CKAlertViewComponent.swift */,
+				04ECABA61DC9931E00B060C8 /* CKAlertView+Custom.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -794,6 +797,7 @@
 			files = (
 				13FBDF31E73E3B03214CEFC6D81CEBA8 /* CKCircularProgressAlertView.swift in Sources */,
 				D02BC49DB2176C2BAA99E2EBF70C290F /* CKAlertView+ImageBody.swift in Sources */,
+				04ECABA71DC9931E00B060C8 /* CKAlertView+Custom.swift in Sources */,
 				80EC2EFB5F03DEC64A13C8D63E1DAAAD /* CKAlertView+ImageHeader.swift in Sources */,
 				6A8C4C52D9AC236B4A543D8B868024F5 /* CKAlertView+MajorAction.swift in Sources */,
 				39D8B2D578923FC7F79B1E969CC02859 /* CKAlertView-dummy.m in Sources */,

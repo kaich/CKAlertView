@@ -78,9 +78,16 @@
                                     <action selector="showCircularProgressAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6f1-8G-NhH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtN-b3-3jT">
+                                <state key="normal" title="自定义"/>
+                                <connections>
+                                    <action selector="showCustomAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="V9I-cJ-ZLJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.6705882353" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="WtN-b3-3jT" firstAttribute="leading" secondItem="8Va-Rn-acx" secondAttribute="trailing" constant="24" id="2CQ-qf-LDl"/>
                             <constraint firstItem="fiL-cw-VUk" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="2dM-ar-jsr"/>
                             <constraint firstItem="3Xs-8B-Rl6" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="8Zy-XW-Wwb"/>
                             <constraint firstItem="b82-I2-LeI" firstAttribute="leading" secondItem="USi-Vw-sLL" secondAttribute="trailing" constant="22" id="CIT-lH-A0c"/>
@@ -92,6 +99,7 @@
                             <constraint firstItem="T2X-Us-Duf" firstAttribute="top" secondItem="tjf-Ju-Rdo" secondAttribute="bottom" constant="21" id="Yec-wo-vkb"/>
                             <constraint firstItem="USi-Vw-sLL" firstAttribute="leading" secondItem="T2X-Us-Duf" secondAttribute="trailing" constant="24" id="Ygt-bg-9jS"/>
                             <constraint firstItem="tjf-Ju-Rdo" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="bn8-cT-DYa"/>
+                            <constraint firstItem="WtN-b3-3jT" firstAttribute="top" secondItem="USi-Vw-sLL" secondAttribute="bottom" constant="23" id="dX2-2D-w0w"/>
                             <constraint firstItem="3Xs-8B-Rl6" firstAttribute="leading" secondItem="tjf-Ju-Rdo" secondAttribute="trailing" constant="40" id="i1D-Kg-rFH"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="fiL-cw-VUk" secondAttribute="bottom" constant="8" id="j2z-bp-ZuU"/>
                             <constraint firstItem="ukZ-Ou-9vg" firstAttribute="leading" secondItem="3Xs-8B-Rl6" secondAttribute="trailing" constant="39" id="rmZ-mv-iVV"/>

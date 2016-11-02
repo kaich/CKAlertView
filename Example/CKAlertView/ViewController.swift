@@ -8,6 +8,7 @@
 
 import UIKit
 import CKAlertView
+import SnapKit
 
 class ViewController: UIViewController {
     var alert :CKAlertView?
@@ -67,6 +68,23 @@ class ViewController: UIViewController {
         alert?.show(title: "可失败构造器", message: ["西洋跳棋游戏在一副黑白格交替的 10x10 的棋盘中进行。为了呈现这副游戏棋盘，Checkerboard结构体定义了一个属性boardColors，它是一个包含 100 个布尔值的数组"], cancelButtonTitle: "我知道了", majorButtonTitle: "现在去设置", anotherButtonTitle: "不在提醒") {(index) in
             self.lblMessage.text = "\(index) clicked, major action alert dismissed"
         }
+    }
+    
+    @IBAction func showCustomAlert(_ sender: AnyObject) {
+        alert = CKAlertView()
+        alert?.show(buildViewBlock: { (headerView, bodyView, footerView) in
+            if let customView = Bundle.main.loadNibNamed("CustomView", owner: self, options: nil)?.first as? UIView {
+                bodyView.addSubview(customView)
+                customView.snp.makeConstraints({ (make) in
+                    make.left.right.top.bottom.equalTo(bodyView)
+                })
+            }
+        })
+    }
+    
+    @IBAction func beginSearch(_ sender: AnyObject) {
+        alert?.dismiss()
+        self.lblMessage.text = "custom view, begin search click"
     }
     
     //MARK: - extension
