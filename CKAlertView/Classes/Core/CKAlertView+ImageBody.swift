@@ -36,6 +36,7 @@ public extension CKAlertView {
     func showImageBodyAlert() {
         let ownWindow = UIApplication.shared.keyWindow! as UIWindow
         ownWindow.addSubview(view)
+        ownWindow.rootViewController?.addChildViewController(self)
         
         self.view.alpha = 0
         UIView.animate(withDuration: 0.3) {
