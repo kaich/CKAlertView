@@ -72,7 +72,7 @@ class CKAlertViewComponentBaseMaker {
 
 class CKAlertViewComponentMaker : CKAlertViewComponentBaseMaker {
     var alertTitle :String?
-    var alertMessages :[String]?
+    var alertMessages :[CKAlertViewStringable]?
     
     override func layoutHeader() -> CKAlertViewComponent? {
         let headerView = CKAlertViewHeaderView()
@@ -132,7 +132,7 @@ class CKAlertViewHeaderView: CKAlertViewComponent {
 
 
 class CKAlertViewBodyView: CKAlertViewComponent {
-    var alertMessages :[String]?
+    var alertMessages :[CKAlertViewStringable]?
     
     override func setup () {
         self.textFont = kMessageFont
@@ -146,17 +146,26 @@ class CKAlertViewBodyView: CKAlertViewComponent {
         if let alertMessages = alertMessages {
             var isParagraphBegin = false
             var lastMessageLabel :UILabel? = nil
-            for (index,message) in alertMessages.enumerated() {
-                if message == "$" {
+            var pureMessage :String = ""
+            for (index,emMessage) in alertMessages.enumerated() {
+                
+                pureMessage = emMessage.ck_string()
+                var isAttributeString :Bool = false
+                if let message = emMessage as? NSAttributedString {
+                    isAttributeString = true
+                }
+                
+                if pureMessage == "$" {
                     isParagraphBegin = true
-                } else {
+                }
+                else {
                     let messageLabel = UILabel()
                     messageLabel.backgroundColor = UIColor.clear
                     messageLabel.numberOfLines = 0
                     messageLabel.font = textFont
                     messageLabel.textColor = textColor
                     messageLabel.textAlignment = .center
-                    messageLabel.attributedText = attributeString(by: message)
+                    messageLabel.attributedText =  isAttributeString ? emMessage as! NSMutableAttributedString : attributeString(by: pureMessage)
                     addSubview(messageLabel)
                     
                     if alertMessages.count == 1 {

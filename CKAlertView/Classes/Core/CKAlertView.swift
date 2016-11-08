@@ -120,8 +120,8 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
             self.contentView.layoutIfNeeded()
             self._isShow = true
         })
-        
     }
+    
     
     public func dismiss(isAnimate :Bool = true, completeBlock :((Void) -> Void)? = nil) {
         
@@ -205,11 +205,11 @@ public extension CKAlertView {
     /// 标准弹出框
     ///
     /// - parameter alertTitle:        标题
-    /// - parameter alertMessages:     主体,$代表段落的结尾
+    /// - parameter alertMessages:     主体,$代表段落的结尾(String或者NSAttributedString)
     /// - parameter cancelButtonTitle: 取消按钮标题
     /// - parameter otherButtonTitles: 其他按钮标题
     /// - parameter completeBlock:     点击按钮后的回调
-    public func show(title alertTitle :String, message alertMessages :[String]?, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
+    public func show(title alertTitle :String, message alertMessages :[CKAlertViewStringable]?, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
         
         dismissCompleteBlock = completeBlock
         

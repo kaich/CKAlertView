@@ -14,12 +14,12 @@ public extension CKAlertView {
     /// 显示突出主功能按钮的弹出框(主功能按钮长,取消按钮和其他按钮居其下方）
     ///
     /// - parameter alertTitle:         标题
-    /// - parameter alertMessages:      主体文本
+    /// - parameter alertMessages:      主体,$代表段落的结尾(String或者NSAttributedString)
     /// - parameter cancelButtonTitle:  取消按钮标题
     /// - parameter majorButtonTitle:   主体按钮标题
     /// - parameter anotherButtonTitle: 其他按钮标题
     /// - parameter completeBlock:      点击按钮后的回调
-    public func show(title alertTitle :String, message alertMessages :[String]?, cancelButtonTitle :String, majorButtonTitle :String, anotherButtonTitle :String, completeBlock :(((Int) -> Void))? = nil) {
+    public func show(title alertTitle :String, message alertMessages :[CKAlertViewStringable]?, cancelButtonTitle :String, majorButtonTitle :String, anotherButtonTitle :String, completeBlock :(((Int) -> Void))? = nil) {
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentMajorActionMaker()

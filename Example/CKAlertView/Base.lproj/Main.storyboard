@@ -82,6 +82,12 @@
                                     <action selector="showCustomAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="V9I-cJ-ZLJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TM-JS-RDg">
+                                <state key="normal" title="文字颜色自定义"/>
+                                <connections>
+                                    <action selector="showAttributeStringAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2FO-30-w4I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.6705882353" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -91,6 +97,7 @@
                             <constraint firstItem="b82-I2-LeI" firstAttribute="leading" secondItem="USi-Vw-sLL" secondAttribute="trailing" constant="22" id="CIT-lH-A0c"/>
                             <constraint firstItem="fiL-cw-VUk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="CXX-C4-BqG"/>
                             <constraint firstItem="b82-I2-LeI" firstAttribute="top" secondItem="ukZ-Ou-9vg" secondAttribute="bottom" constant="21" id="HsP-gH-7QS"/>
+                            <constraint firstItem="6TM-JS-RDg" firstAttribute="leading" secondItem="WtN-b3-3jT" secondAttribute="trailing" constant="22" id="OSI-2O-pTP"/>
                             <constraint firstItem="T2X-Us-Duf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="QSk-up-1g8"/>
                             <constraint firstItem="USi-Vw-sLL" firstAttribute="top" secondItem="3Xs-8B-Rl6" secondAttribute="bottom" constant="21" id="R70-Tq-RKA"/>
                             <constraint firstItem="8Va-Rn-acx" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="VdX-wh-a4n"/>
@@ -98,6 +105,7 @@
                             <constraint firstItem="USi-Vw-sLL" firstAttribute="leading" secondItem="T2X-Us-Duf" secondAttribute="trailing" constant="24" id="Ygt-bg-9jS"/>
                             <constraint firstItem="tjf-Ju-Rdo" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="bn8-cT-DYa"/>
                             <constraint firstItem="WtN-b3-3jT" firstAttribute="top" secondItem="USi-Vw-sLL" secondAttribute="bottom" constant="23" id="dX2-2D-w0w"/>
+                            <constraint firstItem="6TM-JS-RDg" firstAttribute="top" secondItem="b82-I2-LeI" secondAttribute="bottom" constant="23" id="g5O-9j-mj1"/>
                             <constraint firstItem="3Xs-8B-Rl6" firstAttribute="leading" secondItem="tjf-Ju-Rdo" secondAttribute="trailing" constant="40" id="i1D-Kg-rFH"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="fiL-cw-VUk" secondAttribute="bottom" constant="8" id="j2z-bp-ZuU"/>
                             <constraint firstItem="ukZ-Ou-9vg" firstAttribute="leading" secondItem="3Xs-8B-Rl6" secondAttribute="trailing" constant="39" id="rmZ-mv-iVV"/>
