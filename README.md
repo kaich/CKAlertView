@@ -41,6 +41,7 @@ Extension：
 
 ## relase 
 * 0.1.4 显示自定义的弹出框
+* 0.1.6 所有文字可以用NSAttributeString或者String.方便控制你的文字格式。
 
 ## Installation
 
