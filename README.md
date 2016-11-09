@@ -24,6 +24,7 @@
 <img src="./Screenshot/body_image.png" width="200">
 <img src="./Screenshot/header_image.png" width="200">
 <img src="./Screenshot/major_action.png" width="200">
+<img src="./Screenshot/blue_cancel.png" width="200">
 
 显示自定义弹出框：		
 
