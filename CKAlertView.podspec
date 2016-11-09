@@ -33,7 +33,7 @@ Use simple code to display defined multi styles alert view. Detail refer to READ
   s.default_subspecs = 'Core'
 
   s.subspec 'Core' do |ss|
-     ss.source_files = 'CKAlertView/Classes/Core/*'
+     ss.source_files = 'CKAlertView/Classes/Core/**/*'
      ss.resource_bundles = {
        'CKAlertView' => ['CKAlertView/Assets/*.png']
      }

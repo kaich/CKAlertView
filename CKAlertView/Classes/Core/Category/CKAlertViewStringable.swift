@@ -11,4 +11,6 @@ import Foundation
 public protocol CKAlertViewStringable {
    
     func ck_string() -> String
+    
+    func ck_attributeString() -> NSAttributedString
 }

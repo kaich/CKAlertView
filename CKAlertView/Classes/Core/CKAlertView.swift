@@ -12,19 +12,6 @@ import SnapKit
 let HexColor = {(hex :Int, alpha :Float) in return UIColor.init(colorLiteralRed: ((Float)((hex & 0xFF0000) >> 16))/255.0, green: ((Float)((hex & 0xFF00) >> 8))/255.0, blue: ((Float)(hex & 0xFF))/255.0, alpha: alpha) }
 let is4Inc = UIScreen.main.nativeBounds.size.width / UIScreen.main.nativeScale == 320
 
-let kContentWidth = is4Inc ? 280 : 300
-let kTitleFont = UIFont.boldSystemFont(ofSize: 17)
-let kMessageFont = UIFont.systemFont(ofSize: 13)
-let kCancelTitleColor = HexColor(0x444444,1)
-let kOtherTitleColor = HexColor(0x444444,1)
-let kSplitLineColor = UIColor.gray
-let kSplitLineWidth = 0.5
-
-let kDefaultButtonHeight = 44
-let kDefaultButtonBackgroundColor = UIColor.clear
-
-let kMultiButtonHeight = 30
-let kMultiButtonBackgroundColor = HexColor(0x1768c9,1)
 
 public extension UIImage {
     static func make(name: String) -> UIImage? {
@@ -34,9 +21,39 @@ public extension UIImage {
     }
 }
 
+public struct CKAlertViewConfiguration {
+   
+    /// alertView宽度是否固定
+    public var isFixedContentWidth = true
+    /// alertView的宽度，只有 isFixedContentWidth = ture，此值才会有作用
+    public var contentWidth = is4Inc ? 280 : 300
+    /// 标题字体
+    public var titleFont = UIFont.boldSystemFont(ofSize: 17)
+    /// 主体字体
+    public var messageFont = UIFont.systemFont(ofSize: 13)
+    /// 取消按钮的字体颜色
+    public var cancelTitleColor = HexColor(0x444444,1)
+    /// 其他按钮字体颜色
+    public var otherTitleColor = HexColor(0x444444,1)
+    /// 分割线颜色
+    public var splitLineColor = UIColor.gray
+    /// 分割线宽度
+    public var splitLineWidth = 0.5
+    /// 按钮默认高度
+    public var buttonDefaultHeight = 44
+    /// 按钮默认背景色
+    public var buttonDefaultBackgroundColor =  UIColor.clear
+    /// 多行按钮默认高度
+    public var multiButtonHeight = 30
+    /// 多行按钮默认背景色
+    public var multiButtonBackgroundColor = HexColor(0x1768c9,1)
+}
+
 
 /// 多种样式的弹出框，支持多行和多段落的弹出框消息。区分段落以$结尾(Multi style alert. Surpport multi line message. Symbol $ represent paragraph end).
 public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
+    public static var config = CKAlertViewConfiguration()
+    
     var overlayView = UIView()
     var contentView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: UIBlurEffect(style: .light)))
     var componentMaker :CKAlertViewComponentBaseMaker!
@@ -156,7 +173,9 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         
         contentView.snp.makeConstraints { (make) in
             make.center.equalTo(view.snp.center)
-            make.width.equalTo(kContentWidth)
+            if CKAlertView.config.isFixedContentWidth {
+                make.width.equalTo(CKAlertView.config.contentWidth)
+            }
         }
         
         headerView.snp.makeConstraints { (make) in
@@ -209,7 +228,7 @@ public extension CKAlertView {
     /// - parameter cancelButtonTitle: 取消按钮标题
     /// - parameter otherButtonTitles: 其他按钮标题
     /// - parameter completeBlock:     点击按钮后的回调
-    public func show(title alertTitle :String, message alertMessages :[CKAlertViewStringable]?, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
+    public func show(title alertTitle :CKAlertViewStringable, message alertMessages :[CKAlertViewStringable]?, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
         
         dismissCompleteBlock = completeBlock
         

@@ -14,4 +14,17 @@ extension NSAttributedString : CKAlertViewStringable {
         return string
     }
     
+    public func ck_attributeString() -> NSAttributedString {
+        return self
+    }
+    
+    func ck_centerAlign() -> NSAttributedString {
+        
+        let finalAttributes = self.attributes(at: 0, effectiveRange: nil)
+        if let paragraphStyle = finalAttributes[NSParagraphStyleAttributeName] as? NSMutableParagraphStyle {
+           paragraphStyle.alignment = .center
+        }
+        
+        return self
+    }
 }

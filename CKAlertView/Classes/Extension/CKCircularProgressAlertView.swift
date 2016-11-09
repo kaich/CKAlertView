@@ -104,13 +104,13 @@ class CKAlertViewCircularProgressHeaderView : CKAlertViewHeaderView {
         super.makeLayout()
         
         let splitLineView = UIView()
-        splitLineView.backgroundColor = kSplitLineColor
+        splitLineView.backgroundColor = CKAlertView.config.splitLineColor
         addSubview(splitLineView)
         splitLineView.snp.makeConstraints { (make) in
             make.bottom.equalTo(self).offset(-20)
             make.left.equalTo(self).offset(20)
             make.right.equalTo(self).offset(-20)
-            make.height.equalTo(kSplitLineWidth)
+            make.height.equalTo(CKAlertView.config.splitLineWidth)
         }
         
         if let titleLabel = subviews.first {

@@ -1,6 +1,6 @@
 {
   "name": "CKAlertView",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "summary": "Custom Mutil Styles Alert View.",
   "description": "Use simple code to display defined multi styles alert view. Detail refer to README.md.",
   "homepage": "https://github.com/kaich/CKAlertView",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/kaich/CKAlertView.git",
-    "tag": "0.1.1"
+    "tag": "0.1.5"
   },
   "platforms": {
     "ios": "8.0"
@@ -29,7 +29,7 @@
   "subspecs": [
     {
       "name": "Core",
-      "source_files": "CKAlertView/Classes/Core/*",
+      "source_files": "CKAlertView/Classes/Core/**/*",
       "resource_bundles": {
         "CKAlertView": [
           "CKAlertView/Assets/*.png"

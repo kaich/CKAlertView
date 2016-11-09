@@ -89,7 +89,7 @@ class ViewController: UIViewController {
     
     @IBAction func showAttributeStringAlert(_ sender: AnyObject) {
         alert = CKAlertView()
-        alert?.show(title: "指定关联类型", message: ["Swift 是一门进行iOS新语言".attributeString(color: UIColor.red),"这个函数的类型参数列紧随在两个类型参数需求的后面".attributeString(color: UIColor.green),"如果循环体结束后未发现没有任何的不匹配，那表明两个容器匹配".attributeString(color: UIColor.blue)], cancelButtonTitle: "确定", otherButtonTitles: nil){ index in
+        alert?.show(title: "指定关联类型".ck_attributeString(color: UIColor.orange), message: ["Swift 是一门进行iOS新语言".ck_attributeString(color: UIColor.red),"这个函数的类型参数列紧随在两个类型参数需求的后面".ck_attributeString(color: UIColor.green),"如果循环体结束后未发现没有任何的不匹配，那表明两个容器匹配".ck_attributeString(color: UIColor.blue)], cancelButtonTitle: "确定", otherButtonTitles: nil){ index in
             self.lblMessage.text = "One button alert dismissed"
         }
         
