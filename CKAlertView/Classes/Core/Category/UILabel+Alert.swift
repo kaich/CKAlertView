@@ -15,10 +15,10 @@ extension UILabel {
             self.text = string
         }
         else if let attributeString = string as? NSAttributedString {
-            self.attributedText = attributeString
             if isCenter {
-                self.attributedText = attributeString.ck_centerAlign()
+                attributeString.ck_centerAlign()
             }
+            self.attributedText = attributeString
         }
     }
 }

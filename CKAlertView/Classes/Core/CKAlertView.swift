@@ -50,7 +50,7 @@ public struct CKAlertViewConfiguration {
 }
 
 
-/// 多种样式的弹出框，支持多行和多段落的弹出框消息。区分段落以$结尾(Multi style alert. Surpport multi line message. Symbol $ represent paragraph end).
+/// 多种样式的弹出框，支持多行和多段落的弹出框消息。区分段落以$结尾, 文字String或者NSAttributedString。(Multi style alert. Surpport multi line message. Symbol $ represent paragraph end).
 public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     public static var config = CKAlertViewConfiguration()
     
@@ -221,14 +221,14 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
 public extension CKAlertView {
     
     
-    /// 标准弹出框
+    /// 标准弹出框(文字String或者NSAttributedString)
     ///
     /// - parameter alertTitle:        标题
-    /// - parameter alertMessages:     主体,$代表段落的结尾(String或者NSAttributedString)
+    /// - parameter alertMessages:     主体,$代表段落的结尾
     /// - parameter cancelButtonTitle: 取消按钮标题
     /// - parameter otherButtonTitles: 其他按钮标题
     /// - parameter completeBlock:     点击按钮后的回调
-    public func show(title alertTitle :CKAlertViewStringable, message alertMessages :[CKAlertViewStringable]?, cancelButtonTitle :String, otherButtonTitles :[String]? = nil, completeBlock :(((Int) -> Void))? = nil) {
+    public func show(title alertTitle :CKAlertViewStringable, message alertMessages :[CKAlertViewStringable]?, cancelButtonTitle :CKAlertViewStringable, otherButtonTitles :[CKAlertViewStringable]? = nil, completeBlock :(((Int) -> Void))? = nil) {
         
         dismissCompleteBlock = completeBlock
         

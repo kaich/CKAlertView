@@ -43,8 +43,8 @@ class CKAlertViewComponentBaseMaker {
     internal(set) var headerView  :CKAlertViewComponent!
     internal(set) var bodyView    :CKAlertViewComponent!
     internal(set) var footerView  :CKAlertViewComponent!
-    var cancelButtonTitle: String?
-    var otherButtonTitles :[String]?
+    var cancelButtonTitle: CKAlertViewStringable?
+    var otherButtonTitles :[CKAlertViewStringable]?
     
     func makeLayout() {
         headerView = layoutHeader()
@@ -205,8 +205,8 @@ class CKAlertViewBodyView: CKAlertViewComponent {
 class CKAlertViewFooterView: CKAlertViewComponent {
     var cancelButton :UIButton!
     var otherButtons = [UIButton]()
-    var cancelButtonTitle :String?
-    var otherButtonTitles :[String]?
+    var cancelButtonTitle :CKAlertViewStringable?
+    var otherButtonTitles :[CKAlertViewStringable]?
     var cancelButtonTitleFont :UIFont?
     var cancelButtonTitleColor :UIColor?
     
@@ -237,12 +237,12 @@ class CKAlertViewFooterView: CKAlertViewComponent {
     }
     
     
-    func makeButtons(cancelButtonTitle: String?,otherButtonTitles :[String]? = nil) {
+    func makeButtons(cancelButtonTitle: CKAlertViewStringable?,otherButtonTitles :[CKAlertViewStringable]? = nil) {
         
         cancelButton = UIButton()
         cancelButton.setTitleColor(cancelButtonTitleColor, for: .normal)
         cancelButton.titleLabel?.font = cancelButtonTitleFont
-        cancelButton.setTitle(cancelButtonTitle, for: .normal)
+        cancelButton.ck_setText(string: cancelButtonTitle)
         cancelButton.addTarget(self, action: #selector(clickButton(sender:)), for: .touchUpInside)
         self.addSubview(cancelButton)
         
@@ -252,7 +252,7 @@ class CKAlertViewFooterView: CKAlertViewComponent {
                 let otherButton = UIButton()
                 otherButton.setTitleColor(textColor, for: .normal)
                 otherButton.titleLabel?.font = textFont
-                otherButton.setTitle(title, for: .normal)
+                otherButton.ck_setText(string: title)
                 otherButton.addTarget(self, action: #selector(clickButton(sender:)), for: .touchUpInside)
                 self.addSubview(otherButton)
                 otherButtons.append(otherButton)

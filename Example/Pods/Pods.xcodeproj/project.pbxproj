@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03B4B25BAC2190D77724DAAFD6DA04B7 /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADB852CB5A4ADBD29839D07431F0B16 /* ConstraintMultiplierTarget.swift */; };
+		040523AB1DD2B22700223F64 /* UIButton+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040523AA1DD2B22700223F64 /* UIButton+Alert.swift */; };
 		042AC4EE1DD1DAE1003B42A0 /* UILabel+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042AC4ED1DD1DAE1003B42A0 /* UILabel+Alert.swift */; };
 		06DF7FD938535FECB3001D03953D1791 /* DACircularProgress-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F78692D2C94433D71D1AC8A147325752 /* DACircularProgress-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A91BAAE1304B69D1FD85FF973FAD839 /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA81DC3556A900F75AE4D0B6BCDD9C /* ConstraintOffsetTarget.swift */; };
@@ -125,6 +126,7 @@
 
 /* Begin PBXFileReference section */
 		01655AE69B4A5663E2C70D32C7BD9B7C /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
+		040523AA1DD2B22700223F64 /* UIButton+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Alert.swift"; sourceTree = "<group>"; };
 		042AC4ED1DD1DAE1003B42A0 /* UILabel+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Alert.swift"; sourceTree = "<group>"; };
 		054443A5BBADA4FDB16366F941A4AFDF /* CKAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CKAlertView.modulemap; sourceTree = "<group>"; };
 		05DC23CD2AD15F16C55AA7AC79ED46E3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				589BB69B4F1C9A724C9FDD2061047108 /* NSAttributeString+Alert.swift */,
 				7DDCB0A1F38D0BB59047E0C1CCD80543 /* String+Alert.swift */,
 				042AC4ED1DD1DAE1003B42A0 /* UILabel+Alert.swift */,
+				040523AA1DD2B22700223F64 /* UIButton+Alert.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -891,6 +894,7 @@
 				C8D64227F1DA34B5368A199867C82C89 /* CKAlertView+ImageBody.swift in Sources */,
 				17FD8969A7B1DFEABBE51B9C2192AC6F /* CKAlertView+ImageHeader.swift in Sources */,
 				521BC87E76725A6A18DBE29CB552BE36 /* CKAlertView+MajorAction.swift in Sources */,
+				040523AB1DD2B22700223F64 /* UIButton+Alert.swift in Sources */,
 				593FE8450467571424D2ACB946D2C3E6 /* CKAlertView-dummy.m in Sources */,
 				FB1255198F2809E15580B107802945D7 /* CKAlertView.swift in Sources */,
 				FB58A01FF271515A4EB7B819AF137FD3 /* CKAlertViewComponent.swift in Sources */,
