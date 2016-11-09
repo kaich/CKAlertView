@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CKAlertView'
-  s.version          = '0.1.5'
+  s.version          = '0.1.6'
   s.summary          = 'Custom Mutil Styles Alert View.'
 
 # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-Use simple code to display defined multi styles alert view. Detail refer to README.md.
+Use simple code to display defined multi styles alert view.You can use String or NSAttributeString for text. Detail refer to README.md.
                        DESC
 
   s.homepage         = 'https://github.com/kaich/CKAlertView'
