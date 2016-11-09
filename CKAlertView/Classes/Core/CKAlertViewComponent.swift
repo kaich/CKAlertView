@@ -51,6 +51,10 @@ class CKAlertViewComponentBaseMaker {
         bodyView = layoutBody()
         footerView = layoutFooter()
         
+        headerView.delegate = delegate
+        bodyView.delegate = delegate
+        footerView.delegate = delegate
+        
         headerView.makeLayout()
         bodyView.makeLayout()
         footerView.makeLayout()
@@ -77,7 +81,6 @@ class CKAlertViewComponentMaker : CKAlertViewComponentBaseMaker {
     override func layoutHeader() -> CKAlertViewComponent? {
         let headerView = CKAlertViewHeaderView()
         headerView.alertTitle = alertTitle
-        headerView.delegate = delegate
         
         return headerView
     }
@@ -85,14 +88,12 @@ class CKAlertViewComponentMaker : CKAlertViewComponentBaseMaker {
     override func layoutBody() -> CKAlertViewComponent? {
         let bodyView = CKAlertViewBodyView()
         bodyView.alertMessages = alertMessages
-        bodyView.delegate = delegate
         
         return bodyView
     }
     
     override func  layoutFooter() -> CKAlertViewComponent? {
         let footerView = CKAlertViewFooterView()
-        footerView.delegate = delegate
         
         footerView.cancelButtonTitle = cancelButtonTitle
         footerView.otherButtonTitles = otherButtonTitles
@@ -160,7 +161,7 @@ class CKAlertViewBodyView: CKAlertViewComponent {
                     messageLabel.numberOfLines = 0
                     messageLabel.font = textFont
                     messageLabel.textColor = textColor
-                    messageLabel.textAlignment = .center
+                    messageLabel.textAlignment = .left
                     messageLabel.ck_setText(string: emMessage)
                     addSubview(messageLabel)
                     

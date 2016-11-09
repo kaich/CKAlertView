@@ -89,12 +89,19 @@ class ViewController: UIViewController {
     
     @IBAction func showAttributeStringAlert(_ sender: AnyObject) {
         alert = CKAlertView()
-        alert?.show(title: "自定义文字颜色".ck_attributeString(color: UIColor.orange), message: ["Swift 是一门进行iOS新语言".ck_attributeString(color: UIColor.red),"这个函数的类型参数列紧随在两个类型参数需求的后面".ck_attributeString(color: UIColor.green),"如果循环体结束后未发现没有任何的不匹配，那表明两个容器匹配".ck_attributeString(color: UIColor.blue)], cancelButtonTitle: "确定".ck_attributeString(color: UIColor.purple), otherButtonTitles: nil){ index in
+        alert?.show(title: "自定义文字颜色".ck_apply(color: UIColor.orange), message: ["Swift 是一门进行iOS新语言".ck_apply(color: UIColor.red),"这个函数的类型参数列紧随在两个类型参数需求的后面".ck_apply(color: UIColor.green),"如果循环体结束后未发现没有任何的不匹配，那表明两个容器匹配".ck_apply(color: UIColor.blue)], cancelButtonTitle: "确定".ck_apply(color: UIColor.purple), otherButtonTitles: nil){ index in
             self.lblMessage.text = "One button alert dismissed"
         }
         
     }
     
+    @IBAction func showBlueCancelAlert(_ sender: AnyObject) {
+        let alert = CKBlueCancelAlertView()
+        alert.show(title: "多彩多姿Swift", message: ["方法是与某些特定类型相关联的函数。类、结构体、枚举都可以定义实例方法".ck_apply(color: UIColor.red),"$","新版本方法简介","1、具体的任务与功能。类、结构体、枚举","     也可以定义类型方法","2、实例方法是属于某个特定类、结构体","     或者枚举类型","$","和函数参数不同，对于方法的参数，Swift 使用不同的默认处理方式，这可以让方法命名规范更容易写".ck_apply(color: UIColor.red)], cancelButtonTitle: "现在启用" , isXHidden: false) { (index) in
+            self.lblMessage.text = "blue cancel button alert dismissed"
+        }
+        
+    }
     
     
     //MARK: - extension

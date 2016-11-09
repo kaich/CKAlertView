@@ -93,56 +93,6 @@ public class CKCircularProgressAlertView : CKAlertView {
 }
 
 
-class CKAlertViewCircularProgressHeaderView : CKAlertViewHeaderView {
-    
-    override func setup() {
-        super.setup()
-        textFont = UIFont.systemFont(ofSize: 15)
-    }
-    
-    override func makeLayout() {
-        super.makeLayout()
-        
-        let splitLineView = UIView()
-        splitLineView.backgroundColor = CKAlertView.config.splitLineColor
-        addSubview(splitLineView)
-        splitLineView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self).offset(-20)
-            make.left.equalTo(self).offset(20)
-            make.right.equalTo(self).offset(-20)
-            make.height.equalTo(CKAlertView.config.splitLineWidth)
-        }
-        
-        if let titleLabel = subviews.first {
-           titleLabel.snp.remakeConstraints({ (make) in
-                make.top.equalTo(self).offset(20)
-                make.left.equalTo(self).offset(20)
-                make.right.equalTo(self).offset(-20)
-                make.bottom.equalTo(splitLineView).offset(-20)
-           })
-            
-            
-            let btnX = UIButton()
-            btnX.setImage(UIImage.make(name: "close_28x28"), for: .normal)
-            btnX.addTarget(self, action: #selector(clickButtonX), for: .touchUpInside)
-            addSubview(btnX)
-            btnX.snp.makeConstraints { (make) in
-                make.centerY.equalTo(titleLabel)
-                make.right.equalTo(self).offset(-15)
-            }
-        }
-
-    }
-    
-    func clickButtonX() {
-        if let delegate  = delegate {
-            delegate.clickButton(at: -1)
-        }
-    }
-    
-}
-
-
 class CKAlertViewCircularProgressBodyView : CKAlertViewBodyView {
     let progressView = DACircularProgressView()
     let lblMessage = UILabel()
@@ -231,7 +181,7 @@ class CKAlertViewComponentCircularProgressMaker :CKAlertViewComponentMaker {
     
     
     override func layoutHeader() -> CKAlertViewComponent? {
-        let headerView = CKAlertViewCircularProgressHeaderView()
+        let headerView = CKAlertViewXCloseHeaderView()
         headerView.alertTitle = alertTitle
         headerView.delegate = delegate
         

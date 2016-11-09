@@ -214,12 +214,9 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
             completeBlock(index)
         }
     }
-
-}
-
-
-public extension CKAlertView {
     
+    
+    //MARK: - major show method 
     
     /// 标准弹出框(文字String或者NSAttributedString)
     ///
@@ -243,6 +240,6 @@ public extension CKAlertView {
         
         show()
     }
-    
+
 }
 
