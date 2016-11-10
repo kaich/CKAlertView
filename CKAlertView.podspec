@@ -48,7 +48,7 @@ Use simple code to display defined multi styles alert view.You can use String or
 
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-   s.frameworks = 'UIKit' , 'CoreText'
+   s.frameworks = 'UIKit'
    s.dependency 'SnapKit', '~> 3.0.2'
 
    s.requires_arc = true
