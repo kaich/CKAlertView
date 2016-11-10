@@ -28,6 +28,7 @@ public class CKBlueCancelAlertView : CKAlertView {
         componentMaker.cancelButtonTitle = cancelButtonTitle
         componentMaker.otherButtonTitles = otherButtonTitles
         componentMaker.isXHidden = isXHidden
+        componentMaker.indentationPatternWidth = indentationPatternWidth
         
         installComponentMaker(maker: componentMaker)
         

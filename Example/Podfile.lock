@@ -1,7 +1,7 @@
 PODS:
-  - CKAlertView/Core (0.1.5):
+  - CKAlertView/Core (0.1.7):
     - SnapKit (~> 3.0.2)
-  - CKAlertView/Extension (0.1.5):
+  - CKAlertView/Extension (0.1.7):
     - CKAlertView/Core
     - DACircularProgress
     - SnapKit (~> 3.0.2)
@@ -17,7 +17,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CKAlertView: 54fddf4cd82419da583ebd97a55ced5a8b7518c0
+  CKAlertView: 4cc16d6cd54922e1ec4db396e79a015a79cf40c5
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 

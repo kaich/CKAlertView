@@ -52,7 +52,12 @@ public struct CKAlertViewConfiguration {
 
 /// 多种样式的弹出框，支持多行和多段落的弹出框消息。区分段落以$结尾, 文字String或者NSAttributedString。(Multi style alert. Surpport multi line message. Symbol $ represent paragraph end).
 public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
+    /// 配置整体样式
     public static var config = CKAlertViewConfiguration()
+    /// 正则 -》 缩进宽度
+    public var indentationPatternWidth :[String : CGFloat]?
+    /// 是否用户控制消失，如果是true那么点击按钮弹出框不自动消失
+    public var isUserDismiss = false
     
     var overlayView = UIView()
     var contentView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: UIBlurEffect(style: .light)))
@@ -208,7 +213,9 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     
     //MARK: - CKAlertViewComponentDelegate
     func  clickButton(at index :Int) {
-        dismiss()
+        if !isUserDismiss {
+            dismiss()
+        }
         
         if let completeBlock = dismissCompleteBlock {
             completeBlock(index)
@@ -234,8 +241,8 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         componentMaker.alertMessages = alertMessages
         componentMaker.cancelButtonTitle = cancelButtonTitle
         componentMaker.otherButtonTitles = otherButtonTitles
-        
-        
+        componentMaker.indentationPatternWidth = indentationPatternWidth
+    
         installComponentMaker(maker: componentMaker)
         
         show()

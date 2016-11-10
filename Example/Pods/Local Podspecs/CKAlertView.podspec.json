@@ -1,8 +1,8 @@
 {
   "name": "CKAlertView",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "summary": "Custom Mutil Styles Alert View.",
-  "description": "Use simple code to display defined multi styles alert view. Detail refer to README.md.",
+  "description": "Use simple code to display defined multi styles alert view.You can use String or NSAttributeString for text. Detail refer to README.md.",
   "homepage": "https://github.com/kaich/CKAlertView",
   "license": {
     "type": "MIT",
@@ -13,13 +13,16 @@
   },
   "source": {
     "git": "https://github.com/kaich/CKAlertView.git",
-    "tag": "0.1.5"
+    "tag": "0.1.7"
   },
   "platforms": {
     "ios": "8.0"
   },
   "default_subspecs": "Core",
-  "frameworks": "UIKit",
+  "frameworks": [
+    "UIKit",
+    "CoreText"
+  ],
   "dependencies": {
     "SnapKit": [
       "~> 3.0.2"

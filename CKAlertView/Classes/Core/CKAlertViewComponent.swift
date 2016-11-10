@@ -77,6 +77,7 @@ class CKAlertViewComponentBaseMaker {
 class CKAlertViewComponentMaker : CKAlertViewComponentBaseMaker {
     var alertTitle :CKAlertViewStringable?
     var alertMessages :[CKAlertViewStringable]?
+    var indentationPatternWidth :[String : CGFloat]?
     
     override func layoutHeader() -> CKAlertViewComponent? {
         let headerView = CKAlertViewHeaderView()
@@ -88,6 +89,7 @@ class CKAlertViewComponentMaker : CKAlertViewComponentBaseMaker {
     override func layoutBody() -> CKAlertViewComponent? {
         let bodyView = CKAlertViewBodyView()
         bodyView.alertMessages = alertMessages
+        bodyView.indentationPattern2WidthDic = indentationPatternWidth
         
         return bodyView
     }
@@ -133,6 +135,7 @@ class CKAlertViewHeaderView: CKAlertViewComponent {
 
 
 class CKAlertViewBodyView: CKAlertViewComponent {
+    var indentationPattern2WidthDic : [String : CGFloat]?
     var alertMessages :[CKAlertViewStringable]?
     
     override func setup () {
@@ -146,7 +149,7 @@ class CKAlertViewBodyView: CKAlertViewComponent {
         
         if let alertMessages = alertMessages {
             var isParagraphBegin = false
-            var lastMessageLabel :UILabel? = nil
+            var lastMessageLabel :UITextView? = nil
             var pureMessage :String = ""
             for (index,emMessage) in alertMessages.enumerated() {
                 
@@ -156,9 +159,26 @@ class CKAlertViewBodyView: CKAlertViewComponent {
                     isParagraphBegin = true
                 }
                 else {
-                    let messageLabel = UILabel()
+                    var messageLabel :UITextView!
+                    let checkResult = check(string: emMessage.ck_string(), indentationPattern2WidthDic: indentationPattern2WidthDic)
+                    if checkResult.isNeedindentation {
+                        let zeroRect = CGRect(x: 0, y: 0, width: 0, height: 0)
+                        let textStorage = NSTextStorage()
+                        let layoutManager = NSLayoutManager()
+                        let textContainer = NSTextContainer(size: zeroRect.size)
+                        textContainer.exclusionPaths = [UIBezierPath(rect: CGRect(x: 0, y: getLineHeight(string: emMessage), width: checkResult.indentationWidth, height: CGFloat.greatestFiniteMagnitude))]
+                        textStorage.addLayoutManager(layoutManager)
+                        layoutManager.addTextContainer(textContainer)
+                        messageLabel = UITextView(frame: zeroRect, textContainer: textContainer)
+                    }
+                    else {
+                        messageLabel = UITextView()
+                    }
+                    messageLabel.layoutManager
+                    messageLabel.isEditable = false
+                    messageLabel.isSelectable = false
+                    messageLabel.isScrollEnabled = false
                     messageLabel.backgroundColor = UIColor.clear
-                    messageLabel.numberOfLines = 0
                     messageLabel.font = textFont
                     messageLabel.textColor = textColor
                     messageLabel.textAlignment = .left
@@ -198,6 +218,52 @@ class CKAlertViewBodyView: CKAlertViewComponent {
             }
             
         }
+    }
+    
+    func getLineHeight(string :CKAlertViewStringable) -> CGFloat {
+        var lineHeight :CGFloat = 0
+        
+        if let string = string as? String {
+            if let textFont = textFont {
+                lineHeight = textFont.lineHeight
+            }
+        }
+        else if let attributeStr = string as? NSAttributedString {
+            let finalAttributes = attributeStr.attributes(at: 0, effectiveRange: nil)
+            if let fontSize = finalAttributes[NSFontAttributeName] as? UIFont {
+                lineHeight = fontSize.lineHeight
+            }
+            else {
+                if let textFont = textFont {
+                    lineHeight = textFont.lineHeight
+                }
+            }
+            
+            if let paragraphStyle = finalAttributes[NSParagraphStyleAttributeName] as? NSMutableParagraphStyle {
+                lineHeight += paragraphStyle.lineSpacing
+            }
+        }
+        
+        return ceil(lineHeight)
+    }
+    
+    func check(string :String, indentationPattern2WidthDic :[String : CGFloat]?) -> (isNeedindentation :Bool, indentationWidth :CGFloat) {
+        var isNeedindentation = false
+        var indentationWidth :CGFloat = 0
+        
+        if let indentationPattern2WidthDic = indentationPattern2WidthDic {
+            for (indentationPattern, width) in indentationPattern2WidthDic {
+                if let regex = try? NSRegularExpression(pattern: indentationPattern, options: .caseInsensitive) {
+                    let count = regex.numberOfMatches(in: string, options: .anchored, range: NSMakeRange(0, string.characters.count))
+                    if count > 0 {
+                        isNeedindentation = true
+                        indentationWidth = width
+                    }
+                }
+            }
+        }
+        
+        return (isNeedindentation, indentationWidth)
     }
     
 }

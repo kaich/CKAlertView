@@ -8,6 +8,11 @@
 
 import Foundation
 
+public enum CKIndentStyle {
+    case firstLine , headIndent , tailIndent
+}
+
+
 extension NSAttributedString : CKAlertViewStringable {
     
     public func ck_string() -> String {
@@ -39,4 +44,23 @@ extension NSAttributedString : CKAlertViewStringable {
         finalString.addAttribute(NSForegroundColorAttributeName, value:color, range:NSMakeRange(0, length));
         return finalString
     }
+    
+    public func ck_apply(indent :CGFloat , style :CKIndentStyle) -> NSAttributedString {
+        let finalAttributes = self.attributes(at: 0, effectiveRange: nil)
+        if let paragraphStyle = finalAttributes[NSParagraphStyleAttributeName] as? NSMutableParagraphStyle {
+            switch style {
+            case .firstLine:
+                paragraphStyle.firstLineHeadIndent = indent
+            case .headIndent:
+                paragraphStyle.headIndent = indent
+            case .tailIndent:
+                paragraphStyle.tailIndent = indent
+            default:
+                break
+            }
+        }
+        
+        return self
+    }
+    
 }

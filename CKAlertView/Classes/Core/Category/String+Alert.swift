@@ -42,4 +42,8 @@ extension String : CKAlertViewStringable {
     public func ck_apply(color :UIColor) -> NSAttributedString {
         return ck_attributeString().ck_apply(color: color)
     }
+    
+    public func ck_apply(indent :CGFloat , style :CKIndentStyle) -> NSAttributedString {
+        return ck_attributeString().ck_apply(indent: indent, style: style)
+    }
 }

@@ -27,6 +27,7 @@ public extension CKAlertView {
         componentMaker.alertMessages = alertMessages
         componentMaker.cancelButtonTitle = cancelButtonTitle
         componentMaker.otherButtonTitles = [majorButtonTitle,anotherButtonTitle]
+        componentMaker.indentationPatternWidth = indentationPatternWidth
         
         installComponentMaker(maker: componentMaker)
         

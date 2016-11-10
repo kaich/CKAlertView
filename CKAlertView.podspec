@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CKAlertView'
-  s.version          = '0.1.7'
+  s.version          = '0.1.8'
   s.summary          = 'Custom Mutil Styles Alert View.'
 
 # This description is used to generate tags and improve search results.
@@ -48,7 +48,7 @@ Use simple code to display defined multi styles alert view.You can use String or
 
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-   s.frameworks = 'UIKit'
+   s.frameworks = 'UIKit' , 'CoreText'
    s.dependency 'SnapKit', '~> 3.0.2'
 
    s.requires_arc = true
