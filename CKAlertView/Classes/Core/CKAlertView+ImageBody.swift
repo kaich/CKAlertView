@@ -30,20 +30,7 @@ public extension CKAlertView {
         
         installComponentMaker(maker: componentMaker)
         
-        showImageBodyAlert()
-    }
-    
-    func showImageBodyAlert() {
-        let ownWindow = UIApplication.shared.keyWindow! as UIWindow
-        ownWindow.addSubview(view)
-        ownWindow.rootViewController?.addChildViewController(self)
-        
-        self.view.alpha = 0
-        UIView.animate(withDuration: 0.3) {
-            self.view.alpha = 1
-            self.contentView.layoutIfNeeded()
-        }
-        
+        show()
     }
     
 }
@@ -52,11 +39,11 @@ class CKAlertViewImageBodyView: CKAlertViewBodyView {
     var image :UIImage?
     
     override func makeLayout() {
-        let ivBody = UIImageView(image: image)
-        ivBody.backgroundColor = UIColor.red
+        let ivBody = UIImageView()
         self.addSubview(ivBody)
+        ivBody.image = image
         ivBody.snp.makeConstraints { (make) in
-            make.top.right.bottom.left.equalTo(self)
+            make.top.right.bottom.left.equalTo(self).inset(0)
         }
     }
 }

@@ -102,6 +102,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         view.addSubview(overlayView)
         
         contentView.backgroundColor = HexColor(0xffffff,0.95)
+        contentView.center = view.center
         contentView.layer.cornerRadius = 5
         contentView.layer.masksToBounds = true
         view.addSubview(contentView)
