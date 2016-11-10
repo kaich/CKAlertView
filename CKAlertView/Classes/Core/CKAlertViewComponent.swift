@@ -174,7 +174,7 @@ class CKAlertViewBodyView: CKAlertViewComponent {
                     else {
                         messageLabel = UITextView()
                     }
-                    messageLabel.layoutManager
+                    messageLabel.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0)
                     messageLabel.isEditable = false
                     messageLabel.isSelectable = false
                     messageLabel.isScrollEnabled = false
