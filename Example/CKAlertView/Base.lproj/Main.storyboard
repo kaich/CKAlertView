@@ -94,6 +94,12 @@
                                     <action selector="showBlueCancelAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aI5-OU-Bje"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ID-R7-TJL">
+                                <state key="normal" title="系统"/>
+                                <connections>
+                                    <action selector="showSystemAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Flk-j1-AJD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.6705882353" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -107,6 +113,7 @@
                             <constraint firstItem="6TM-JS-RDg" firstAttribute="leading" secondItem="WtN-b3-3jT" secondAttribute="trailing" constant="22" id="OSI-2O-pTP"/>
                             <constraint firstItem="T2X-Us-Duf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="QSk-up-1g8"/>
                             <constraint firstItem="USi-Vw-sLL" firstAttribute="top" secondItem="3Xs-8B-Rl6" secondAttribute="bottom" constant="21" id="R70-Tq-RKA"/>
+                            <constraint firstItem="5ID-R7-TJL" firstAttribute="top" secondItem="6TM-JS-RDg" secondAttribute="bottom" constant="22" id="UMA-zU-FiB"/>
                             <constraint firstItem="8Va-Rn-acx" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="VdX-wh-a4n"/>
                             <constraint firstItem="T2X-Us-Duf" firstAttribute="top" secondItem="tjf-Ju-Rdo" secondAttribute="bottom" constant="21" id="Yec-wo-vkb"/>
                             <constraint firstItem="USi-Vw-sLL" firstAttribute="leading" secondItem="T2X-Us-Duf" secondAttribute="trailing" constant="24" id="Ygt-bg-9jS"/>
@@ -118,6 +125,7 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="fiL-cw-VUk" secondAttribute="bottom" constant="8" id="j2z-bp-ZuU"/>
                             <constraint firstItem="ukZ-Ou-9vg" firstAttribute="leading" secondItem="3Xs-8B-Rl6" secondAttribute="trailing" constant="39" id="rmZ-mv-iVV"/>
                             <constraint firstItem="tjf-Ju-Rdo" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="sdC-lk-JnV"/>
+                            <constraint firstItem="5ID-R7-TJL" firstAttribute="leading" secondItem="ILP-7i-aID" secondAttribute="trailing" constant="33" id="uq1-9k-9hm"/>
                             <constraint firstItem="8Va-Rn-acx" firstAttribute="top" secondItem="T2X-Us-Duf" secondAttribute="bottom" constant="23" id="uzB-ZE-8yG"/>
                             <constraint firstItem="ukZ-Ou-9vg" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="zQc-bW-j2g"/>
                         </constraints>

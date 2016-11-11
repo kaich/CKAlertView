@@ -104,6 +104,14 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func showSystemAlert(_ sender: AnyObject) {
+        
+        let alert = UIAlertController(title: "系统样式", message: "Swift 的String和Character类型提供了一个快速的，兼容 Unicode 的方式来处理代码中的文本信息。 创建和操作字符串的语法与 C 语言中字符串操作相似，轻量并且易读。 字符串连接操作只需要简单地通过+号将两个字符串相连即可。 与 Swift 中其他值一样，能否更改字符串的值，取决于其被定义为常量还是变量。", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+        
+    }
     
     //MARK: - extension
     var progress :Float = 0.0

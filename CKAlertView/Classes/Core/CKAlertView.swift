@@ -60,7 +60,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     public var isUserDismiss = false
     
     var overlayView = UIView()
-    var contentView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: UIBlurEffect(style: .light)))
+    var containerView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
     var componentMaker :CKAlertViewComponentBaseMaker!
     
     var headerView  :CKAlertViewComponent! {
@@ -101,20 +101,19 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         overlayView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.5)
         view.addSubview(overlayView)
         
-        contentView.backgroundColor = HexColor(0xffffff,0.95)
-        contentView.center = view.center
-        contentView.layer.cornerRadius = 5
-        contentView.layer.masksToBounds = true
-        view.addSubview(contentView)
+        containerView.center = view.center
+        containerView.layer.cornerRadius = 5
+        containerView.layer.masksToBounds = true
+        view.addSubview(containerView)
         
         headerView.backgroundColor = UIColor.clear
-        contentView.addSubview(headerView)
+        containerView.contentView.addSubview(headerView)
         
         bodyView.backgroundColor = UIColor.clear
-        contentView.addSubview(bodyView)
+        containerView.contentView.addSubview(bodyView)
         
         footerView.backgroundColor = UIColor.clear
-        contentView.addSubview(footerView)
+        containerView.contentView.addSubview(footerView)
 
         makeConstraint()
         
@@ -140,7 +139,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.65, initialSpringVelocity: 1, options: .curveLinear, animations: {
             self.view.alpha = 1
-            self.contentView.layoutIfNeeded()
+            self.containerView.layoutIfNeeded()
             self._isShow = true
         })
     }
@@ -177,7 +176,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
             make.top.right.bottom.left.equalTo(view)
         }
         
-        contentView.snp.makeConstraints { (make) in
+        containerView.snp.makeConstraints { (make) in
             make.center.equalTo(view.snp.center)
             if CKAlertView.config.isFixedContentWidth {
                 make.width.equalTo(CKAlertView.config.contentWidth)
@@ -185,19 +184,19 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         }
         
         headerView.snp.makeConstraints { (make) in
-            make.top.equalTo(contentView)
-            make.left.right.equalTo(contentView)
+            make.top.equalTo(containerView)
+            make.left.right.equalTo(containerView.contentView)
         }
         
         bodyView.snp.makeConstraints { (make) in
             make.top.equalTo(headerView.snp.bottom)
-            make.left.right.equalTo(contentView)
+            make.left.right.equalTo(containerView.contentView)
         }
         
         footerView.snp.makeConstraints { (make) in
             make.top.equalTo(bodyView.snp.bottom)
-            make.left.right.equalTo(contentView)
-            make.bottom.equalTo(contentView)
+            make.left.right.equalTo(containerView.contentView)
+            make.bottom.equalTo(containerView.contentView)
         }
     }
     

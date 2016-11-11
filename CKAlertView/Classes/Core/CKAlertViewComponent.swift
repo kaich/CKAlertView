@@ -8,6 +8,26 @@
 
 import UIKit
 
+extension UIImage {
+
+    class func imageWithColor(color :UIColor) -> UIImage? {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        if let context = UIGraphicsGetCurrentContext() {
+            context.setFillColor(color.cgColor)
+            context.fill(rect)
+        }
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image;
+    }
+    
+}
+
+
+
 protocol CKAlertViewComponentDelegate :class {
     func clickButton(at index :Int);
 }
@@ -306,7 +326,7 @@ class CKAlertViewFooterView: CKAlertViewComponent {
     
     func makeButtons(cancelButtonTitle: CKAlertViewStringable?,otherButtonTitles :[CKAlertViewStringable]? = nil) {
         
-        cancelButton = UIButton()
+        cancelButton = UIButton(type: .system)
         cancelButton.setTitleColor(cancelButtonTitleColor, for: .normal)
         cancelButton.titleLabel?.font = cancelButtonTitleFont
         cancelButton.ck_setText(string: cancelButtonTitle)
@@ -316,7 +336,7 @@ class CKAlertViewFooterView: CKAlertViewComponent {
         otherButtons = [UIButton]()
         if let otherButtonTitles = otherButtonTitles {
             for title in otherButtonTitles {
-                let otherButton = UIButton()
+                let otherButton = UIButton(type: .system)
                 otherButton.setTitleColor(textColor, for: .normal)
                 otherButton.titleLabel?.font = textFont
                 otherButton.ck_setText(string: title)
