@@ -18,7 +18,8 @@ public extension CKAlertView {
     /// - parameter cancelButtonTitle: 取消按钮标题
     /// - parameter otherButtonTitles: 其他按钮标题
     /// - parameter completeBlock:     点击按钮后的回调
-    public func show(title alertTitle :CKAlertViewStringable, image bodyImage :UIImage?, cancelButtonTitle :CKAlertViewStringable, otherButtonTitles :[CKAlertViewStringable]? = nil, completeBlock :(((Int) -> Void))? = nil) {
+    public convenience init(title alertTitle :CKAlertViewStringable, image bodyImage :UIImage?, cancelButtonTitle :CKAlertViewStringable, otherButtonTitles :[CKAlertViewStringable]? = nil, completeBlock :(((Int) -> Void))? = nil) {
+        self.init(nibName: nil, bundle: nil)
         
         dismissCompleteBlock = completeBlock
         
@@ -29,8 +30,6 @@ public extension CKAlertView {
         componentMaker.otherButtonTitles = otherButtonTitles
         
         installComponentMaker(maker: componentMaker)
-        
-        show()
     }
     
 }
@@ -52,14 +51,14 @@ class CKAlertViewImageBodyView: CKAlertViewBodyView {
 class CKAlertViewComponentImageBodyMaker :CKAlertViewComponentMaker {
     var alertBodyImage :UIImage?
     
-    override func layoutHeader() -> CKAlertViewComponent? {
-        let headerView = super.layoutHeader()
+    override func makeHeader() -> CKAlertViewComponent? {
+        let headerView = super.makeHeader()
         headerView?.textFont = UIFont.systemFont(ofSize: 15)
         
         return headerView
     }
     
-    override func layoutBody() -> CKAlertViewComponent? {
+    override func makeBody() -> CKAlertViewComponent? {
         let bodyView = CKAlertViewImageBodyView()
         bodyView.image = alertBodyImage
         

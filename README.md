@@ -9,9 +9,10 @@
 
 简单的使用方式，调用如下方式代码就可以显示你要的弹出框,具体用法参考`Example`
 
-	CKAlertView().show(title: "无法安装‘爱奇艺视频播放’，因苹果系统的限制您可以选择如下方法解决", message: ["Swift 是一门进行 iOS 和 OS X 应用开发的新语言。然而，如果你有 C 或者 Objective-C 开发经验的话，你会发现 Swift 的很多内容都是你熟悉的"], cancelButtonTitle: "确定", otherButtonTitles: nil){ index in
+	let alert = CKAlertView(title: "无法安装‘爱奇艺视频播放’，因苹果系统的限制您可以选择如下方法解决", message: ["Swift 是一门进行iOS新语言"], cancelButtonTitle: "确定", otherButtonTitles: nil){ index in
             self.lblMessage.text = "One button alert dismissed"
         }
+        alert.show()
 
 
 ## Alert Style

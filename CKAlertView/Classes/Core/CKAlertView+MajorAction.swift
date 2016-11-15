@@ -19,7 +19,9 @@ public extension CKAlertView {
     /// - parameter majorButtonTitle:   主体按钮标题
     /// - parameter anotherButtonTitle: 其他按钮标题
     /// - parameter completeBlock:      点击按钮后的回调
-    public func show(title alertTitle :CKAlertViewStringable, message alertMessages :[CKAlertViewStringable]?, cancelButtonTitle :CKAlertViewStringable, majorButtonTitle :CKAlertViewStringable, anotherButtonTitle :CKAlertViewStringable, completeBlock :(((Int) -> Void))? = nil) {
+    public convenience init(title alertTitle :CKAlertViewStringable, message alertMessages :[CKAlertViewStringable]?, cancelButtonTitle :CKAlertViewStringable, majorButtonTitle :CKAlertViewStringable, anotherButtonTitle :CKAlertViewStringable, completeBlock :(((Int) -> Void))? = nil) {
+        self.init(nibName: nil, bundle: nil)
+        
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentMajorActionMaker()
@@ -30,8 +32,6 @@ public extension CKAlertView {
         componentMaker.indentationPatternWidth = indentationPatternWidth
         
         installComponentMaker(maker: componentMaker)
-        
-        show()
     }
     
 }
@@ -121,7 +121,7 @@ class CKAlertViewMajorActionFooterView : CKAlertViewFooterView {
 
 class CKAlertViewComponentMajorActionMaker :CKAlertViewComponentMaker {
     
-    override func layoutHeader() -> CKAlertViewComponent? {
+    override func makeHeader() -> CKAlertViewComponent? {
         let headerView = CKAlertViewBottomSplitLineHeaderView()
         headerView.alertTitle = alertTitle
         headerView.alertTitle = alertTitle
@@ -129,14 +129,14 @@ class CKAlertViewComponentMajorActionMaker :CKAlertViewComponentMaker {
         return headerView
     }
     
-    override func layoutBody() -> CKAlertViewComponent? {
-        let bodyView = super.layoutBody()
+    override func makeBody() -> CKAlertViewComponent? {
+        let bodyView = super.makeBody()
         bodyView?.textColor = HexColor(0x666666,1)
         
         return bodyView
     }
     
-    override func layoutFooter() -> CKAlertViewComponent? {
+    override func makeFooter() -> CKAlertViewComponent? {
         let footerView = CKAlertViewMajorActionFooterView()
         footerView.delegate = delegate
         footerView.cancelButtonTitle = cancelButtonTitle

@@ -26,53 +26,52 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showAlert(_ sender: AnyObject) {
-        alert = CKAlertView()
-        alert?.show(title: "无法安装‘爱奇艺视频播放’，因苹果系统的限制您可以选择如下方法解决", message: ["Swift 是一门进行iOS新语言"], cancelButtonTitle: "确定", otherButtonTitles: nil){ index in
+        alert = CKAlertView(title: "无法安装‘爱奇艺视频播放’，因苹果系统的限制您可以选择如下方法解决", message: ["Swift 是一门进行iOS新语言"], cancelButtonTitle: "确定", otherButtonTitles: nil){ index in
             self.lblMessage.text = "One button alert dismissed"
         }
+        alert?.show()
         
     }
     
     @IBAction func showDoubleButtonAlert(_ sender: AnyObject) {
-        alert = CKAlertView()
-        alert?.show(title: "创建一个其自身类型为可选类型的对象", message: ["如果一个类，结构体或枚举类型的对象，在构造自身的过程中有可能失败，则为其定义一个可失败构造器，是非常有必要的"], cancelButtonTitle: "取消", otherButtonTitles: ["确定"]){ index in
+        alert = CKAlertView(title: "创建一个其自身类型为可选类型的对象", message: ["如果一个类，结构体或枚举类型的对象，在构造自身的过程中有可能失败，则为其定义一个可失败构造器，是非常有必要的"], cancelButtonTitle: "取消", otherButtonTitles: ["确定"]){ index in
             self.lblMessage.text = "\(index) clicked,two button alert dismissed"
         }
+        alert?.show()
     }
 
     @IBAction func showMultiButtonAlert(_ sender: AnyObject) {
-        alert = CKAlertView()
-        alert?.show(title: "定义了一个名为TemperatureUnit的枚举类型", message: ["(Kelvin，Celsius，和 Fahrenheit)和一个被用来找到Character值所对应的枚举成员的可失败构造器。还能在参数不满足你所期望的条件时，导致构造失败"], cancelButtonTitle: "取消", otherButtonTitles: ["确定","重试","结束"]){ index in
+        alert = CKAlertView(title: "定义了一个名为TemperatureUnit的枚举类型", message: ["(Kelvin，Celsius，和 Fahrenheit)和一个被用来找到Character值所对应的枚举成员的可失败构造器。还能在参数不满足你所期望的条件时，导致构造失败"], cancelButtonTitle: "取消", otherButtonTitles: ["确定","重试","结束"]){ index in
             self.lblMessage.text = "\(index) clicked,multi button alert dismissed"
         }
+        alert?.show()
     }
     
     @IBAction func showImageBodyAlert(_ sender: AnyObject) {
-        alert = CKAlertView()
         let image = UIImage(named: "sample_image")
-        alert?.show(title: "该可失败构造器传递合适的参数", image: image, cancelButtonTitle: "我知道了", otherButtonTitles: ["查看详情"], completeBlock: { (index) in
+        alert = CKAlertView(title: "该可失败构造器传递合适的参数", image: image, cancelButtonTitle: "我知道了", otherButtonTitles: ["查看详情"], completeBlock: { (index) in
             self.lblMessage.text = "\(index) clicked, image message alert dismissed"
         })
+        alert?.show()
     }
     
     @IBAction func showImageHeaderAlert(_ sender: AnyObject) {
-        alert = CKAlertView()
         let image = UIImage(named: "repair_icon")
-        alert?.show(image: image, title: "开始学习swift", message: ["如果你使用闭包来初始化属性的值","请记住在闭包执行时，实例的其它部分都还没有初始化。","$","这意味着你不能够在闭包里访问其它的属性，就算这个属性有默认值也不允许"], cancelButtonTitle: "不再提醒", otherButtonTitles: ["我知道了"], completeBlock: { (index) in
+        alert = CKAlertView(image: image, title: "开始学习swift", message: ["如果你使用闭包来初始化属性的值","请记住在闭包执行时，实例的其它部分都还没有初始化。","$","这意味着你不能够在闭包里访问其它的属性，就算这个属性有默认值也不允许"], cancelButtonTitle: "不再提醒", otherButtonTitles: ["我知道了"], completeBlock: { (index) in
             self.lblMessage.text = "\(index) clicked, image title alert dismissed"
         })
+        alert?.show()
     }
     
     @IBAction func showMajorActionAlert(_ sender: AnyObject) {
-        alert = CKAlertView()
-        alert?.show(title: "可失败构造器", message: ["西洋跳棋游戏在一副黑白格交替的 10x10 的棋盘中进行。为了呈现这副游戏棋盘，Checkerboard结构体定义了一个属性boardColors，它是一个包含 100 个布尔值的数组"], cancelButtonTitle: "我知道了", majorButtonTitle: "现在去设置", anotherButtonTitle: "不在提醒") {(index) in
+        alert = CKAlertView(title: "可失败构造器", message: ["西洋跳棋游戏在一副黑白格交替的 10x10 的棋盘中进行。为了呈现这副游戏棋盘，Checkerboard结构体定义了一个属性boardColors，它是一个包含 100 个布尔值的数组"], cancelButtonTitle: "我知道了", majorButtonTitle: "现在去设置", anotherButtonTitle: "不在提醒") {(index) in
             self.lblMessage.text = "\(index) clicked, major action alert dismissed"
         }
+        alert?.show()
     }
     
     @IBAction func showCustomAlert(_ sender: AnyObject) {
-        alert = CKAlertView()
-        alert?.show(buildViewBlock: { (headerView, bodyView, footerView) in
+        alert = CKAlertView(buildViewBlock: { (headerView, bodyView, footerView) in
             if let customView = Bundle.main.loadNibNamed("CustomView", owner: self, options: nil)?.first as? UIView {
                 bodyView.addSubview(customView)
                 customView.snp.makeConstraints({ (make) in
@@ -80,6 +79,7 @@ class ViewController: UIViewController {
                 })
             }
         })
+        alert?.show()
     }
     
     @IBAction func beginSearch(_ sender: AnyObject) {
@@ -88,20 +88,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showAttributeStringAlert(_ sender: AnyObject) {
-        alert = CKAlertView()
-        alert?.show(title: "自定义文字颜色".ck_apply(color: UIColor.orange), message: ["Swift 是一门进行iOS新语言".ck_apply(color: UIColor.red),"这个函数的类型参数列紧随在两个类型参数需求的后面".ck_apply(color: UIColor.green),"如果循环体结束后未发现没有任何的不匹配，那表明两个容器匹配".ck_apply(color: UIColor.blue)], cancelButtonTitle: "确定".ck_apply(color: UIColor.purple), otherButtonTitles: nil){ index in
+        alert = CKAlertView(title: "自定义文字颜色".ck_apply(color: UIColor.orange), message: ["Swift 是一门进行iOS新语言".ck_apply(color: UIColor.red),"这个函数的类型参数列紧随在两个类型参数需求的后面".ck_apply(color: UIColor.green),"如果循环体结束后未发现没有任何的不匹配，那表明两个容器匹配".ck_apply(color: UIColor.blue)], cancelButtonTitle: "确定".ck_apply(color: UIColor.purple), otherButtonTitles: nil){ index in
             self.lblMessage.text = "One button alert dismissed"
         }
-        
+        alert?.show()
     }
     
     @IBAction func showBlueCancelAlert(_ sender: AnyObject) {
-        let alert = CKBlueCancelAlertView()
-        alert.indentationPatternWidth = ["^\\d、" : 18]
-        alert.show(title: "多彩多姿Swift", message: ["方法是与某些特定类型相关联的函数。1、类、2、结构体、3、枚举都可以定义实例方法".ck_apply(color: UIColor.red),"$","新版本方法简介","1、具体的任务与功能。类、结构体、枚举也可以定义类型方法。实例方法是被类型的某个实例调用的方法。你也可以定义类型本身调用的方法，这种方法就叫做类型方法","2、实例方法是属于某个特定类、结构体或者枚举类型","$","函数参数不同，对于方法的参数，Swift 使用不同的默认处理方式，这可以让方法命名规范更容易写".ck_apply(color: UIColor.red)], cancelButtonTitle: "现在启用" , isXHidden: false) { (index) in
+        let alert = CKAlertView(isXHidden: false ,title: "多彩多姿Swift", message: ["方法是与某些特定类型相关联的函数。1、类、2、结构体、3、枚举都可以定义实例方法".ck_apply(color: UIColor.red),"$","新版本方法简介","1、具体的任务与功能。类、结构体、枚举也可以定义类型方法。实例方法是被类型的某个实例调用的方法。你也可以定义类型本身调用的方法，这种方法就叫做类型方法","2、实例方法是属于某个特定类、结构体或者枚举类型","$","函数参数不同，对于方法的参数，Swift 使用不同的默认处理方式，这可以让方法命名规范更容易写".ck_apply(color: UIColor.red)], blueCancelButtonTitle: "现在启用") { (index) in
             self.lblMessage.text = "blue cancel button alert dismissed"
         }
-        
+        alert.indentationPatternWidth = ["^\\d、" : 18]
+        alert.show()
     }
     
     @IBAction func showSystemAlert(_ sender: AnyObject) {

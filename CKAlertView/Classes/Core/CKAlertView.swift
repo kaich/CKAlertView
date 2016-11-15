@@ -55,7 +55,13 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     /// 配置整体样式
     public static var config = CKAlertViewConfiguration()
     /// 正则 -》 缩进宽度
-    public var indentationPatternWidth :[String : CGFloat]?
+    public var indentationPatternWidth :[String : CGFloat]? {
+        didSet {
+            if let componentMaker = self.componentMaker as? CKAlertViewComponentMaker {
+                componentMaker.indentationPatternWidth = indentationPatternWidth
+            }
+        }
+    }
     /// 是否用户控制消失，如果是true那么点击按钮弹出框不自动消失
     public var isUserDismiss = false
     
@@ -128,10 +134,12 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     func installComponentMaker(maker :CKAlertViewComponentBaseMaker) {
         self.componentMaker = maker
         self.componentMaker.delegate = self
-        self.componentMaker.makeLayout()
+        self.componentMaker.makeComponents()
     }
     
-    func show() {
+    public func show() {
+        self.componentMaker.makeLayout()
+        
         let ownWindow = UIApplication.shared.keyWindow! as UIWindow
         ownWindow.addSubview(view)
         ownWindow.rootViewController?.addChildViewController(self)
@@ -232,7 +240,8 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     /// - parameter cancelButtonTitle: 取消按钮标题
     /// - parameter otherButtonTitles: 其他按钮标题
     /// - parameter completeBlock:     点击按钮后的回调
-    public func show(title alertTitle :CKAlertViewStringable, message alertMessages :[CKAlertViewStringable]?, cancelButtonTitle :CKAlertViewStringable, otherButtonTitles :[CKAlertViewStringable]? = nil, completeBlock :(((Int) -> Void))? = nil) {
+    public convenience init(title alertTitle :CKAlertViewStringable, message alertMessages :[CKAlertViewStringable]?, cancelButtonTitle :CKAlertViewStringable, otherButtonTitles :[CKAlertViewStringable]? = nil, completeBlock :(((Int) -> Void))? = nil) {
+        self.init(nibName: nil, bundle: nil)
         
         dismissCompleteBlock = completeBlock
         
@@ -241,11 +250,16 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         componentMaker.alertMessages = alertMessages
         componentMaker.cancelButtonTitle = cancelButtonTitle
         componentMaker.otherButtonTitles = otherButtonTitles
-        componentMaker.indentationPatternWidth = indentationPatternWidth
     
         installComponentMaker(maker: componentMaker)
-        
-        show()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
 }

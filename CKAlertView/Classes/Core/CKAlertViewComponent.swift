@@ -60,35 +60,40 @@ class CKAlertViewComponent: UIView {
 
 class CKAlertViewComponentBaseMaker {
     weak var delegate :CKAlertViewComponentDelegate?
-    internal(set) var headerView  :CKAlertViewComponent!
-    internal(set) var bodyView    :CKAlertViewComponent!
-    internal(set) var footerView  :CKAlertViewComponent!
+    internal lazy var headerView  :CKAlertViewComponent! = self.makeHeader()
+    internal lazy var bodyView    :CKAlertViewComponent! = self.makeBody()
+    internal lazy var footerView  :CKAlertViewComponent! = self.makeFooter()
     var cancelButtonTitle: CKAlertViewStringable?
     var otherButtonTitles :[CKAlertViewStringable]?
+    private var isMakeLayoutCompleted = false
     
-    func makeLayout() {
-        headerView = layoutHeader()
-        bodyView = layoutBody()
-        footerView = layoutFooter()
+    func makeComponents() {
         
         headerView.delegate = delegate
         bodyView.delegate = delegate
         footerView.delegate = delegate
-        
-        headerView.makeLayout()
-        bodyView.makeLayout()
-        footerView.makeLayout()
+    }
+    
+    func makeLayout() {
+        if !isMakeLayoutCompleted {
+            
+            headerView.makeLayout()
+            bodyView.makeLayout()
+            footerView.makeLayout()
+            
+            isMakeLayoutCompleted = true
+        }
     }
    
-    func layoutHeader() -> CKAlertViewComponent? {
+    func makeHeader() -> CKAlertViewComponent? {
        fatalError("layoutHeader() has not been implemented")
     }
     
-    func layoutBody() -> CKAlertViewComponent? {
+    func makeBody() -> CKAlertViewComponent? {
        fatalError("layoutBody() has not been implemented")
     }
     
-    func  layoutFooter() -> CKAlertViewComponent? {
+    func  makeFooter() -> CKAlertViewComponent? {
        fatalError("layoutFooter() has not been implemented")
     }
 }
@@ -97,24 +102,29 @@ class CKAlertViewComponentBaseMaker {
 class CKAlertViewComponentMaker : CKAlertViewComponentBaseMaker {
     var alertTitle :CKAlertViewStringable?
     var alertMessages :[CKAlertViewStringable]?
-    var indentationPatternWidth :[String : CGFloat]?
+    var indentationPatternWidth :[String : CGFloat]? {
+        didSet {
+            if let bodyView = self.bodyView as? CKAlertViewBodyView {
+                bodyView.indentationPattern2WidthDic = indentationPatternWidth
+            }
+        }
+    }
     
-    override func layoutHeader() -> CKAlertViewComponent? {
+    override func makeHeader() -> CKAlertViewComponent? {
         let headerView = CKAlertViewHeaderView()
         headerView.alertTitle = alertTitle
         
         return headerView
     }
     
-    override func layoutBody() -> CKAlertViewComponent? {
+    override func makeBody() -> CKAlertViewComponent? {
         let bodyView = CKAlertViewBodyView()
         bodyView.alertMessages = alertMessages
-        bodyView.indentationPattern2WidthDic = indentationPatternWidth
         
         return bodyView
     }
     
-    override func  layoutFooter() -> CKAlertViewComponent? {
+    override func makeFooter() -> CKAlertViewComponent? {
         let footerView = CKAlertViewFooterView()
         
         footerView.cancelButtonTitle = cancelButtonTitle

@@ -72,14 +72,12 @@ public class CKCircularProgressAlertView : CKAlertView {
         componentMaker.alertTitle = alertTitle
         componentMaker.cancelButtonTitle = cancelButtonTitle
         componentMaker.otherButtonTitles = nil
-        
-        installComponentMaker(maker: componentMaker)
-        
         componentMaker.alertMessage = alertMessage
         componentMaker.alertDetailMessage = detailMessage
         componentMaker.progress = progress
         componentMaker.progressMessage = progressMessage
         
+        installComponentMaker(maker: componentMaker)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -98,6 +96,30 @@ class CKAlertViewCircularProgressBodyView : CKAlertViewBodyView {
     let lblMessage = UILabel()
     let lblDetailMessage = UILabel()
     let lblProgressMessage = UILabel()
+    
+    var progress :Float = 0.0 {
+        didSet {
+            progressView.setProgress(CGFloat(progress), animated: true)
+        }
+    }
+    
+    var progressMessage :String?  {
+        didSet {
+            lblProgressMessage.text = progressMessage
+        }
+    }
+    
+    var alertMessage :String? {
+        didSet {
+            lblMessage.text = alertMessage
+        }
+    }
+    
+    var alertDetailMessage :String? {
+        didSet {
+            lblDetailMessage.text = alertDetailMessage
+        }
+    }
     
     override func makeLayout() {
         
@@ -150,7 +172,7 @@ class CKAlertViewComponentCircularProgressMaker :CKAlertViewComponentMaker {
     var progress :Float = 0.0 {
         didSet {
             if let circularBodyView = bodyView as? CKAlertViewCircularProgressBodyView {
-                circularBodyView.progressView.setProgress(CGFloat(progress), animated: true)
+                circularBodyView.progress = progress
             }
         }
     }
@@ -158,7 +180,7 @@ class CKAlertViewComponentCircularProgressMaker :CKAlertViewComponentMaker {
     var progressMessage :String?  {
         didSet {
             if let circularBodyView = bodyView as? CKAlertViewCircularProgressBodyView {
-                circularBodyView.lblProgressMessage.text = progressMessage
+                circularBodyView.progressMessage = progressMessage
             }
         }
     }
@@ -166,7 +188,7 @@ class CKAlertViewComponentCircularProgressMaker :CKAlertViewComponentMaker {
     var alertMessage :String? {
         didSet {
             if let circularBodyView = bodyView as? CKAlertViewCircularProgressBodyView {
-                circularBodyView.lblMessage.text = alertMessage
+                circularBodyView.alertMessage = alertMessage
             }
         }
     }
@@ -174,13 +196,13 @@ class CKAlertViewComponentCircularProgressMaker :CKAlertViewComponentMaker {
     var alertDetailMessage :String? {
         didSet {
             if let circularBodyView = bodyView as? CKAlertViewCircularProgressBodyView {
-                circularBodyView.lblDetailMessage.text = alertDetailMessage
+                circularBodyView.alertDetailMessage = alertDetailMessage
             }
         }
     }
     
     
-    override func layoutHeader() -> CKAlertViewComponent? {
+    override func makeHeader() -> CKAlertViewComponent? {
         let headerView = CKAlertViewXCloseHeaderView()
         headerView.alertTitle = alertTitle
         headerView.delegate = delegate
@@ -188,7 +210,7 @@ class CKAlertViewComponentCircularProgressMaker :CKAlertViewComponentMaker {
         return headerView
     }
     
-    override func layoutBody() -> CKAlertViewComponent? {
+    override func makeBody() -> CKAlertViewComponent? {
         let bodyView = CKAlertViewCircularProgressBodyView()
         
         return bodyView

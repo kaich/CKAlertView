@@ -9,7 +9,7 @@
 import Foundation
 
 
-public class CKBlueCancelAlertView : CKAlertView {
+public extension CKAlertView {
     
     
     /// 显示突出主功能按钮的弹出框(主功能按钮长,取消按钮和其他按钮居其下方）
@@ -19,20 +19,19 @@ public class CKBlueCancelAlertView : CKAlertView {
     /// - parameter cancelButtonTitle:  取消按钮标题
     /// - parameter otherButtonTitles: 其他按钮标题
     /// - parameter completeBlock:      点击按钮后的回调
-    public func show(title alertTitle :CKAlertViewStringable, message alertMessages :[CKAlertViewStringable]?, cancelButtonTitle :CKAlertViewStringable,  otherButtonTitles :[CKAlertViewStringable]? = nil, isXHidden :Bool = false, completeBlock :(((Int) -> Void))? = nil) {
+    public convenience init(isXHidden :Bool, title alertTitle :CKAlertViewStringable, message alertMessages :[CKAlertViewStringable]?, blueCancelButtonTitle :CKAlertViewStringable, completeBlock :(((Int) -> Void))? = nil) {
+        self.init(nibName: nil, bundle: nil)
+        
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentBlueCancelMaker()
         componentMaker.alertTitle = alertTitle
         componentMaker.alertMessages = alertMessages
-        componentMaker.cancelButtonTitle = cancelButtonTitle
-        componentMaker.otherButtonTitles = otherButtonTitles
+        componentMaker.cancelButtonTitle = blueCancelButtonTitle
         componentMaker.isXHidden = isXHidden
         componentMaker.indentationPatternWidth = indentationPatternWidth
         
         installComponentMaker(maker: componentMaker)
-        
-        show()
     }
     
 }
@@ -120,7 +119,7 @@ class CKAlertViewBlueCancelFooterView : CKAlertViewFooterView {
 class CKAlertViewComponentBlueCancelMaker :CKAlertViewComponentMaker {
     var isXHidden = false
     
-    override func layoutHeader() -> CKAlertViewComponent? {
+    override func makeHeader() -> CKAlertViewComponent? {
         let headerView = CKAlertViewXCloseHeaderView()
         headerView.alertTitle = alertTitle
         headerView.alertTitle = alertTitle
@@ -129,15 +128,15 @@ class CKAlertViewComponentBlueCancelMaker :CKAlertViewComponentMaker {
         return headerView
     }
     
-    override func layoutBody() -> CKAlertViewComponent? {
-        let bodyView = super.layoutBody()
+    override func makeBody() -> CKAlertViewComponent? {
+        let bodyView = super.makeBody()
         bodyView?.textColor = UIColor.black
         bodyView?.textFont = UIFont.systemFont(ofSize: 12)
         
         return bodyView
     }
     
-    override func layoutFooter() -> CKAlertViewComponent? {
+    override func makeFooter() -> CKAlertViewComponent? {
         let footerView = CKAlertViewBlueCancelFooterView()
         footerView.cancelButtonTitle = cancelButtonTitle
         footerView.otherButtonTitles = otherButtonTitles

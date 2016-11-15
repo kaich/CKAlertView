@@ -14,7 +14,8 @@ extension CKAlertView {
     /// 显示自定义的alert,将自定义的视图添加到headerView, bodyView, footerView上即可。可以只添加到任意一个视图上
     ///
     /// - parameter buildViewBlock: headerView 头部 ，bodyView 主体 ，footerView 尾部
-    public func show(buildViewBlock:((_ headerView :UIView, _ bodyView :UIView, _ footerView :UIView) -> Void)) {
+    public convenience init(buildViewBlock:((_ headerView :UIView, _ bodyView :UIView, _ footerView :UIView) -> Void)) {
+        self.init(nibName: nil, bundle: nil)
         
         let componentMaker = CKAlertViewComponentCustomMaker()
         installComponentMaker(maker: componentMaker)
@@ -29,17 +30,17 @@ extension CKAlertView {
 
 class CKAlertViewComponentCustomMaker :CKAlertViewComponentBaseMaker {
     
-    override func layoutHeader() -> CKAlertViewComponent? {
+    override func makeHeader() -> CKAlertViewComponent? {
         let headerView = CKAlertViewEmptyComponent()
         return headerView
     }
     
-    override func layoutBody() -> CKAlertViewComponent? {
+    override func makeBody() -> CKAlertViewComponent? {
         let bodyView = CKAlertViewEmptyComponent()
         return bodyView
     }
     
-    override func layoutFooter() -> CKAlertViewComponent? {
+    override func makeFooter() -> CKAlertViewComponent? {
         let footerView = CKAlertViewEmptyComponent()
         footerView.delegate = delegate
         return footerView
