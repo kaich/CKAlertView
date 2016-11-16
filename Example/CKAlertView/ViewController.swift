@@ -113,13 +113,14 @@ class ViewController: UIViewController {
     
     //MARK: - extension
     var progress :Float = 0.0
-    var progressMessage :String? = ""
+    var progressMessage :String? = "0/100"
     var message :String? = "正在从网络下载图片"
     var detailMessage :String? = "已用时间 00:00:00"
     var timer :Timer? = nil
     @IBAction func showCircularProgressAlert(_ sender: AnyObject) {
         timer?.invalidate()
         progress = 0.0
+        progressMessage = "0/100"
         alert = CKCircularProgressAlertView(title: "图片下载", progress: progress, progressMessage: progressMessage , message: message , detailMessage: detailMessage, cancelButtonTitle: "隐藏窗口", completeBlock: {(index) in
             self.lblMessage.text = "\(index) clicked, major action alert dismissed"
         })
