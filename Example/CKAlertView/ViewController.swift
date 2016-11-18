@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showCustomAlert(_ sender: AnyObject) {
-        alert = CKAlertView(buildViewBlock: { (headerView, bodyView, footerView) in
+        alert = CKAlertView(buildViewBlock: { (bodyView) in
             if let customView = Bundle.main.loadNibNamed("CustomView", owner: self, options: nil)?.first as? UIView {
                 bodyView.addSubview(customView)
                 customView.snp.makeConstraints({ (make) in
@@ -110,6 +110,28 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
     }
+    
+    @IBAction func showCustomInputAlert(_ sender: AnyObject) {
+        let alert = CKAlertView(title: "请输入您的密码",cancelButtonTitle: "取消", otherButtonTitles: ["确定"],buildViewBlock: { (body) in
+                let textField = UITextField()
+                textField.borderStyle = .roundedRect
+                textField.returnKeyType = .done
+                textField.isSecureTextEntry = true
+                textField.placeholder = "请输入登录密码"
+                textField.font = UIFont.systemFont(ofSize: 14)
+                body.addSubview(textField)
+                textField.snp.makeConstraints({ (make) in
+                    make.left.equalTo(body).offset(20)
+                    make.right.equalTo(body).offset(-20)
+                    make.top.equalTo(body).offset(13)
+                    make.height.equalTo(35)
+                    make.bottom.equalTo(body).offset(-20)
+                })
+                
+            })
+        alert.show()
+    }
+    
     
     //MARK: - extension
     var progress :Float = 0.0

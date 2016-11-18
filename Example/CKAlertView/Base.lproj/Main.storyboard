@@ -100,6 +100,12 @@
                                     <action selector="showSystemAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Flk-j1-AJD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auX-qf-Jtv">
+                                <state key="normal" title="TextField弹出框"/>
+                                <connections>
+                                    <action selector="showCustomInputAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="UjB-jz-TgC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.6705882353" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -107,6 +113,7 @@
                             <constraint firstItem="WtN-b3-3jT" firstAttribute="leading" secondItem="8Va-Rn-acx" secondAttribute="trailing" constant="24" id="2CQ-qf-LDl"/>
                             <constraint firstItem="fiL-cw-VUk" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="2dM-ar-jsr"/>
                             <constraint firstItem="3Xs-8B-Rl6" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="8Zy-XW-Wwb"/>
+                            <constraint firstItem="auX-qf-Jtv" firstAttribute="leading" secondItem="5ID-R7-TJL" secondAttribute="trailing" constant="21" id="9A3-WF-3Gr"/>
                             <constraint firstItem="b82-I2-LeI" firstAttribute="leading" secondItem="USi-Vw-sLL" secondAttribute="trailing" constant="22" id="CIT-lH-A0c"/>
                             <constraint firstItem="fiL-cw-VUk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="CXX-C4-BqG"/>
                             <constraint firstItem="b82-I2-LeI" firstAttribute="top" secondItem="ukZ-Ou-9vg" secondAttribute="bottom" constant="21" id="HsP-gH-7QS"/>
@@ -119,6 +126,7 @@
                             <constraint firstItem="USi-Vw-sLL" firstAttribute="leading" secondItem="T2X-Us-Duf" secondAttribute="trailing" constant="24" id="Ygt-bg-9jS"/>
                             <constraint firstItem="tjf-Ju-Rdo" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="bn8-cT-DYa"/>
                             <constraint firstItem="WtN-b3-3jT" firstAttribute="top" secondItem="USi-Vw-sLL" secondAttribute="bottom" constant="23" id="dX2-2D-w0w"/>
+                            <constraint firstItem="auX-qf-Jtv" firstAttribute="top" secondItem="6TM-JS-RDg" secondAttribute="bottom" constant="22" id="fBU-u3-KSS"/>
                             <constraint firstItem="ILP-7i-aID" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="g3w-hu-apH"/>
                             <constraint firstItem="6TM-JS-RDg" firstAttribute="top" secondItem="b82-I2-LeI" secondAttribute="bottom" constant="23" id="g5O-9j-mj1"/>
                             <constraint firstItem="3Xs-8B-Rl6" firstAttribute="leading" secondItem="tjf-Ju-Rdo" secondAttribute="trailing" constant="40" id="i1D-Kg-rFH"/>

@@ -63,6 +63,7 @@ class CKAlertViewComponentBaseMaker {
     internal lazy var headerView  :CKAlertViewComponent! = self.makeHeader()
     internal lazy var bodyView    :CKAlertViewComponent! = self.makeBody()
     internal lazy var footerView  :CKAlertViewComponent! = self.makeFooter()
+    var alertTitle :CKAlertViewStringable?
     var cancelButtonTitle: CKAlertViewStringable?
     var otherButtonTitles :[CKAlertViewStringable]?
     private var isMakeLayoutCompleted = false
@@ -100,7 +101,6 @@ class CKAlertViewComponentBaseMaker {
 
 
 class CKAlertViewComponentMaker : CKAlertViewComponentBaseMaker {
-    var alertTitle :CKAlertViewStringable?
     var alertMessages :[CKAlertViewStringable]?
     var indentationPatternWidth :[String : CGFloat]? {
         didSet {
@@ -145,6 +145,10 @@ class CKAlertViewHeaderView: CKAlertViewComponent {
     }
     
     override func makeLayout() {
+        guard let finalAlertTitle = alertTitle else {
+            return
+        }
+        
         let titleLabel = UILabel()
         titleLabel.backgroundColor = UIColor.clear
         titleLabel.numberOfLines = 0
@@ -209,6 +213,7 @@ class CKAlertViewBodyView: CKAlertViewComponent {
                     messageLabel.isSelectable = false
                     messageLabel.isScrollEnabled = false
                     messageLabel.backgroundColor = UIColor.clear
+                    messageLabel.textContainer.lineBreakMode = .byCharWrapping
                     messageLabel.font = textFont
                     messageLabel.textColor = textColor
                     messageLabel.textAlignment = .left
@@ -316,6 +321,10 @@ class CKAlertViewFooterView: CKAlertViewComponent {
     
     
     override func makeLayout() {
+        guard  cancelButtonTitle != nil || otherButtons.count > 0 else {
+            return 
+        }
+        
         makeFooterTopHSplitLine()
         makeButtons(cancelButtonTitle: cancelButtonTitle, otherButtonTitles: otherButtonTitles)
         
@@ -328,7 +337,7 @@ class CKAlertViewFooterView: CKAlertViewComponent {
                 layoutMultiButtons()
             }
         }
-        else {
+        else if let cancelButtonTitle  = cancelButtonTitle {
             layoutOnlyCancelButton()
         }
     }
