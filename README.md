@@ -31,6 +31,8 @@
 
 <img src="./Screenshot/custom_view.png" width="200">
 
+<img src="./Screenshot/text_input.png" width="200">
+
 Extension：   	
 
 <img src="./Screenshot/extension_circular_progress.png" width="200">
@@ -38,7 +40,6 @@ Extension：
 
 ## Note
 
-* 该项目的目的是利用高的可重用性代码进行收集编写各种各样的AlertView，所以暂时未为完全自定义界面提供接口。之后会添加该方法
 * 监听值的类型请继承CKAlertView，参考CKCircularProgressAlertView
 
 ## relase 
