@@ -17,6 +17,8 @@ extension CKAlertView {
     public convenience init(title alertTitle: CKAlertViewStringable? = nil, cancelButtonTitle :CKAlertViewStringable? = nil, otherButtonTitles :[CKAlertViewStringable]? = nil, buildViewBlock:((_ bodyView :UIView) -> Void), completeBlock :(((Int) -> Void))? = nil) {
         self.init(nibName: nil, bundle: nil)
         
+        dismissCompleteBlock = completeBlock
+        
         let componentMaker = CKAlertViewComponentCustomMaker()
         
         componentMaker.alertTitle = alertTitle
