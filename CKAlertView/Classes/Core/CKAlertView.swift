@@ -95,7 +95,6 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     }
     
     
-    
     override public func viewDidLoad() {
         super.viewDidLoad()
         
@@ -221,12 +220,12 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     
     //MARK: - CKAlertViewComponentDelegate
     func  clickButton(at index :Int) {
-        if !isUserDismiss {
-            dismiss()
-        }
-        
         if let completeBlock = dismissCompleteBlock {
             completeBlock(index)
+        }
+        
+        if !isUserDismiss {
+            dismiss()
         }
     }
     
