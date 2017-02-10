@@ -67,7 +67,6 @@ class CKAlertViewXCloseHeaderView : CKAlertViewHeaderView {
             })
             
             
-            
             btnX.setImage(UIImage.make(name: "close_28x28"), for: .normal)
             btnX.addTarget(self, action: #selector(clickButtonX), for: .touchUpInside)
             addSubview(btnX)

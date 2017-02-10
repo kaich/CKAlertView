@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		044C62E58A22B353F3E0B533BD8095AC /* close_28x28@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B36CE724D546A225A4E03BB4FA76791F /* close_28x28@3x.png */; };
+		04A91ACB1E4C5332009F2288 /* CKAlertViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A91ACA1E4C5331009F2288 /* CKAlertViewAnimator.swift */; };
 		05401A0BBB5719364CB73677ACC7350B /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E20233FC0BCBA1E0DD337B930AD52 /* ConstraintAttributes.swift */; };
 		0DD37681AE729F27FEB50B879C3ADD73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D5AE9A9709F0D434E6D804F1D77876 /* Foundation.framework */; };
 		1179FBCB9F81A94027E71C0D85BCD7CF /* CKAlertView+ImageBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA16F7694163F675FDC907675742764 /* CKAlertView+ImageBody.swift */; };
@@ -128,7 +129,8 @@
 
 /* Begin PBXFileReference section */
 		01655AE69B4A5663E2C70D32C7BD9B7C /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
-		054443A5BBADA4FDB16366F941A4AFDF /* CKAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CKAlertView.modulemap; sourceTree = "<group>"; };
+		04A91ACA1E4C5331009F2288 /* CKAlertViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAlertViewAnimator.swift; sourceTree = "<group>"; };
+		054443A5BBADA4FDB16366F941A4AFDF /* CKAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CKAlertView.modulemap; sourceTree = "<group>"; };
 		05DC23CD2AD15F16C55AA7AC79ED46E3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		090EC4391BC2354A3CCFD516DF661615 /* DACircularProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DACircularProgressView.m; path = DACircularProgress/DACircularProgressView.m; sourceTree = "<group>"; };
 		09F422D7330FB2668E32B4CAEE79E21F /* ResourceBundle-CKAlertView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-CKAlertView-Info.plist"; sourceTree = "<group>"; };
@@ -149,12 +151,12 @@
 		376F944CE4FB2189A7FC0C3BBBC49238 /* Pods-CKAlertView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CKAlertView_Example-dummy.m"; sourceTree = "<group>"; };
 		3A643BFE577A3DE6FB6DC8BBBB88036A /* CKAlertView+Custom.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CKAlertView+Custom.swift"; sourceTree = "<group>"; };
 		3B3563BF976245E76BC708CC0498B66B /* SnapKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-umbrella.h"; sourceTree = "<group>"; };
-		3BEE2B156C9B24B4132210AA6019655E /* Pods-CKAlertView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-CKAlertView_Example.modulemap"; sourceTree = "<group>"; };
-		3DBC9DF05B130A413E2474648D9613F3 /* Pods_CKAlertView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CKAlertView_Tests.framework; path = "Pods-CKAlertView_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BEE2B156C9B24B4132210AA6019655E /* Pods-CKAlertView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CKAlertView_Example.modulemap"; sourceTree = "<group>"; };
+		3DBC9DF05B130A413E2474648D9613F3 /* Pods_CKAlertView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CKAlertView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DD7D596B2B9AAC253292DB52CB73F27 /* Pods-CKAlertView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CKAlertView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		46E880F980E6D77CBDDCF3D6E7FBB80D /* Pods-CKAlertView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-CKAlertView_Tests.modulemap"; sourceTree = "<group>"; };
-		47E1BC2E84ACB8980DC845CAA2F7C683 /* close_28x28.png */ = {isa = PBXFileReference; includeInIndex = 1; path = close_28x28.png; sourceTree = "<group>"; };
-		47E21CE65370DB18AED5376E000ED805 /* DACircularProgress.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DACircularProgress.modulemap; sourceTree = "<group>"; };
+		46E880F980E6D77CBDDCF3D6E7FBB80D /* Pods-CKAlertView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CKAlertView_Tests.modulemap"; sourceTree = "<group>"; };
+		47E1BC2E84ACB8980DC845CAA2F7C683 /* close_28x28.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = close_28x28.png; sourceTree = "<group>"; };
+		47E21CE65370DB18AED5376E000ED805 /* DACircularProgress.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DACircularProgress.modulemap; sourceTree = "<group>"; };
 		4A19B8149AD47D1BCB0D0C8D42280FFE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AE207DE472A9BAFAB464F6E8CE87E09 /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
 		4B878971FE5367BC84248D7B146886F0 /* DACircularProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DACircularProgressView.h; path = DACircularProgress/DACircularProgressView.h; sourceTree = "<group>"; };
@@ -164,38 +166,38 @@
 		4F0720E83B850707F59F7EAD50691AC8 /* ConstraintMakerPriortizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPriortizable.swift; path = Source/ConstraintMakerPriortizable.swift; sourceTree = "<group>"; };
 		5022DABB50402C4ED306939AA9DCCC33 /* ConstraintConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConfig.swift; path = Source/ConstraintConfig.swift; sourceTree = "<group>"; };
 		5142B86D3B3A205A7FB77766CD9BCE52 /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuideDSL.swift; path = Source/ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
-		53D463B63F4A6B7FA9B48A866DD3D761 /* close_28x28@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; path = "close_28x28@2x.png"; sourceTree = "<group>"; };
+		53D463B63F4A6B7FA9B48A866DD3D761 /* close_28x28@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "close_28x28@2x.png"; sourceTree = "<group>"; };
 		53E37FFBDC1AFED36F455D5CFA7F4D85 /* UILabel+Alert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UILabel+Alert.swift"; sourceTree = "<group>"; };
 		54F194B23906597A0ACB2ABBEFE13747 /* DACircularProgress.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DACircularProgress.xcconfig; sourceTree = "<group>"; };
-		55423100C7E8522E909925A9E9D574D6 /* CKAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CKAlertView.framework; path = CKAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55423100C7E8522E909925A9E9D574D6 /* CKAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CKAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		596F38C78739E385264B408CEBF7FCC6 /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Source/ConstraintView.swift; sourceTree = "<group>"; };
 		5BD01B4B57B069A1B56C24E7378C13E4 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Source/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
 		5FC43C4F916888DF65EFE07F2E67B90C /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Source/ConstraintItem.swift; sourceTree = "<group>"; };
 		64285501CD9BEF7D8C79A4D6DC351A97 /* ConstraintDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDSL.swift; path = Source/ConstraintDSL.swift; sourceTree = "<group>"; };
-		6BA507466DF8D971A6A659B87BBFC853 /* CKAlertView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CKAlertView.bundle; path = CKAlertView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BA507466DF8D971A6A659B87BBFC853 /* CKAlertView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CKAlertView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		777F7F636219F1EEC823E647DF2ADDC7 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Source/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
 		7D5C50DE77C7EB65073BC2A1A619E48A /* Pods-CKAlertView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CKAlertView_Example-resources.sh"; sourceTree = "<group>"; };
 		852A21BC29A6B1F39B5A7783CB7819A8 /* Pods-CKAlertView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CKAlertView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8ADB852CB5A4ADBD29839D07431F0B16 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Source/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
 		8BB8E1E32C66ABB9BE50A6BCF4F50440 /* DACircularProgress-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DACircularProgress-dummy.m"; sourceTree = "<group>"; };
-		8D62013B8A641F939ED1330B4351C900 /* Pods_CKAlertView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CKAlertView_Example.framework; path = "Pods-CKAlertView_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D62013B8A641F939ED1330B4351C900 /* Pods_CKAlertView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CKAlertView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA6E78C87D016F2C4DC0CE111143624 /* Pods-CKAlertView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CKAlertView_Tests-dummy.m"; sourceTree = "<group>"; };
 		8EF904F6AC4DEFB8A3F6EF99160654E8 /* UITextView+Alert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITextView+Alert.swift"; sourceTree = "<group>"; };
 		91C5872237A5B82B6F0E75CA2190465E /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
 		91E23D63459C4316ABE39476F8CE7759 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerRelatable.swift; path = Source/ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
 		930A89709F67A64DF223DD0B2F3EF5FA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93B10D1DA8E140CC744AAAA4D078C69C /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerExtendable.swift; path = Source/ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
 		948EC652EB6AA89AF28AEBD51FEB4819 /* DACircularProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DACircularProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98150A41CA696D8AEB21B06125E5F3FF /* DACircularProgress-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DACircularProgress-prefix.pch"; sourceTree = "<group>"; };
 		9BB39378653DAB0624C5E445E7A4837A /* Pods-CKAlertView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CKAlertView_Example-frameworks.sh"; sourceTree = "<group>"; };
 		9C97F9B291BDEC3815AFC2B1DC701798 /* CKAlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CKAlertView.swift; sourceTree = "<group>"; };
-		9CBA13520049A6C4A5C60B867DA128E9 /* DACircularProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DACircularProgress.framework; path = DACircularProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CBA13520049A6C4A5C60B867DA128E9 /* DACircularProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DACircularProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E637DD396F5B42833C67C3BA2EB499F /* CKAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CKAlertView.xcconfig; sourceTree = "<group>"; };
 		A1D5AE9A9709F0D434E6D804F1D77876 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A72D8568548D222CF428F85D5D208572 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A72D8568548D222CF428F85D5D208572 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A852EDE617FC1435BF8225034E49DA0D /* Pods-CKAlertView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CKAlertView_Example.release.xcconfig"; sourceTree = "<group>"; };
-		B36CE724D546A225A4E03BB4FA76791F /* close_28x28@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; path = "close_28x28@3x.png"; sourceTree = "<group>"; };
+		B36CE724D546A225A4E03BB4FA76791F /* close_28x28@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "close_28x28@3x.png"; sourceTree = "<group>"; };
 		B4B94B7E00E7349A4A1A9EC876DC631D /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Source/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		B7DA20152C5BC9C2F7444E45DE1A3AC9 /* DALabeledCircularProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DALabeledCircularProgressView.h; path = DACircularProgress/DALabeledCircularProgressView.h; sourceTree = "<group>"; };
 		BC16F1B5DE1E7A5562C2017D2B5ED366 /* LayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraint.swift; path = Source/LayoutConstraint.swift; sourceTree = "<group>"; };
@@ -208,7 +210,7 @@
 		CD401670EB55C43E445FFE227F14319D /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Source/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
 		CEB33B9F7C5CA1589E534FC71B1DB40E /* Pods-CKAlertView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CKAlertView_Tests-umbrella.h"; sourceTree = "<group>"; };
 		D1DB63648532671FE1246C9137D6E3CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		D780A94CF5C0FB22BBFF49FE4EAB2F23 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SnapKit.modulemap; sourceTree = "<group>"; };
+		D780A94CF5C0FB22BBFF49FE4EAB2F23 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SnapKit.modulemap; sourceTree = "<group>"; };
 		D802E3317CC5ABC9694FCF882BD731D2 /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsetTarget.swift; path = Source/ConstraintInsetTarget.swift; sourceTree = "<group>"; };
 		DBD79474DC81CED45DDFBEBC358BC17A /* CKAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CKAlertView-prefix.pch"; sourceTree = "<group>"; };
 		DC69DC4D91B1F96EFAE5BC411D4B6480 /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Source/ConstraintMaker.swift; sourceTree = "<group>"; };
@@ -297,7 +299,6 @@
 				53E37FFBDC1AFED36F455D5CFA7F4D85 /* UILabel+Alert.swift */,
 				8EF904F6AC4DEFB8A3F6EF99160654E8 /* UITextView+Alert.swift */,
 			);
-			name = Category;
 			path = Category;
 			sourceTree = "<group>";
 		};
@@ -314,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				9C97F9B291BDEC3815AFC2B1DC701798 /* CKAlertView.swift */,
+				04A91ACA1E4C5331009F2288 /* CKAlertViewAnimator.swift */,
 				339784C6F66F4952DDE4E2AB257A0FA4 /* CKAlertView+BlueCancel.swift */,
 				3A643BFE577A3DE6FB6DC8BBBB88036A /* CKAlertView+Custom.swift */,
 				1BA16F7694163F675FDC907675742764 /* CKAlertView+ImageBody.swift */,
@@ -322,7 +324,6 @@
 				E08A5F361797023F1603B93C46884F36 /* CKAlertViewComponent.swift */,
 				0859480AEEC8EBF1C46E3EDD474F57E3 /* Category */,
 			);
-			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -331,7 +332,6 @@
 			children = (
 				F038D3B209A810F34C0116F1D2E7D316 /* Assets */,
 			);
-			name = CKAlertView;
 			path = CKAlertView;
 			sourceTree = "<group>";
 		};
@@ -382,7 +382,6 @@
 				0D69B9382B868C650B7C479F8708322C /* DALabeledCircularProgressView.m */,
 				D0B08B16180B3FFE3CAC8C0B4264C09E /* Support Files */,
 			);
-			name = DACircularProgress;
 			path = DACircularProgress;
 			sourceTree = "<group>";
 		};
@@ -391,7 +390,6 @@
 			children = (
 				63D9B18FD5AC2EF0CEE917B3ADC70D2A /* Classes */,
 			);
-			name = CKAlertView;
 			path = CKAlertView;
 			sourceTree = "<group>";
 		};
@@ -400,7 +398,6 @@
 			children = (
 				08B2695FB8405BCF6F773116E76B5D4B /* Core */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -429,7 +426,6 @@
 			children = (
 				A60A069657A32FF2BAFD1877B4D9857F /* Extension */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -438,7 +434,6 @@
 			children = (
 				83AB6282389E89FFE1F2DBB46C26FEDB /* Classes */,
 			);
-			name = CKAlertView;
 			path = CKAlertView;
 			sourceTree = "<group>";
 		};
@@ -470,7 +465,6 @@
 			children = (
 				E0A4DC94B5B3439AA2B2B1896B8F49B8 /* CKCircularProgressAlertView.swift */,
 			);
-			name = Extension;
 			path = Extension;
 			sourceTree = "<group>";
 		};
@@ -550,7 +544,6 @@
 				53D463B63F4A6B7FA9B48A866DD3D761 /* close_28x28@2x.png */,
 				B36CE724D546A225A4E03BB4FA76791F /* close_28x28@3x.png */,
 			);
-			name = Assets;
 			path = Assets;
 			sourceTree = "<group>";
 		};
@@ -608,7 +601,6 @@
 				CD401670EB55C43E445FFE227F14319D /* UILayoutSupport+Extensions.swift */,
 				B5FE3A143D9970B9B6E6B4E51D9DFA64 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -892,6 +884,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A91ACB1E4C5332009F2288 /* CKAlertViewAnimator.swift in Sources */,
 				BAF9446D763A992727A4298BDFB5BF4A /* CKAlertView+BlueCancel.swift in Sources */,
 				F88B31FA499BF5F6299823418F67D32B /* CKAlertView+Custom.swift in Sources */,
 				1179FBCB9F81A94027E71C0D85BCD7CF /* CKAlertView+ImageBody.swift in Sources */,

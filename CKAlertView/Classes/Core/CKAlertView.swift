@@ -64,6 +64,8 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     }
     /// 是否用户控制消失，如果是true那么点击按钮弹出框不自动消失
     public var isUserDismiss = false
+    /// 显示以及消失动画
+    public var animator :CKAlertViewAnimatable?
     
     var overlayView = UIView()
     var containerView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
@@ -144,11 +146,14 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         ownWindow.rootViewController?.addChildViewController(self)
         updateViewConstraints()
         
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.65, initialSpringVelocity: 1, options: .curveLinear, animations: {
-            self.view.alpha = 1
-            self.containerView.layoutIfNeeded()
+        var complete = {
             self._isShow = true
-        })
+        }
+        
+        animator?.show { Void in
+           complete()
+        }
+        
     }
     
     
@@ -164,9 +169,8 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         }
         
         if isAnimate == true {
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.alpha = 0
-            }) { (_) in
+            
+            animator?.dismiss {
                 dismissBlock()
             }
         }
@@ -259,6 +263,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        animator = CKAlertViewSpringAnimator(alertView: self)
     }
 
 }
