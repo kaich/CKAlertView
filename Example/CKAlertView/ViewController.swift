@@ -98,6 +98,7 @@ class ViewController: UIViewController {
         let alert = CKAlertView(isXHidden: false ,title: "多彩多姿Swift", message: ["方法是与某些特定类型相关联的函数。1、类、2、结构体、3、枚举都可以定义实例方法".ck_apply(color: UIColor.red),"$","新版本方法简介","1、具体的任务与功能。类、结构体、枚举也可以定义类型方法。实例方法是被类型的某个实例调用的方法。你也可以定义类型本身调用的方法，这种方法就叫做类型方法","2、实例方法是属于某个特定类、结构体或者枚举类型","$","函数参数不同，对于方法的参数，Swift 使用不同的默认处理方式，这可以让方法命名规范更容易写".ck_apply(color: UIColor.red)], blueCancelButtonTitle: "现在启用") { (index) in
             self.lblMessage.text = "blue cancel button alert dismissed"
         }
+//        alert.animator = CKAlertDropDownAnimator(alertView: alert)
         alert.indentationPatternWidth = ["^\\d、" : 18]
         alert.show()
     }
