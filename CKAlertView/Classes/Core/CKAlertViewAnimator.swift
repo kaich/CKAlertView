@@ -159,7 +159,6 @@ public class CKAlertViewRippleAnimator: NSObject, CKAlertViewAnimatable, CAAnima
 //落下
 public class CKAlertDropDownAnimator: NSObject, CKAlertViewAnimatable {
     public var alertView: CKAlertView?
-    var isAnimating = false
     lazy var animator: UIDynamicAnimator = {
         return UIDynamicAnimator(referenceView: (self.alertView?.view)!)
     }()
@@ -169,9 +168,6 @@ public class CKAlertDropDownAnimator: NSObject, CKAlertViewAnimatable {
     }
     
     public func show(completeBlock :((Void) -> Void)?) {
-        guard isAnimating == false else {
-            return
-        }
         if let containerView = alertView?.containerView , let overlayView = alertView?.overlayView, let view = alertView?.view {
             containerView.snp.remakeConstraints({ (make) in
                 make.centerX.equalTo(view)
@@ -211,9 +207,6 @@ public class CKAlertDropDownAnimator: NSObject, CKAlertViewAnimatable {
     }
     
     public func dismiss(completeBlock: ((Void) -> Void)?) {
-        guard isAnimating == false else {
-            return
-        }
         if let containerView = alertView?.containerView , let overlayView = alertView?.overlayView, let view = alertView?.view  {
             containerView.snp.remakeConstraints({ (make) in
                 make.center.equalTo(view)

@@ -64,8 +64,11 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     }
     /// 是否用户控制消失，如果是true那么点击按钮弹出框不自动消失
     public var isUserDismiss = false
-    /// 显示以及消失动画
+    /// 显示以及消失动画(默认提供了弹簧动画CKAlertViewSpringAnimator)
     public var animator :CKAlertViewAnimatable?
+    /// 交互(默认提供了简单的交互CKAlertViewAttachmentInteractiveHandler)
+    public var interactiveHandler: CKAlertViewInteractive?
+    
     
     var overlayView = UIView()
     var containerView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
@@ -124,6 +127,10 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
 
         makeConstraint()
         
+        if let interactiveHandler = self.interactiveHandler {
+            interactiveHandler.setupAfterLoaded()
+        }
+        
     }
     
     override public func didReceiveMemoryWarning() {
@@ -151,7 +158,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         }
         
         animator?.show { Void in
-           complete()
+            complete()
         }
         
     }
@@ -264,6 +271,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         animator = CKAlertViewSpringAnimator(alertView: self)
+        interactiveHandler = CKAlertViewAttachmentInteractiveHandler(alertView: self)
     }
 
 }

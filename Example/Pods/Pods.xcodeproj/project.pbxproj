@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		044C62E58A22B353F3E0B533BD8095AC /* close_28x28@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B36CE724D546A225A4E03BB4FA76791F /* close_28x28@3x.png */; };
+		045854561E66E7010052F0D3 /* CKAlertViewInteractiveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045854551E66E7010052F0D3 /* CKAlertViewInteractiveHandler.swift */; };
 		04A91ACB1E4C5332009F2288 /* CKAlertViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A91ACA1E4C5331009F2288 /* CKAlertViewAnimator.swift */; };
 		05401A0BBB5719364CB73677ACC7350B /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E20233FC0BCBA1E0DD337B930AD52 /* ConstraintAttributes.swift */; };
 		0DD37681AE729F27FEB50B879C3ADD73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D5AE9A9709F0D434E6D804F1D77876 /* Foundation.framework */; };
@@ -129,6 +130,7 @@
 
 /* Begin PBXFileReference section */
 		01655AE69B4A5663E2C70D32C7BD9B7C /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
+		045854551E66E7010052F0D3 /* CKAlertViewInteractiveHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAlertViewInteractiveHandler.swift; sourceTree = "<group>"; };
 		04A91ACA1E4C5331009F2288 /* CKAlertViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAlertViewAnimator.swift; sourceTree = "<group>"; };
 		054443A5BBADA4FDB16366F941A4AFDF /* CKAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CKAlertView.modulemap; sourceTree = "<group>"; };
 		05DC23CD2AD15F16C55AA7AC79ED46E3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				9C97F9B291BDEC3815AFC2B1DC701798 /* CKAlertView.swift */,
+				045854551E66E7010052F0D3 /* CKAlertViewInteractiveHandler.swift */,
 				04A91ACA1E4C5331009F2288 /* CKAlertViewAnimator.swift */,
 				339784C6F66F4952DDE4E2AB257A0FA4 /* CKAlertView+BlueCancel.swift */,
 				3A643BFE577A3DE6FB6DC8BBBB88036A /* CKAlertView+Custom.swift */,
@@ -887,6 +890,7 @@
 				04A91ACB1E4C5332009F2288 /* CKAlertViewAnimator.swift in Sources */,
 				BAF9446D763A992727A4298BDFB5BF4A /* CKAlertView+BlueCancel.swift in Sources */,
 				F88B31FA499BF5F6299823418F67D32B /* CKAlertView+Custom.swift in Sources */,
+				045854561E66E7010052F0D3 /* CKAlertViewInteractiveHandler.swift in Sources */,
 				1179FBCB9F81A94027E71C0D85BCD7CF /* CKAlertView+ImageBody.swift in Sources */,
 				65744C09DA14BCEB66FC986CEA9605E0 /* CKAlertView+ImageHeader.swift in Sources */,
 				C46D5A23EDCAAE19F6D1612F587B2856 /* CKAlertView+MajorAction.swift in Sources */,
