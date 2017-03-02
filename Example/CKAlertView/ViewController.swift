@@ -29,7 +29,6 @@ class ViewController: UIViewController {
         alert = CKAlertView(title: "无法安装‘爱奇艺视频播放’，因苹果系统的限制您可以选择如下方法解决", message: ["Swift 是一门进行iOS新语言"], cancelButtonTitle: "确定", otherButtonTitles: nil){ index in
             self.lblMessage.text = "One button alert dismissed"
         }
-        alert?.animator = CKAlertDropDownAnimator(alertView: alert)
         alert?.show()
         
     }
@@ -38,7 +37,6 @@ class ViewController: UIViewController {
         alert = CKAlertView(title: "创建一个其自身类型为可选类型的对象", message: ["如果一个类，结构体或枚举类型的对象，在构造自身的过程中有可能失败，则为其定义一个可失败构造器，是非常有必要的"], cancelButtonTitle: "取消", otherButtonTitles: ["确定"]){ index in
             self.lblMessage.text = "\(index) clicked,two button alert dismissed"
         }
-        alert?.animator = CKAlertViewRippleAnimator(alertView: alert)
         alert?.show()
     }
 
