@@ -144,11 +144,8 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         }
         
         if #available(iOS 9, *){
-            if traitCollection.forceTouchCapability == .available{
-                print("force touch capability on this device")
-                forceGesture = CKForceGestureRecognizer(target: self, action: #selector(handleForceGesture))
-                containerView.addGestureRecognizer(forceGesture!)
-            }
+            forceGesture = CKForceGestureRecognizer(target: self, action: #selector(handleForceGesture))
+            containerView.addGestureRecognizer(forceGesture!)
         }
         
     }
@@ -216,7 +213,9 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         
         containerView.snp.makeConstraints { (make) in
             make.center.equalTo(view.snp.center)
-            make.height.lessThanOrEqualTo(view.snp.height).offset(-40)
+            if isScrollEnabled {
+                make.height.lessThanOrEqualTo(view.snp.height).offset(-40)
+            }
             if CKAlertView.config.isFixedContentWidth {
                 make.width.equalTo(CKAlertView.config.contentWidth)
             }
@@ -306,26 +305,6 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
 
 
 extension CKAlertView {
-    
-    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        if #available(iOS 9, *){
-            
-            if traitCollection.forceTouchCapability != previousTraitCollection?.forceTouchCapability {
-                
-                if traitCollection.forceTouchCapability == .available{
-                    
-                    if forceGesture == nil {
-                        //the app apparently started without 3D touch enabled, so the 3D touch gestureRecognizer was never initialized. Do this now.
-                        forceGesture = CKForceGestureRecognizer(target: self, action: #selector(handleForceGesture))
-                        containerView.addGestureRecognizer(forceGesture!)
-                    }
-                }
-            }
-        }
-    }
-    
     
     func handleForceGesture() {
         if let forceGestureHandler = self.forceGestureBlock {
