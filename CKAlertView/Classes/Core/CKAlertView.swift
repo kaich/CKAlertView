@@ -62,6 +62,8 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
             }
         }
     }
+    //超出屏幕的时候是否允许滑动
+    public var isScrollEnabled = false
     /// 是否用户控制消失，如果是true那么点击按钮弹出框不自动消失
     public var isUserDismiss = false
     /// 显示以及消失动画(默认提供了弹簧动画CKAlertViewSpringAnimator)
@@ -74,6 +76,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     
     var overlayView = UIView()
     var containerView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+    var contentScrollView = UIScrollView()
     var componentMaker :CKAlertViewComponentBaseMaker!
     
     var headerView  :CKAlertViewComponent! {
@@ -118,14 +121,21 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         containerView.layer.masksToBounds = true
         view.addSubview(containerView)
         
+        contentScrollView.backgroundColor = UIColor.clear
+        contentScrollView.bounces = false
+        contentScrollView.isScrollEnabled = isScrollEnabled
+        contentScrollView.showsVerticalScrollIndicator = false
+        contentScrollView.showsHorizontalScrollIndicator = false
+        containerView.contentView.addSubview(contentScrollView)
+        
         headerView.backgroundColor = UIColor.clear
-        containerView.contentView.addSubview(headerView)
+        contentScrollView.addSubview(headerView)
         
         bodyView.backgroundColor = UIColor.clear
-        containerView.contentView.addSubview(bodyView)
+        contentScrollView.addSubview(bodyView)
         
         footerView.backgroundColor = UIColor.clear
-        containerView.contentView.addSubview(footerView)
+        contentScrollView.addSubview(footerView)
 
         makeConstraint()
         
@@ -206,13 +216,19 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         
         containerView.snp.makeConstraints { (make) in
             make.center.equalTo(view.snp.center)
+            make.height.lessThanOrEqualTo(view.snp.height).offset(-40)
             if CKAlertView.config.isFixedContentWidth {
                 make.width.equalTo(CKAlertView.config.contentWidth)
             }
         }
         
+        contentScrollView.snp.makeConstraints { (make) in
+            make.left.right.top.bottom.equalTo(containerView.contentView)
+        }
+        
         headerView.snp.makeConstraints { (make) in
-            make.top.equalTo(containerView)
+            make.top.equalTo(contentScrollView)
+            make.top.equalTo(containerView).priority(100)
             make.left.right.equalTo(containerView.contentView)
         }
         
@@ -220,12 +236,14 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
             make.top.equalTo(headerView.snp.bottom)
             make.left.right.equalTo(containerView.contentView)
         }
-        
+
         footerView.snp.makeConstraints { (make) in
             make.top.equalTo(bodyView.snp.bottom)
             make.left.right.equalTo(containerView.contentView)
-            make.bottom.equalTo(containerView.contentView)
+            make.bottom.equalTo(contentScrollView)
+            make.bottom.equalTo(containerView.contentView).priority(100)
         }
+        
     }
     
     
