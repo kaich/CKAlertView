@@ -21,4 +21,6 @@ public protocol CKAlertViewStringable {
     func ck_apply(color :UIColor) -> NSAttributedString
     
     func ck_apply(indent :CGFloat , style :CKIndentStyle) -> NSAttributedString
+    
+    func ck_apply(lineSpacing :CGFloat) -> NSAttributedString
 }

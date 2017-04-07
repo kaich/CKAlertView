@@ -140,12 +140,12 @@ class CKAlertViewHeaderView: CKAlertViewComponent {
     var alertTitle :CKAlertViewStringable?
     
     override func setup () {
-        self.textFont = CKAlertView.config.titleFont
+        self.textFont = CKAlertView.Config.titleFont
         self.textColor = UIColor.black
     }
     
     override func makeLayout() {
-        guard let finalAlertTitle = alertTitle else {
+        guard alertTitle != nil else {
             return
         }
         
@@ -173,7 +173,7 @@ class CKAlertViewBodyView: CKAlertViewComponent {
     var alertMessages :[CKAlertViewStringable]?
     
     override func setup () {
-        self.textFont = CKAlertView.config.messageFont
+        self.textFont = CKAlertView.Config.messageFont
         self.textColor = UIColor.black
     }
     
@@ -237,10 +237,10 @@ class CKAlertViewBodyView: CKAlertViewComponent {
                                 make.top.equalTo(self)
                             } else {
                                 if isParagraphBegin == true {
-                                    make.top.equalTo(lastMessageLabel!.snp.bottom).offset(10)
+                                    make.top.equalTo(lastMessageLabel!.snp.bottom).offset(CKAlertView.Config.paragraphSpacing)
                                     isParagraphBegin = false
                                 } else {
-                                    make.top.equalTo(lastMessageLabel!.snp.bottom).offset(3)
+                                    make.top.equalTo(lastMessageLabel!.snp.bottom).offset(CKAlertView.Config.lineSpacing)
                                 }
                                 if index == alertMessages.count - 1 {
                                     make.bottom.equalTo(self).offset(-20)
@@ -258,7 +258,7 @@ class CKAlertViewBodyView: CKAlertViewComponent {
     func getLineHeight(string :CKAlertViewStringable) -> CGFloat {
         var lineHeight :CGFloat = 0
         
-        if let string = string as? String {
+        if string is String {
             if let textFont = textFont {
                 lineHeight = textFont.lineHeight
             }
@@ -314,8 +314,8 @@ class CKAlertViewFooterView: CKAlertViewComponent {
     
     override func setup () {
         self.textFont =  UIFont.systemFont(ofSize: 15)
-        self.textColor = CKAlertView.config.otherTitleColor
-        self.cancelButtonTitleColor = CKAlertView.config.cancelTitleColor
+        self.textColor = CKAlertView.Config.otherTitleColor
+        self.cancelButtonTitleColor = CKAlertView.Config.cancelTitleColor
         self.cancelButtonTitleFont = UIFont.systemFont(ofSize: 15)
     }
     
@@ -325,7 +325,7 @@ class CKAlertViewFooterView: CKAlertViewComponent {
             return 
         }
         
-        makeFooterTopHSplitLine()
+        let _ = makeFooterTopHSplitLine()
         makeButtons(cancelButtonTitle: cancelButtonTitle, otherButtonTitles: otherButtonTitles)
         
         if otherButtons.count > 0 {
@@ -337,7 +337,7 @@ class CKAlertViewFooterView: CKAlertViewComponent {
                 layoutMultiButtons()
             }
         }
-        else if let cancelButtonTitle  = cancelButtonTitle {
+        else if cancelButtonTitle != nil {
             layoutOnlyCancelButton()
         }
     }
@@ -368,11 +368,11 @@ class CKAlertViewFooterView: CKAlertViewComponent {
     
     func makeFooterTopHSplitLine() -> UIView? {
         let splitLineView = UIView()
-        splitLineView.backgroundColor = CKAlertView.config.splitLineColor
+        splitLineView.backgroundColor = CKAlertView.Config.splitLineColor
         self.addSubview(splitLineView)
         splitLineView.snp.makeConstraints { (make) in
             make.top.right.left.equalTo(self)
-            make.height.equalTo(CKAlertView.config.splitLineWidth)
+            make.height.equalTo(CKAlertView.Config.splitLineWidth)
         }
         return splitLineView
     }
@@ -381,25 +381,25 @@ class CKAlertViewFooterView: CKAlertViewComponent {
     func layoutOnlyCancelButton() {
         cancelButton.snp.makeConstraints { (make) in
             make.top.bottom.left.right.equalTo(self)
-            make.height.equalTo(CKAlertView.config.buttonDefaultHeight)
+            make.height.equalTo(CKAlertView.Config.buttonDefaultHeight)
         }
     }
     
     func layoutOnlyTwoButtons() {
         
         let vMidSplitLineView = UIView()
-        vMidSplitLineView.backgroundColor = CKAlertView.config.splitLineColor
+        vMidSplitLineView.backgroundColor = CKAlertView.Config.splitLineColor
         self.addSubview(vMidSplitLineView)
         
         cancelButton.snp.makeConstraints { (make) in
             make.top.bottom.left.equalTo(self)
-            make.height.equalTo(CKAlertView.config.buttonDefaultHeight)
+            make.height.equalTo(CKAlertView.Config.buttonDefaultHeight)
         }
         
         vMidSplitLineView.snp.makeConstraints({ (make) in
             make.left.equalTo(cancelButton.snp.right)
             make.top.bottom.height.equalTo(cancelButton)
-            make.width.equalTo(CKAlertView.config.splitLineWidth)
+            make.width.equalTo(CKAlertView.Config.splitLineWidth)
         })
         
         if let anotherButton = otherButtons.first {
@@ -412,22 +412,22 @@ class CKAlertViewFooterView: CKAlertViewComponent {
     }
     
     func layoutMultiButtons() {
-        cancelButton.backgroundColor = CKAlertView.config.multiButtonBackgroundColor
+        cancelButton.backgroundColor = CKAlertView.Config.multiButtonBackgroundColor
         cancelButton.setTitleColor(UIColor.white, for: .normal)
         cancelButton.snp.makeConstraints { (make) in
             make.top.equalTo(self).offset(10)
             make.left.equalTo(self).offset(20)
             make.right.equalTo(self).offset(-20)
-            make.height.equalTo(CKAlertView.config.multiButtonHeight)
+            make.height.equalTo(CKAlertView.Config.multiButtonHeight)
         }
         
         for (index,emButton) in otherButtons.enumerated() {
-            emButton.backgroundColor = CKAlertView.config.multiButtonBackgroundColor
+            emButton.backgroundColor = CKAlertView.Config.multiButtonBackgroundColor
             emButton.setTitleColor(UIColor.white, for: .normal)
             emButton.snp.makeConstraints { (make) in
                 make.left.equalTo(self).offset(20)
                 make.right.equalTo(self).offset(-20)
-                make.height.equalTo(CKAlertView.config.multiButtonHeight)
+                make.height.equalTo(CKAlertView.Config.multiButtonHeight)
                 if index == 0 {
                     make.top.equalTo(cancelButton.snp.bottom).offset(10)
                 }

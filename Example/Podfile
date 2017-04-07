@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'CKAlertView_Example' do
   pod 'CKAlertView',:subspecs => ['Core','Extension'] , :path => '../'
+  pod 'IQKeyboardManagerSwift'
 
   target 'CKAlertView_Tests' do
     inherit! :search_paths

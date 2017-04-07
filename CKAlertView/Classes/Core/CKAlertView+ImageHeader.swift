@@ -52,11 +52,6 @@ class CKAlertViewAdditionImageHeaderView : CKAlertViewHeaderView {
         let ivIcon = UIImageView(image: headerImage)
         addSubview(ivIcon)
         
-        ivIcon.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(20)
-            make.centerX.equalTo(self)
-        }
-        
         if let titleLabel = titleLabel {
            titleLabel.snp.remakeConstraints({ (make) in
                 make.top.equalTo(ivIcon.snp.bottom).offset(10)
@@ -64,6 +59,17 @@ class CKAlertViewAdditionImageHeaderView : CKAlertViewHeaderView {
                 make.right.equalTo(self).offset(-20)
                 make.bottom.equalTo(self).offset(-20)
            })
+        }
+        
+        ivIcon.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self)
+            if self.alertTitle == nil {
+                make.top.equalTo(0)
+                make.bottom.equalTo(-20)
+            }
+            else {
+                make.top.equalTo(self).offset(20)
+            }
         }
         
     }

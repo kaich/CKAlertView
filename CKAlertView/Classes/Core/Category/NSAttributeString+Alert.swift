@@ -55,11 +55,17 @@ extension NSAttributedString : CKAlertViewStringable {
                 paragraphStyle.headIndent = indent
             case .tailIndent:
                 paragraphStyle.tailIndent = indent
-            default:
-                break
             }
         }
         
+        return self
+    }
+    
+    public func ck_apply(lineSpacing :CGFloat) -> NSAttributedString {
+        let finalAttributes = self.attributes(at: 0, effectiveRange: nil)
+        if let paragraphStyle = finalAttributes[NSParagraphStyleAttributeName] as? NSMutableParagraphStyle {
+            paragraphStyle.lineSpacing = lineSpacing
+        }
         return self
     }
     

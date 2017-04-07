@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0496719B1E9612F700AAC8E8 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496719A1E9612F700AAC8E8 /* ConfigViewController.swift */; };
+		0496719D1E961CA700AAC8E8 /* ConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496719C1E961CA700AAC8E8 /* ConfigTableViewCell.swift */; };
 		04ECABA91DC9B54400B060C8 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ECABA81DC9B54400B060C8 /* CustomView.xib */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		0083FE4AA511E150BB3D4A90 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		0496719A1E9612F700AAC8E8 /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		0496719C1E961CA700AAC8E8 /* ConfigTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTableViewCell.swift; sourceTree = "<group>"; };
 		04ECABA81DC9B54400B060C8 /* CustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
 		05CAB2C7CC8BC6C87E675902 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		1A150D0B874F8F5F39126C88 /* Pods_CKAlertView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CKAlertView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +110,8 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				0496719A1E9612F700AAC8E8 /* ConfigViewController.swift */,
+				0496719C1E961CA700AAC8E8 /* ConfigTableViewCell.swift */,
 				04ECABA81DC9B54400B060C8 /* CustomView.xib */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -368,7 +374,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				0496719D1E961CA700AAC8E8 /* ConfigTableViewCell.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				0496719B1E9612F700AAC8E8 /* ConfigViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

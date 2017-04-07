@@ -49,13 +49,13 @@ class CKAlertViewXCloseHeaderView : CKAlertViewHeaderView {
         super.makeLayout()
         
         let splitLineView = UIView()
-        splitLineView.backgroundColor = CKAlertView.config.splitLineColor
+        splitLineView.backgroundColor = CKAlertView.Config.splitLineColor
         addSubview(splitLineView)
         splitLineView.snp.makeConstraints { (make) in
             make.bottom.equalTo(self).offset(-20)
             make.left.equalTo(self).offset(20)
             make.right.equalTo(self).offset(-20)
-            make.height.equalTo(CKAlertView.config.splitLineWidth)
+            make.height.equalTo(CKAlertView.Config.splitLineWidth)
         }
         
         if let titleLabel = subviews.first {

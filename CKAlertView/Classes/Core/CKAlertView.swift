@@ -9,8 +9,8 @@
 import UIKit
 import SnapKit
 
-let HexColor = {(hex :Int, alpha :Float) in return UIColor.init(colorLiteralRed: ((Float)((hex & 0xFF0000) >> 16))/255.0, green: ((Float)((hex & 0xFF00) >> 8))/255.0, blue: ((Float)(hex & 0xFF))/255.0, alpha: alpha) }
-let is4Inc = UIScreen.main.nativeBounds.size.width / UIScreen.main.nativeScale == 320
+public let HexColor = {(hex :Int, alpha :Float) in return UIColor.init(colorLiteralRed: ((Float)((hex & 0xFF0000) >> 16))/255.0, green: ((Float)((hex & 0xFF00) >> 8))/255.0, blue: ((Float)(hex & 0xFF))/255.0, alpha: alpha) }
+public let is4Inc = UIScreen.main.nativeBounds.size.width / UIScreen.main.nativeScale == 320
 
 
 public extension UIImage {
@@ -26,7 +26,7 @@ public struct CKAlertViewConfiguration {
     /// alertView宽度是否固定
     public var isFixedContentWidth = true
     /// alertView的宽度，只有 isFixedContentWidth = ture，此值才会有作用
-    public var contentWidth = is4Inc ? 280 : 300
+    public var contentWidth :CGFloat = is4Inc ? 280 : 300
     /// 标题字体
     public var titleFont = UIFont.boldSystemFont(ofSize: 17)
     /// 主体字体
@@ -38,22 +38,28 @@ public struct CKAlertViewConfiguration {
     /// 分割线颜色
     public var splitLineColor = UIColor.gray
     /// 分割线宽度
-    public var splitLineWidth = 0.5
+    public var splitLineWidth :CGFloat = 0.5
     /// 按钮默认高度
-    public var buttonDefaultHeight = 44
+    public var buttonDefaultHeight :CGFloat = 44
     /// 按钮默认背景色
     public var buttonDefaultBackgroundColor =  UIColor.clear
     /// 多行按钮默认高度
-    public var multiButtonHeight = 30
+    public var multiButtonHeight :CGFloat = 36
     /// 多行按钮默认背景色
     public var multiButtonBackgroundColor = HexColor(0x1768c9,1)
+    /// 行间距 (如果str是NSAttributedString会默认设置一个行间距，如果str是String则不会有行间距)
+    public var lineSpacing :CGFloat = 3.0
+    /// 段落间隔($分割的短路之间的间距)
+    public var paragraphSpacing :CGFloat = 10.0
+    /// 如果值为空
+    public var containerBackgroundColor :UIColor? = nil
 }
 
 
 /// 多种样式的弹出框，支持多行和多段落的弹出框消息。区分段落以$结尾, 文字String或者NSAttributedString。(Multi style alert. Surpport multi line message. Symbol $ represent paragraph end).
 public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     /// 配置整体样式
-    public static var config = CKAlertViewConfiguration()
+    public static var Config = CKAlertViewConfiguration()
     /// 正则 -》 缩进宽度
     public var indentationPatternWidth :[String : CGFloat]? {
         didSet {
@@ -75,7 +81,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     public var forceGestureBlock: ((UIGestureRecognizer) -> Void)?
     
     var overlayView = UIView()
-    var containerView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+    public var containerView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
     var contentScrollView = UIScrollView()
     var componentMaker :CKAlertViewComponentBaseMaker!
     
@@ -170,7 +176,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         ownWindow.rootViewController?.addChildViewController(self)
         updateViewConstraints()
         
-        var complete = {
+        let complete = {
             self._isShow = true
         }
         
@@ -216,8 +222,8 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
             if isScrollEnabled {
                 make.height.lessThanOrEqualTo(view.snp.height).offset(-40)
             }
-            if CKAlertView.config.isFixedContentWidth {
-                make.width.equalTo(CKAlertView.config.contentWidth)
+            if CKAlertView.Config.isFixedContentWidth {
+                make.width.equalTo(CKAlertView.Config.contentWidth)
             }
         }
         

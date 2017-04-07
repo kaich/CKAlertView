@@ -21,7 +21,7 @@ extension String : CKAlertViewStringable {
     /// - returns: NSMutableAttributedString
     public func ck_attributeString() -> NSAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 3
+        paragraphStyle.lineSpacing = CKAlertView.Config.lineSpacing
         paragraphStyle.alignment = .left
         
         let attrString = NSMutableAttributedString(string: self)
@@ -45,5 +45,9 @@ extension String : CKAlertViewStringable {
     
     public func ck_apply(indent :CGFloat , style :CKIndentStyle) -> NSAttributedString {
         return ck_attributeString().ck_apply(indent: indent, style: style)
+    }
+    
+    public func ck_apply(lineSpacing :CGFloat) -> NSAttributedString {
+        return ck_attributeString().ck_apply(lineSpacing:lineSpacing)
     }
 }

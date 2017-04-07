@@ -79,7 +79,7 @@ public class CKAlertViewRippleAnimator: NSObject, CKAlertViewAnimatable, CAAnima
             overlayView.layer.opacity = 1
             
             let maskWidth = sqrt(pow(containerView.bounds.height, 2) + pow(containerView.bounds.width, 2))
-            var maskLayer = CALayer()
+            let maskLayer = CALayer()
             maskLayer.frame = CGRect(x: 0, y: 0, width: maskWidth, height: maskWidth)
             maskLayer.cornerRadius = maskWidth / 2
             maskLayer.backgroundColor = UIColor.white.cgColor
@@ -119,10 +119,9 @@ public class CKAlertViewRippleAnimator: NSObject, CKAlertViewAnimatable, CAAnima
         guard isAnimating == false else {
             return
         }
-        if let containerView = alertView?.containerView , let overlayView = alertView?.overlayView, let maskLayer = alertView?.containerView.layer.mask {
+        if let _ = alertView?.containerView , let overlayView = alertView?.overlayView, let maskLayer = alertView?.containerView.layer.mask {
             overlayView.layer.opacity = 0
             
-            let maskWidth = sqrt(pow(containerView.bounds.height, 2) + pow(containerView.bounds.width, 2))
             let scaleRate :CGFloat = 0.0
             maskLayer.transform = CATransform3DMakeScale(scaleRate, scaleRate, 1)
             
@@ -172,8 +171,8 @@ public class CKAlertDropDownAnimator: NSObject, CKAlertViewAnimatable {
             containerView.snp.remakeConstraints({ (make) in
                 make.centerX.equalTo(view)
                 make.bottom.equalTo(view.snp.top)
-                if CKAlertView.config.isFixedContentWidth {
-                    make.width.equalTo(CKAlertView.config.contentWidth)
+                if CKAlertView.Config.isFixedContentWidth {
+                    make.width.equalTo(CKAlertView.Config.contentWidth)
                 }
             })
             view.layoutIfNeeded()
@@ -210,8 +209,8 @@ public class CKAlertDropDownAnimator: NSObject, CKAlertViewAnimatable {
         if let containerView = alertView?.containerView , let overlayView = alertView?.overlayView, let view = alertView?.view  {
             containerView.snp.remakeConstraints({ (make) in
                 make.center.equalTo(view)
-                if CKAlertView.config.isFixedContentWidth {
-                    make.width.equalTo(CKAlertView.config.contentWidth)
+                if CKAlertView.Config.isFixedContentWidth {
+                    make.width.equalTo(CKAlertView.Config.contentWidth)
                 }
             })
             view.layoutIfNeeded()

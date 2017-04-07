@@ -6,11 +6,13 @@ PODS:
     - DACircularProgress
     - SnapKit (~> 3.0.2)
   - DACircularProgress (2.3.1)
+  - IQKeyboardManagerSwift (4.0.8)
   - SnapKit (3.0.2)
 
 DEPENDENCIES:
   - CKAlertView/Core (from `../`)
   - CKAlertView/Extension (from `../`)
+  - IQKeyboardManagerSwift
 
 EXTERNAL SOURCES:
   CKAlertView:
@@ -19,8 +21,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   CKAlertView: 24919b835f05ec625402dd57f6eddbd98e5a2ecd
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: 63b28ba61154cb1b3a671d235016b8270f6c9a8a
+PODFILE CHECKSUM: ad563d66221c16845f2bbcc067e9192f1e0fa942
 
 COCOAPODS: 1.2.0

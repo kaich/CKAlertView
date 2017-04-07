@@ -17,7 +17,7 @@ extension UIButton {
         }
         else if let attributeString = string as? NSAttributedString {
             if isCenter {
-                attributeString.ck_apply(align: .center)
+               let _ = attributeString.ck_apply(align: .center)
             }
             setAttributedTitle(attributeString, for: state)
         }
