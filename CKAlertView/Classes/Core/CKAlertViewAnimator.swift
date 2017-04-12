@@ -167,12 +167,12 @@ public class CKAlertDropDownAnimator: NSObject, CKAlertViewAnimatable {
     }
     
     public func show(completeBlock :((Void) -> Void)?) {
-        if let containerView = alertView?.containerView , let overlayView = alertView?.overlayView, let view = alertView?.view {
+        if let alert = alertView ,let containerView = alertView?.containerView , let overlayView = alertView?.overlayView, let view = alertView?.view {
             containerView.snp.remakeConstraints({ (make) in
                 make.centerX.equalTo(view)
                 make.bottom.equalTo(view.snp.top)
-                if CKAlertView.Config.isFixedContentWidth {
-                    make.width.equalTo(CKAlertView.Config.contentWidth)
+                if alert.config.isFixedContentWidth {
+                    make.width.equalTo(alert.config.contentWidth)
                 }
             })
             view.layoutIfNeeded()
@@ -206,11 +206,11 @@ public class CKAlertDropDownAnimator: NSObject, CKAlertViewAnimatable {
     }
     
     public func dismiss(completeBlock: ((Void) -> Void)?) {
-        if let containerView = alertView?.containerView , let overlayView = alertView?.overlayView, let view = alertView?.view  {
+        if let alert = alertView, let containerView = alertView?.containerView , let overlayView = alertView?.overlayView, let view = alertView?.view  {
             containerView.snp.remakeConstraints({ (make) in
                 make.center.equalTo(view)
-                if CKAlertView.Config.isFixedContentWidth {
-                    make.width.equalTo(CKAlertView.Config.contentWidth)
+                if alert.config.isFixedContentWidth {
+                    make.width.equalTo(alert.config.contentWidth)
                 }
             })
             view.layoutIfNeeded()

@@ -20,7 +20,7 @@ extension CKAlertView {
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentCustomMaker()
-        
+        componentMaker.alertView = self
         componentMaker.alertTitle = alertTitle
         componentMaker.cancelButtonTitle = cancelButtonTitle
         componentMaker.otherButtonTitles = otherButtonTitles

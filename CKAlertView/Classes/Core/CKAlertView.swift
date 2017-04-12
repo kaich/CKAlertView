@@ -21,8 +21,11 @@ public extension UIImage {
     }
 }
 
-public struct CKAlertViewConfiguration {
-   
+public class CKAlertViewConfiguration {
+    
+    /// 单例
+    public static let shared = CKAlertViewConfiguration()
+    
     /// alertView宽度是否固定
     public var isFixedContentWidth = true
     /// alertView的宽度，只有 isFixedContentWidth = ture，此值才会有作用
@@ -33,8 +36,16 @@ public struct CKAlertViewConfiguration {
     public var messageFont = UIFont.systemFont(ofSize: 13)
     /// 取消按钮的字体颜色
     public var cancelTitleColor = HexColor(0x444444,1)
+    /// 取消按钮边框颜色(未实现）
+    public var cancelBorderColor = UIColor.clear
+    /// 取消按钮的背景颜色
+    public var cancelBackgroundColor = UIColor.clear
     /// 其他按钮字体颜色
     public var otherTitleColor = HexColor(0x444444,1)
+    /// 其他按钮边框颜色(未实现)
+    public var otherBorderColor = UIColor.clear
+    /// 其他按钮背景颜色
+    public var otherBackgroundColorColor = UIColor.clear
     /// 分割线颜色
     public var splitLineColor = UIColor.gray
     /// 分割线宽度
@@ -53,13 +64,15 @@ public struct CKAlertViewConfiguration {
     public var paragraphSpacing :CGFloat = 10.0
     /// 如果值为空
     public var containerBackgroundColor :UIColor? = nil
+    
+    public init() { }
 }
 
 
 /// 多种样式的弹出框，支持多行和多段落的弹出框消息。区分段落以$结尾, 文字String或者NSAttributedString。(Multi style alert. Surpport multi line message. Symbol $ represent paragraph end).
 public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
-    /// 配置整体样式
-    public static var Config = CKAlertViewConfiguration()
+    /// 配置整体样式(默认是CKAlertViewConfiguration.shared单例，修改所有CKAlertView样式。实例化一个CKAlertViewConfiguration对象赋值给config以修改单个)
+    public var config = CKAlertViewConfiguration.shared
     /// 正则 -》 缩进宽度
     public var indentationPatternWidth :[String : CGFloat]? {
         didSet {
@@ -76,8 +89,9 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     public var animator :CKAlertViewAnimatable?
     /// 交互(默认提供了简单的交互CKAlertViewAttachmentInteractiveHandler)
     public var interactiveHandler: CKAlertViewInteractive?
-    
+    /// 按压手势（默认是CKForceGestureRecognizer)
     public var forceGesture: UIGestureRecognizer!
+    /// 按压手势回调
     public var forceGestureBlock: ((UIGestureRecognizer) -> Void)?
     
     var overlayView = UIView()
@@ -222,8 +236,8 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
             if isScrollEnabled {
                 make.height.lessThanOrEqualTo(view.snp.height).offset(-40)
             }
-            if CKAlertView.Config.isFixedContentWidth {
-                make.width.equalTo(CKAlertView.Config.contentWidth)
+            if self.config.isFixedContentWidth {
+                make.width.equalTo(self.config.contentWidth)
             }
         }
         
@@ -289,6 +303,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentMaker()
+        componentMaker.alertView = self
         componentMaker.alertTitle = alertTitle
         componentMaker.alertMessages = alertMessages
         componentMaker.cancelButtonTitle = cancelButtonTitle

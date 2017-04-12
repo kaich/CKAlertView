@@ -24,6 +24,7 @@ public extension CKAlertView {
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentImageBodyMaker()
+        componentMaker.alertView = self
         componentMaker.alertTitle = alertTitle
         componentMaker.alertBodyImage = bodyImage
         componentMaker.cancelButtonTitle = cancelButtonTitle

@@ -140,6 +140,10 @@ class ViewController: UIViewController {
         alert = CKAlertView(image: image, title: nil, message: ["新版本更新了以下内容".ck_apply(color: .black),"1、增加游戏热点功能，优化各类榜单","2、完成兼容IOS9，增强用户体验","3、全新视觉，简约界面乐享沟通","$","注意：您好，如果您使用的是Intel CPU，您可以使用QQ Mac版 V1.4.1版本与您的好友沟通，点击下载。V1.4.1是专为使用Intel CPU的10.5 Leopard用户特别定制，使用更稳定，更流畅。".ck_apply(color: .red)], cancelButtonTitle: "不再提醒", otherButtonTitles: ["我知道了"], completeBlock: { (index) in
             self.lblMessage.text = "\(index) clicked, image title alert dismissed"
         })
+        let config = CKAlertViewConfiguration()
+        config.otherBackgroundColorColor = HexColor(0x1768c9, 1)
+        config.otherTitleColor = .white
+        alert?.config = config
         alert?.containerView.contentView.backgroundColor = UIColor.white
         alert?.show()
     }

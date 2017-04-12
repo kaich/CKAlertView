@@ -24,6 +24,7 @@ public extension CKAlertView {
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentAdditionImageHeaderMaker()
+        componentMaker.alertView = self
         componentMaker.alertTitle = alertTitle
         componentMaker.alertHeaderImage = headerImage
         componentMaker.alertMessages = alertMessages
@@ -91,6 +92,8 @@ class CKAlertViewBorderOnlyTwoFooterView : CKAlertViewFooterView {
     
     override func layoutOnlyTwoButtons() {
         
+        cancelButton.setTitleColor(config().cancelTitleColor, for: .normal)
+        cancelButton.backgroundColor = config().cancelBackgroundColor
         cancelButton.layer.borderColor = HexColor(0x999999,1).cgColor
         cancelButton.layer.borderWidth = 1
         cancelButton.layer.cornerRadius = 3
@@ -103,6 +106,8 @@ class CKAlertViewBorderOnlyTwoFooterView : CKAlertViewFooterView {
         }
         
         if let anotherButton = otherButtons.first {
+            anotherButton.setTitleColor(config().otherTitleColor, for: .normal)
+            anotherButton.backgroundColor = config().otherBackgroundColorColor
             anotherButton.layer.borderColor = HexColor(0x999999,1).cgColor
             anotherButton.layer.borderWidth = 1
             anotherButton.layer.cornerRadius = 3

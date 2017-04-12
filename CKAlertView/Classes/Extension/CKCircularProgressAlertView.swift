@@ -69,6 +69,7 @@ public class CKCircularProgressAlertView : CKAlertView {
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentCircularProgressMaker()
+        componentMaker.alertView = self
         componentMaker.alertTitle = alertTitle
         componentMaker.cancelButtonTitle = cancelButtonTitle
         componentMaker.otherButtonTitles = nil

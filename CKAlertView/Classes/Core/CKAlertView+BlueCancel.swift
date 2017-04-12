@@ -25,6 +25,7 @@ public extension CKAlertView {
         dismissCompleteBlock = completeBlock
         
         let componentMaker = CKAlertViewComponentBlueCancelMaker()
+        componentMaker.alertView = self
         componentMaker.alertTitle = alertTitle
         componentMaker.alertMessages = alertMessages
         componentMaker.cancelButtonTitle = blueCancelButtonTitle
@@ -49,13 +50,13 @@ class CKAlertViewXCloseHeaderView : CKAlertViewHeaderView {
         super.makeLayout()
         
         let splitLineView = UIView()
-        splitLineView.backgroundColor = CKAlertView.Config.splitLineColor
+        splitLineView.backgroundColor = config().splitLineColor
         addSubview(splitLineView)
         splitLineView.snp.makeConstraints { (make) in
             make.bottom.equalTo(self).offset(-20)
             make.left.equalTo(self).offset(20)
             make.right.equalTo(self).offset(-20)
-            make.height.equalTo(CKAlertView.Config.splitLineWidth)
+            make.height.equalTo(config().splitLineWidth)
         }
         
         if let titleLabel = subviews.first {
