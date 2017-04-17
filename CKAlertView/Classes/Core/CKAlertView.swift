@@ -66,7 +66,7 @@ public class CKAlertViewConfiguration {
     public var multiButtonHeight :CGFloat = 36
     /// 多行按钮默认背景色
     public var multiButtonBackgroundColor = HexColor(0x1768c9,1)
-    /// 行间距 (如果str是NSAttributedString会默认设置一个行间距，如果str是String则不会有行间距)
+    /// 行间距 (如果str是NSAttributedString会默认设置行间距，如果str是String则不会有行间距)
     public var lineSpacing :CGFloat = 3.0
     /// 段落间隔($分割的短路之间的间距)
     public var paragraphSpacing :CGFloat = 10.0
