@@ -43,7 +43,6 @@ class CKAlertViewXCloseHeaderView : CKAlertViewHeaderView {
     
     override func setup() {
         super.setup()
-        textFont = UIFont.systemFont(ofSize: 15)
     }
     
     override func makeLayout() {
@@ -92,8 +91,7 @@ class CKAlertViewBlueCancelFooterView : CKAlertViewFooterView {
     
     override func setup() {
         super.setup()
-        textColor = HexColor(0x666666,1)
-        cancelButtonTitleColor = HexColor(0x666666,1)
+        
     }
     
     override func makeFooterTopHSplitLine() -> UIView? {
@@ -101,6 +99,9 @@ class CKAlertViewBlueCancelFooterView : CKAlertViewFooterView {
     }
     
     override func layoutOnlyCancelButton() {
+        
+        textColor = HexColor(0x666666,1)
+        cancelButtonTitleColor = HexColor(0x666666,1)
         
         cancelButton.backgroundColor = HexColor(0x236ee7, 1)
         cancelButton.setTitleColor(UIColor.white, for: .normal)

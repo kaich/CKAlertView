@@ -42,7 +42,6 @@ class CKAlertViewAdditionImageHeaderView : CKAlertViewHeaderView {
     
     override func setup() {
         super.setup()
-        textFont = UIFont.systemFont(ofSize: 15)
     }
 
     override func makeLayout() {

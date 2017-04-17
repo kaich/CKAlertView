@@ -21,6 +21,12 @@ public extension UIImage {
     }
 }
 
+public class CKBorderStyle {
+    public var color :UIColor = .clear
+    public var width :CGFloat = 1
+}
+
+
 public class CKAlertViewConfiguration {
     
     /// 单例
@@ -32,18 +38,22 @@ public class CKAlertViewConfiguration {
     public var contentWidth :CGFloat = is4Inc ? 280 : 300
     /// 标题字体
     public var titleFont = UIFont.boldSystemFont(ofSize: 17)
+    /// 标题颜色
+    public var titleColor = UIColor.black
     /// 主体字体
     public var messageFont = UIFont.systemFont(ofSize: 13)
+    /// 主体颜色
+    public var messageColor = UIColor.black
     /// 取消按钮的字体颜色
     public var cancelTitleColor = HexColor(0x444444,1)
-    /// 取消按钮边框颜色(未实现）
-    public var cancelBorderColor = UIColor.clear
+    /// 取消按钮边框颜色
+    public var cancelBorder = CKBorderStyle()
     /// 取消按钮的背景颜色
     public var cancelBackgroundColor = UIColor.clear
     /// 其他按钮字体颜色
     public var otherTitleColor = HexColor(0x444444,1)
-    /// 其他按钮边框颜色(未实现)
-    public var otherBorderColor = UIColor.clear
+    /// 其他按钮边框颜色
+    public var otherBorder = CKBorderStyle()
     /// 其他按钮背景颜色
     public var otherBackgroundColorColor = UIColor.clear
     /// 分割线颜色
@@ -52,8 +62,6 @@ public class CKAlertViewConfiguration {
     public var splitLineWidth :CGFloat = 0.5
     /// 按钮默认高度
     public var buttonDefaultHeight :CGFloat = 44
-    /// 按钮默认背景色
-    public var buttonDefaultBackgroundColor =  UIColor.clear
     /// 多行按钮默认高度
     public var multiButtonHeight :CGFloat = 36
     /// 多行按钮默认背景色

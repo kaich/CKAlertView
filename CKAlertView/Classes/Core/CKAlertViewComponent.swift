@@ -357,6 +357,7 @@ class CKAlertViewFooterView: CKAlertViewComponent {
         cancelButton.setTitleColor(cancelButtonTitleColor, for: .normal)
         cancelButton.backgroundColor = config().cancelBackgroundColor
         cancelButton.titleLabel?.font = cancelButtonTitleFont
+        cancelButton.setBorder(config().cancelBorder)
         cancelButton.ck_setText(string: cancelButtonTitle)
         cancelButton.addTarget(self, action: #selector(clickButton(sender:)), for: .touchUpInside)
         self.addSubview(cancelButton)
@@ -368,6 +369,7 @@ class CKAlertViewFooterView: CKAlertViewComponent {
                 otherButton.setTitleColor(textColor, for: .normal)
                 otherButton.backgroundColor = config().otherBackgroundColorColor
                 otherButton.titleLabel?.font = textFont
+                cancelButton.setBorder(config().cancelBorder)
                 otherButton.ck_setText(string: title)
                 otherButton.addTarget(self, action: #selector(clickButton(sender:)), for: .touchUpInside)
                 self.addSubview(otherButton)

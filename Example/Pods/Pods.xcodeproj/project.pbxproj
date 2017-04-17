@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02B5A6F51A08DBB5326900700A36CC00 /* close_28x28@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53D463B63F4A6B7FA9B48A866DD3D761 /* close_28x28@2x.png */; };
+		049BE01C1EA208E2009A91CD /* UIView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BE01B1EA208E2009A91CD /* UIView+Style.swift */; };
 		08F70BDD45F0B73F1AD27507808FEC3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BEF39EA12419FA318310A03AE5A6FD /* Foundation.framework */; };
 		0A15DE98D2F39D50976A0197CD102731 /* DACircularProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B9EDF2CDC10675B4C61CD5FB8DB3687 /* DACircularProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0B9FAA59E53F8381BAD75316E70145BE /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F3A35DEB5E32243C594E2E5EA241F7 /* IQUIView+IQKeyboardToolbar.swift */; };
@@ -162,14 +163,15 @@
 		00BEF39EA12419FA318310A03AE5A6FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		032544862830DEDB6906BB4C88C7952D /* ConstraintConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConfig.swift; path = Source/ConstraintConfig.swift; sourceTree = "<group>"; };
 		03EF15AF2311BD132B44A3736A04FDDF /* DACircularProgress-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DACircularProgress-dummy.m"; sourceTree = "<group>"; };
-		054443A5BBADA4FDB16366F941A4AFDF /* CKAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CKAlertView.modulemap; sourceTree = "<group>"; };
+		049BE01B1EA208E2009A91CD /* UIView+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Style.swift"; sourceTree = "<group>"; };
+		054443A5BBADA4FDB16366F941A4AFDF /* CKAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CKAlertView.modulemap; sourceTree = "<group>"; };
 		058C73289D97A1789965E773DD8C8ECF /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIView+Hierarchy.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
 		05DC23CD2AD15F16C55AA7AC79ED46E3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0981D0553E44950CAE3B69A5EEDD9CDC /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
 		09F422D7330FB2668E32B4CAEE79E21F /* ResourceBundle-CKAlertView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-CKAlertView-Info.plist"; sourceTree = "<group>"; };
 		0A7D43A2ACE16CD41FE18E463A14651C /* IQPreviousNextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQPreviousNextView.swift; path = IQKeyboardManagerSwift/IQToolbar/IQPreviousNextView.swift; sourceTree = "<group>"; };
 		0B40FA1B22EFD0988E485A1A9764E499 /* Pods-CKAlertView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CKAlertView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		0B71A6CD9FDBC468AE1DCAC5B3B1413E /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B71A6CD9FDBC468AE1DCAC5B3B1413E /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B9EDF2CDC10675B4C61CD5FB8DB3687 /* DACircularProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DACircularProgressView.h; path = DACircularProgress/DACircularProgressView.h; sourceTree = "<group>"; };
 		0BC105458BB22E5728B1921EDC0F803C /* LayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraint.swift; path = Source/LayoutConstraint.swift; sourceTree = "<group>"; };
 		0C946A1D877368362513C1F79402468A /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DALabeledCircularProgressView.m; path = DACircularProgress/DALabeledCircularProgressView.m; sourceTree = "<group>"; };
@@ -183,32 +185,32 @@
 		21933D1CF2CE4C48B8762599FD27DC3B /* IQKeyboardManagerSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IQKeyboardManagerSwift-dummy.m"; sourceTree = "<group>"; };
 		25579AA1F155830B4D274F561A9A3915 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Source/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
 		26CC951BA1E338D337126AEE422F4CF4 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Source/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
-		28B7314949769415D2018AE8637441F0 /* CKAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CKAlertView.framework; path = CKAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28B7314949769415D2018AE8637441F0 /* CKAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CKAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28BFAD0CDFBA401AABA59FBDD9A24DAF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A234BCAC6CE5F54D120C415A889D1D1 /* Pods-CKAlertView_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CKAlertView_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		2A5B8DE48EC9763399ED21E838424C0F /* IQTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQTextView.swift; path = IQKeyboardManagerSwift/IQTextView/IQTextView.swift; sourceTree = "<group>"; };
 		2E54F5256E26CC1BDE8B5FD6F8B7946A /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
 		2ECED7C82661F6F12292B81724B58679 /* SnapKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.xcconfig; sourceTree = "<group>"; };
-		2ED3AACF28F081C37C161B0EB3EBE62C /* DACircularProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DACircularProgress.framework; path = DACircularProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ED3AACF28F081C37C161B0EB3EBE62C /* DACircularProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DACircularProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		333C3051CF6CDED99129F2B016AE03DC /* SnapKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-umbrella.h"; sourceTree = "<group>"; };
 		351017C49A30DBAB825CF4A92ED4CBED /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUITextFieldView+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
 		376F944CE4FB2189A7FC0C3BBBC49238 /* Pods-CKAlertView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CKAlertView_Example-dummy.m"; sourceTree = "<group>"; };
 		38A9A4F190EDACFD4C4FEB0C2EF4DCE3 /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerEditable.swift; path = Source/ConstraintMakerEditable.swift; sourceTree = "<group>"; };
-		3A1D2D71DBCC58031492C1C813CD3ECE /* Pods_CKAlertView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CKAlertView_Example.framework; path = "Pods-CKAlertView_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3BEE2B156C9B24B4132210AA6019655E /* Pods-CKAlertView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-CKAlertView_Example.modulemap"; sourceTree = "<group>"; };
+		3A1D2D71DBCC58031492C1C813CD3ECE /* Pods_CKAlertView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CKAlertView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BEE2B156C9B24B4132210AA6019655E /* Pods-CKAlertView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CKAlertView_Example.modulemap"; sourceTree = "<group>"; };
 		3C501CA7CE0F83B47466E0F9BDF0BF76 /* IQKeyboardReturnKeyHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardReturnKeyHandler.swift; path = IQKeyboardManagerSwift/IQKeyboardReturnKeyHandler.swift; sourceTree = "<group>"; };
 		3DD7D596B2B9AAC253292DB52CB73F27 /* Pods-CKAlertView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CKAlertView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3E683C2DF3CDF93583E6730501A48C38 /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Source/Constraint.swift; sourceTree = "<group>"; };
 		42FE1DD05555C500CC1C845EC3141A92 /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerExtendable.swift; path = Source/ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
 		43C099AF770AC0FD2C8AD6A598DD6903 /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuide.swift; path = Source/ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
-		46E880F980E6D77CBDDCF3D6E7FBB80D /* Pods-CKAlertView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-CKAlertView_Tests.modulemap"; sourceTree = "<group>"; };
-		47E1BC2E84ACB8980DC845CAA2F7C683 /* close_28x28.png */ = {isa = PBXFileReference; includeInIndex = 1; path = close_28x28.png; sourceTree = "<group>"; };
+		46E880F980E6D77CBDDCF3D6E7FBB80D /* Pods-CKAlertView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CKAlertView_Tests.modulemap"; sourceTree = "<group>"; };
+		47E1BC2E84ACB8980DC845CAA2F7C683 /* close_28x28.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = close_28x28.png; sourceTree = "<group>"; };
 		48E3CBEF7585F27541E7A1C2B516FFE6 /* ConstraintMakerPriortizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPriortizable.swift; path = Source/ConstraintMakerPriortizable.swift; sourceTree = "<group>"; };
 		49F5CD4B8C4EA5349B35EEF63718FB5F /* DACircularProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DACircularProgressView.m; path = DACircularProgress/DACircularProgressView.m; sourceTree = "<group>"; };
 		4EE5949BA022D4F0C758E7D380953A41 /* Pods-CKAlertView_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CKAlertView_Tests-resources.sh"; sourceTree = "<group>"; };
 		4EFFDA8DDA710B8D0A5FE0BD607C660F /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Source/ConstraintView.swift; sourceTree = "<group>"; };
-		5144A762D4802B52ED8C889E99523B9D /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IQKeyboardManagerSwift.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		53D463B63F4A6B7FA9B48A866DD3D761 /* close_28x28@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; path = "close_28x28@2x.png"; sourceTree = "<group>"; };
+		5144A762D4802B52ED8C889E99523B9D /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53D463B63F4A6B7FA9B48A866DD3D761 /* close_28x28@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "close_28x28@2x.png"; sourceTree = "<group>"; };
 		556379256F1BAE7A4987E0FABE9D2E88 /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQNSArray+Sort.swift"; path = "IQKeyboardManagerSwift/Categories/IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		568762E656679245859B6CDE11FBE872 /* CKAlertViewInteractiveHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CKAlertViewInteractiveHandler.swift; sourceTree = "<group>"; };
 		5D97C25BE34C34B75701F717370DAD3E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -222,14 +224,14 @@
 		75FB2A4D93DF11AEF558BCCD92D247FE /* CKAlertView+MajorAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CKAlertView+MajorAction.swift"; sourceTree = "<group>"; };
 		7B2C6A4C96065BFDDEB1126BAEFEF89D /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Source/ConstraintMaker.swift; sourceTree = "<group>"; };
 		7D5C50DE77C7EB65073BC2A1A619E48A /* Pods-CKAlertView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CKAlertView_Example-resources.sh"; sourceTree = "<group>"; };
-		7DB41E2FC6BA45AAEB6F1BEAEDC85EAE /* IQKeyboardManagerSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = IQKeyboardManagerSwift.modulemap; sourceTree = "<group>"; };
+		7DB41E2FC6BA45AAEB6F1BEAEDC85EAE /* IQKeyboardManagerSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IQKeyboardManagerSwift.modulemap; sourceTree = "<group>"; };
 		7E96E1FDB45E65691EE68DB7F4209D4A /* NSAttributeString+Alert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSAttributeString+Alert.swift"; sourceTree = "<group>"; };
 		80D59DBE6C2B07C5EA018C290B3723BF /* CKAlertViewComponent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CKAlertViewComponent.swift; sourceTree = "<group>"; };
 		83A7EEAE3D3CE4D3C7640E331CA2B046 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Source/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
 		83F841D33B6CA6FB39E1D73935125094 /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Source/ConstraintItem.swift; sourceTree = "<group>"; };
 		852A21BC29A6B1F39B5A7783CB7819A8 /* Pods-CKAlertView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CKAlertView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8B6989A2818AD324648BDFEF459F6872 /* IQKeyboardManagerConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManagerConstants.swift; path = IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstants.swift; sourceTree = "<group>"; };
-		8D1CD04CF66A0333DFB5DFA9D0ED4BEC /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SnapKit.modulemap; sourceTree = "<group>"; };
+		8D1CD04CF66A0333DFB5DFA9D0ED4BEC /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SnapKit.modulemap; sourceTree = "<group>"; };
 		8DCBBD7F7F048A2E7F4966A8C7DE947F /* IQTitleBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQTitleBarButtonItem.swift; path = IQKeyboardManagerSwift/IQToolbar/IQTitleBarButtonItem.swift; sourceTree = "<group>"; };
 		8DFA450B13E3579242164E6226ECE607 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Source/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
 		8EA6E78C87D016F2C4DC0CE111143624 /* Pods-CKAlertView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CKAlertView_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -238,7 +240,7 @@
 		901D9F9DA913D1AC35349F0EC773FD8A /* UILayoutGuide+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutGuide+Extensions.swift"; path = "Source/UILayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
 		939277A243B06FEF33DBB1F1026296E1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		9399BAE8244603B11ACB0018903B97E2 /* DACircularProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DACircularProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		947CCD277B681A864FA7AAD1866CD782 /* String+Alert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Alert.swift"; sourceTree = "<group>"; };
 		95B4F70FDE97434AA456F9C95E009F19 /* CKAlertViewStringable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CKAlertViewStringable.swift; sourceTree = "<group>"; };
 		9BB39378653DAB0624C5E445E7A4837A /* Pods-CKAlertView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CKAlertView_Example-frameworks.sh"; sourceTree = "<group>"; };
@@ -247,10 +249,10 @@
 		A852EDE617FC1435BF8225034E49DA0D /* Pods-CKAlertView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CKAlertView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		AA85CCBAC805156BA4725D149CC2B7C9 /* ConstraintDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDSL.swift; path = Source/ConstraintDSL.swift; sourceTree = "<group>"; };
 		AB0CA2F7499103D6D3EF653A7F5220F3 /* IQUIWindow+Hierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIWindow+Hierarchy.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIWindow+Hierarchy.swift"; sourceTree = "<group>"; };
-		ABF0E1A6AB99EC4D3029367CDABAF422 /* DACircularProgress.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DACircularProgress.modulemap; sourceTree = "<group>"; };
+		ABF0E1A6AB99EC4D3029367CDABAF422 /* DACircularProgress.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DACircularProgress.modulemap; sourceTree = "<group>"; };
 		AF395E0A79F3CDE35CCFEE947E10EE0B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		B16F11FD9D5A45A75DC0DC6C9B57BF59 /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Source/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
-		B36CE724D546A225A4E03BB4FA76791F /* close_28x28@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; path = "close_28x28@3x.png"; sourceTree = "<group>"; };
+		B36CE724D546A225A4E03BB4FA76791F /* close_28x28@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "close_28x28@3x.png"; sourceTree = "<group>"; };
 		B53AC6A14DC2E809932E2D74AF8452A6 /* IQUIViewController+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIViewController+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIViewController+Additions.swift"; sourceTree = "<group>"; };
 		B9E0B395EF4E21301E005BEA34186BF0 /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
 		BCAE163C9BBD4B8DF687A454D6B34311 /* DALabeledCircularProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DALabeledCircularProgressView.h; path = DACircularProgress/DALabeledCircularProgressView.h; sourceTree = "<group>"; };
@@ -258,7 +260,7 @@
 		BFAD05C54F40AEAD7CBFABF0542B7484 /* IQKeyboardManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManager.swift; path = IQKeyboardManagerSwift/IQKeyboardManager.swift; sourceTree = "<group>"; };
 		C09885E4324A9D66E9DEA60FCFD8F9B5 /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
 		C1A6A3DB092B3D0EF51CF47696619CCD /* CKAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CKAlertView-dummy.m"; sourceTree = "<group>"; };
-		C22891BDC7E7DC530B107AB64D86D6DF /* Pods_CKAlertView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CKAlertView_Tests.framework; path = "Pods-CKAlertView_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C22891BDC7E7DC530B107AB64D86D6DF /* Pods_CKAlertView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CKAlertView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3062142169E78D5F4AAA2C74DEE62FE /* CKAlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CKAlertView.swift; sourceTree = "<group>"; };
 		C71C242A5084FFD4F125E2F1C7FA3344 /* DACircularProgress-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DACircularProgress-prefix.pch"; sourceTree = "<group>"; };
 		C77F5BB3580D7318BB38AC4BC87B2756 /* CKAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CKAlertView-umbrella.h"; sourceTree = "<group>"; };
@@ -285,7 +287,7 @@
 		F1E87748C506A3A31C0B698775527C87 /* Pods-CKAlertView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CKAlertView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F410EED26A352E9D17852E53DCE64725 /* DACircularProgress-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DACircularProgress-umbrella.h"; sourceTree = "<group>"; };
 		F4D0F0696E1D0D5C7DE21BEC0AC4D23D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
-		F671F9450CB6124265F5105E12E05720 /* CKAlertView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CKAlertView.bundle; path = CKAlertView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		F671F9450CB6124265F5105E12E05720 /* CKAlertView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CKAlertView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6CAB69A42CDEB69A1B4C8D18323587E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F81F8370DDFFF543592AF981E975D89E /* UILabel+Alert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UILabel+Alert.swift"; sourceTree = "<group>"; };
 		FA6F3C480381497BFE61F2877864022D /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerRelatable.swift; path = Source/ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
@@ -386,7 +388,6 @@
 			children = (
 				F038D3B209A810F34C0116F1D2E7D316 /* Assets */,
 			);
-			name = CKAlertView;
 			path = CKAlertView;
 			sourceTree = "<group>";
 		};
@@ -438,7 +439,6 @@
 				CA9EC9294C1E8934E2208504BF859473 /* CKForceGestureRecognizer.swift */,
 				ABCC2277E2B1D281B84A8D1A5F15083B /* Category */,
 			);
-			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -447,7 +447,6 @@
 			children = (
 				EE87C55680E1AD7D1E61394C32AFA998 /* Classes */,
 			);
-			name = CKAlertView;
 			path = CKAlertView;
 			sourceTree = "<group>";
 		};
@@ -497,7 +496,6 @@
 				25579AA1F155830B4D274F561A9A3915 /* UILayoutSupport+Extensions.swift */,
 				278AE9A0B3A662DA3C31ECAE56DC17AC /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -523,7 +521,6 @@
 				B60EF2AE85165EE18FA856495F0BE422 /* Resources */,
 				A5BCF2AE4FA924B8981C05855C417AC9 /* Support Files */,
 			);
-			name = IQKeyboardManagerSwift;
 			path = IQKeyboardManagerSwift;
 			sourceTree = "<group>";
 		};
@@ -552,7 +549,6 @@
 			children = (
 				A60A069657A32FF2BAFD1877B4D9857F /* Extension */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -561,7 +557,6 @@
 			children = (
 				83AB6282389E89FFE1F2DBB46C26FEDB /* Classes */,
 			);
-			name = CKAlertView;
 			path = CKAlertView;
 			sourceTree = "<group>";
 		};
@@ -584,7 +579,6 @@
 			children = (
 				E0A4DC94B5B3439AA2B2B1896B8F49B8 /* CKCircularProgressAlertView.swift */,
 			);
-			name = Extension;
 			path = Extension;
 			sourceTree = "<group>";
 		};
@@ -597,8 +591,8 @@
 				A63A62CB3D2C0D77BFE3FF2F923421EF /* UIButton+Alert.swift */,
 				F81F8370DDFFF543592AF981E975D89E /* UILabel+Alert.swift */,
 				EE6FBA56379042407ECF196B0DAFB3D0 /* UITextView+Alert.swift */,
+				049BE01B1EA208E2009A91CD /* UIView+Style.swift */,
 			);
-			name = Category;
 			path = Category;
 			sourceTree = "<group>";
 		};
@@ -682,7 +676,6 @@
 			children = (
 				3F5E5650DA6F7BD754C544E56E26D254 /* Core */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -693,7 +686,6 @@
 				53D463B63F4A6B7FA9B48A866DD3D761 /* close_28x28@2x.png */,
 				B36CE724D546A225A4E03BB4FA76791F /* close_28x28@3x.png */,
 			);
-			name = Assets;
 			path = Assets;
 			sourceTree = "<group>";
 		};
@@ -706,7 +698,6 @@
 				0C946A1D877368362513C1F79402468A /* DALabeledCircularProgressView.m */,
 				01B2B21E4D6F5907282899358946C955 /* Support Files */,
 			);
-			name = DACircularProgress;
 			path = DACircularProgress;
 			sourceTree = "<group>";
 		};
@@ -1110,6 +1101,7 @@
 				50619D78E48EB485B8BF2849B7C38BF7 /* String+Alert.swift in Sources */,
 				50C682BA2E037FC9440988FE53FB1070 /* UIButton+Alert.swift in Sources */,
 				2476B79495809E36F2389F88177AFC69 /* UILabel+Alert.swift in Sources */,
+				049BE01C1EA208E2009A91CD /* UIView+Style.swift in Sources */,
 				705EE560AA58738D35B6E5C3E0F25D9D /* UITextView+Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
