@@ -173,7 +173,7 @@ class ViewController: UIViewController {
                             repeats: true)
     }
     
-    func updateTime() {
+    @objc func updateTime() {
         if let alert = self.alert as? CKCircularProgressAlertView {
             progress = (progress + 0.1) / 1
             progressMessage = "\(progress * 100)/100"

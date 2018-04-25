@@ -1,5 +1,5 @@
 //
-//  IQUIWindow+Hierarchy.swift
+//  IQInvocation.swift
 // https://github.com/hackiftekhar/IQKeyboardManager
 // Copyright (c) 2013-16 Iftekhar Qurashi.
 //
@@ -24,30 +24,18 @@
 
 import UIKit
 
-/** @abstract UIWindow hierarchy category.  */
-public extension UIWindow {
-
-    /** @return Returns the current Top Most ViewController in hierarchy.   */
-    override public func topMostController()->UIViewController? {
-        
-        var topController = rootViewController
-        
-        while let presentedController = topController?.presentedViewController {
-            topController = presentedController
-        }
-        
-        return topController
+public class IQInvocation : NSObject {
+    public weak var target: AnyObject?
+    public var action: Selector
+    
+    @objc public init(_ target: AnyObject, _ action: Selector) {
+        self.target = target
+        self.action = action
     }
     
-    /** @return Returns the topViewController in stack of topMostController.    */
-    public func currentViewController()->UIViewController? {
-        
-        var currentViewController = topMostController()
-        
-        while currentViewController != nil && currentViewController is UINavigationController && (currentViewController as! UINavigationController).topViewController != nil {
-            currentViewController = (currentViewController as! UINavigationController).topViewController
+    @objc public func invoke(from: Any) {
+        if let target = target {
+            UIApplication.shared.sendAction(action, to: target, from: from, for: UIEvent())
         }
-
-        return currentViewController
     }
 }
