@@ -54,11 +54,11 @@ CKAlertView is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "CKAlertView"
+pod "CKAlertView", :git=>"https://github.com/kaich/CKAlertView.git"
 ```
 If you want to include 'Extension' module, please install as below.
 ```ruby
-pod "CKAlertView", :subspecs => ['Core','Extension']
+pod "CKAlertView", :subspecs => ['Core','Extension'], :git=>"https://github.com/kaich/CKAlertView.git"
 ```
 
 ## Author
