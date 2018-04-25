@@ -35,7 +35,7 @@ protocol CKAlertViewComponentDelegate :class {
 
 class CKAlertViewComponent: UIView {
     weak var delegate :CKAlertViewComponentDelegate?
-    var config :((Void) -> CKAlertViewConfiguration)!
+    var config :(() -> CKAlertViewConfiguration)!
     var textColor :UIColor?
     var textFont :UIFont?
     
@@ -273,7 +273,7 @@ class CKAlertViewBodyView: CKAlertViewComponent {
         }
         else if let attributeStr = string as? NSAttributedString {
             let finalAttributes = attributeStr.attributes(at: 0, effectiveRange: nil)
-            if let fontSize = finalAttributes[NSFontAttributeName] as? UIFont {
+            if let fontSize = finalAttributes[NSAttributedStringKey.font] as? UIFont {
                 lineHeight = fontSize.lineHeight
             }
             else {
@@ -282,7 +282,7 @@ class CKAlertViewBodyView: CKAlertViewComponent {
                 }
             }
             
-            if let paragraphStyle = finalAttributes[NSParagraphStyleAttributeName] as? NSMutableParagraphStyle {
+            if let paragraphStyle = finalAttributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle {
                 lineHeight += paragraphStyle.lineSpacing
             }
         }
@@ -456,7 +456,7 @@ class CKAlertViewFooterView: CKAlertViewComponent {
     }
     
     
-    func  clickButton(sender :UIButton) {
+    @objc func  clickButton(sender :UIButton) {
         
         //index of cancel button is 0
         var index = 0

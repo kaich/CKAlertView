@@ -25,7 +25,7 @@ extension String : CKAlertViewStringable {
         paragraphStyle.alignment = .left
         
         let attrString = NSMutableAttributedString(string: self)
-        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        attrString.addAttribute(NSAttributedStringKey.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
         
         return attrString
     }

@@ -78,7 +78,7 @@ class CKAlertViewXCloseHeaderView : CKAlertViewHeaderView {
         
     }
     
-    func clickButtonX() {
+    @objc func clickButtonX() {
         if let delegate  = delegate {
             delegate.clickButton(at: -1)
         }

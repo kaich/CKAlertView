@@ -26,7 +26,7 @@ extension NSAttributedString : CKAlertViewStringable {
     public func ck_apply(align : NSTextAlignment) -> NSAttributedString {
         
         let finalAttributes = self.attributes(at: 0, effectiveRange: nil)
-        if let paragraphStyle = finalAttributes[NSParagraphStyleAttributeName] as? NSMutableParagraphStyle {
+        if let paragraphStyle = finalAttributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle {
            paragraphStyle.alignment = align
         }
         
@@ -35,19 +35,19 @@ extension NSAttributedString : CKAlertViewStringable {
     
     public func ck_apply(font :UIFont) -> NSAttributedString {
         let finalString :NSMutableAttributedString = NSMutableAttributedString(attributedString: self)
-        finalString.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(0, length))
+        finalString.addAttribute(NSAttributedStringKey.font, value: font, range: NSMakeRange(0, length))
         return finalString
     }
     
     public func ck_apply(color :UIColor) -> NSAttributedString {
         let finalString :NSMutableAttributedString = NSMutableAttributedString(attributedString: self)
-        finalString.addAttribute(NSForegroundColorAttributeName, value:color, range:NSMakeRange(0, length));
+        finalString.addAttribute(NSAttributedStringKey.foregroundColor, value:color, range:NSMakeRange(0, length));
         return finalString
     }
     
     public func ck_apply(indent :CGFloat , style :CKIndentStyle) -> NSAttributedString {
         let finalAttributes = self.attributes(at: 0, effectiveRange: nil)
-        if let paragraphStyle = finalAttributes[NSParagraphStyleAttributeName] as? NSMutableParagraphStyle {
+        if let paragraphStyle = finalAttributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle {
             switch style {
             case .firstLine:
                 paragraphStyle.firstLineHeadIndent = indent
@@ -63,7 +63,7 @@ extension NSAttributedString : CKAlertViewStringable {
     
     public func ck_apply(lineSpacing :CGFloat) -> NSAttributedString {
         let finalAttributes = self.attributes(at: 0, effectiveRange: nil)
-        if let paragraphStyle = finalAttributes[NSParagraphStyleAttributeName] as? NSMutableParagraphStyle {
+        if let paragraphStyle = finalAttributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle {
             paragraphStyle.lineSpacing = lineSpacing
         }
         return self

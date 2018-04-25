@@ -15,12 +15,12 @@ public protocol CKAlertViewAnimatable {
     /// 显示动画
     ///
     /// - Parameter completeBlock: 动画结束回调
-    func show(completeBlock :((Void) -> Void)?)
+    func show(completeBlock :(() -> ())?)
     
     /// 消失动画
     ///
     /// - Parameter completeBlock: 动画结束回调
-    func dismiss(completeBlock :((Void) -> Void)?)
+    func dismiss(completeBlock :(() -> ())?)
     
 }
 
@@ -34,7 +34,7 @@ public class CKAlertViewSpringAnimator: CKAlertViewAnimatable {
         self.alertView = alertView
     }
     
-    public func show(completeBlock :((Void) -> Void)?) {
+    public func show(completeBlock :(() -> ())?) {
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.65, initialSpringVelocity: 1, options: .curveLinear, animations: {
             if let alertView = self.alertView {
                 alertView.view.alpha = 1
@@ -47,7 +47,7 @@ public class CKAlertViewSpringAnimator: CKAlertViewAnimatable {
         }
     }
     
-    public func dismiss(completeBlock: ((Void) -> Void)?) {
+    public func dismiss(completeBlock: (() -> ())?) {
         UIView.animate(withDuration: 0.3, animations: {
             if let alertView = self.alertView {
                 alertView.view.alpha = 0
@@ -70,7 +70,7 @@ public class CKAlertViewRippleAnimator: NSObject, CKAlertViewAnimatable, CAAnima
         self.alertView = alertView
     }
     
-    public func show(completeBlock :((Void) -> Void)?) {
+    public func show(completeBlock :(() -> ())?) {
         guard isAnimating == false else {
             return
         }
@@ -115,7 +115,7 @@ public class CKAlertViewRippleAnimator: NSObject, CKAlertViewAnimatable, CAAnima
         }
     }
     
-    public func dismiss(completeBlock: ((Void) -> Void)?) {
+    public func dismiss(completeBlock: (() -> ())?) {
         guard isAnimating == false else {
             return
         }
@@ -166,7 +166,7 @@ public class CKAlertDropDownAnimator: NSObject, CKAlertViewAnimatable {
         self.alertView = alertView
     }
     
-    public func show(completeBlock :((Void) -> Void)?) {
+    public func show(completeBlock :(() -> ())?) {
         if let alert = alertView ,let containerView = alertView?.containerView , let overlayView = alertView?.overlayView, let view = alertView?.view {
             containerView.snp.remakeConstraints({ (make) in
                 make.centerX.equalTo(view)
@@ -205,7 +205,7 @@ public class CKAlertDropDownAnimator: NSObject, CKAlertViewAnimatable {
         }
     }
     
-    public func dismiss(completeBlock: ((Void) -> Void)?) {
+    public func dismiss(completeBlock: (() -> ())?) {
         if let alert = alertView, let containerView = alertView?.containerView , let overlayView = alertView?.overlayView, let view = alertView?.view  {
             containerView.snp.remakeConstraints({ (make) in
                 make.center.equalTo(view)

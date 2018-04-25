@@ -224,12 +224,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = LQ56S35BF9;
+						DevelopmentTeam = XGYT93YG63;
 						LastSwiftMigration = 0800;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = LD2L85QJW4;
+						DevelopmentTeam = XGYT93YG63;
 						LastSwiftMigration = 0800;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -510,7 +510,7 @@
 			baseConfigurationReference = D29E59A85CFA18181089CA46 /* Pods-CKAlertView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LQ56S35BF9;
+				DEVELOPMENT_TEAM = XGYT93YG63;
 				INFOPLIST_FILE = CKAlertView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -525,7 +525,7 @@
 			baseConfigurationReference = 66D9FDD251A9D05A2ACBDFB9 /* Pods-CKAlertView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LQ56S35BF9;
+				DEVELOPMENT_TEAM = XGYT93YG63;
 				INFOPLIST_FILE = CKAlertView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -539,7 +539,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 430E9198410C324FE9325C5B /* Pods-CKAlertView_Tests.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = LD2L85QJW4;
+				DEVELOPMENT_TEAM = XGYT93YG63;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -560,7 +560,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B831D84AA84E4CD15BDBE9B9 /* Pods-CKAlertView_Tests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = LD2L85QJW4;
+				DEVELOPMENT_TEAM = XGYT93YG63;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

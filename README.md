@@ -46,6 +46,7 @@ Extension：
 * 0.1.4 显示自定义的弹出框
 * 0.1.6 所有文字可以用NSAttributeString或者String.方便控制你的文字格式。
 * 0.3.3 改动很大，添加了动画效果和新手势，添加了config用于弹出框样式配置，CKAlertViewConfiguration.shared()用于全局配置，影响所有弹出框。可以赋值CKAlertViewConfiguration实例给CKAlertView，用于具体单个弹出框样式改变。
+* 0.4.0 更新到Swift 4。
 
 ## Installation
 

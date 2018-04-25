@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-public let HexColor = {(hex :Int, alpha :Float) in return UIColor.init(colorLiteralRed: ((Float)((hex & 0xFF0000) >> 16))/255.0, green: ((Float)((hex & 0xFF00) >> 8))/255.0, blue: ((Float)(hex & 0xFF))/255.0, alpha: alpha) }
+public let HexColor = {(hex :Int, alpha :CGFloat) in return UIColor(red: ((CGFloat)((hex & 0xFF0000) >> 16))/255.0, green: ((CGFloat)((hex & 0xFF00) >> 8))/255.0, blue: ((CGFloat)(hex & 0xFF))/255.0, alpha: alpha) }
 public let is4Inc = UIScreen.main.nativeBounds.size.width / UIScreen.main.nativeScale == 320
 
 
@@ -141,7 +141,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false
        
         overlayView = UIView(frame: UIScreen.main.bounds)
-        overlayView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.5)
+        overlayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         view.addSubview(overlayView)
         
         containerView.center = view.center
@@ -202,14 +202,14 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
             self._isShow = true
         }
         
-        animator?.show { Void in
+        animator?.show { 
             complete()
         }
         
     }
     
     
-    public func dismiss(isAnimate :Bool = true, completeBlock :((Void) -> Void)? = nil) {
+    public func dismiss(isAnimate :Bool = true, completeBlock :(() -> ())? = nil) {
         
         let dismissBlock = {
             self.view.removeFromSuperview()
@@ -335,7 +335,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
 
 extension CKAlertView {
     
-    func handleForceGesture() {
+    @objc func handleForceGesture() {
         if let forceGestureHandler = self.forceGestureBlock {
             forceGestureHandler(forceGesture)
         }
