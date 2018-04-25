@@ -50,7 +50,7 @@ Use simple code to display defined multi styles alert view.You can use String or
   # s.public_header_files = 'Pod/Classes/**/*.h'
    s.frameworks = 'UIKit'
    s.frameworks = 'AudioToolbox'
-   s.dependency 'SnapKit', '~> 3.0.2'
+   s.dependency 'SnapKit'
 
    s.requires_arc = true
 end

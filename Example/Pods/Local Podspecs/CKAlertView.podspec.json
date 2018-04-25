@@ -22,7 +22,7 @@
   "frameworks": "AudioToolbox",
   "dependencies": {
     "SnapKit": [
-      "~> 3.0.2"
+
     ]
   },
   "requires_arc": true,
