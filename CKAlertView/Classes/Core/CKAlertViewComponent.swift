@@ -215,7 +215,7 @@ class CKAlertViewBodyView: CKAlertViewComponent {
                     else {
                         messageLabel = UITextView()
                     }
-                    messageLabel.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                    messageLabel.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
                     messageLabel.textContainer.lineFragmentPadding = 0;
                     messageLabel.isEditable = false
                     messageLabel.isSelectable = false
@@ -273,7 +273,7 @@ class CKAlertViewBodyView: CKAlertViewComponent {
         }
         else if let attributeStr = string as? NSAttributedString {
             let finalAttributes = attributeStr.attributes(at: 0, effectiveRange: nil)
-            if let fontSize = finalAttributes[NSAttributedStringKey.font] as? UIFont {
+            if let fontSize = finalAttributes[NSAttributedString.Key.font] as? UIFont {
                 lineHeight = fontSize.lineHeight
             }
             else {
@@ -282,7 +282,7 @@ class CKAlertViewBodyView: CKAlertViewComponent {
                 }
             }
             
-            if let paragraphStyle = finalAttributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle {
+            if let paragraphStyle = finalAttributes[NSAttributedString.Key.paragraphStyle] as? NSMutableParagraphStyle {
                 lineHeight += paragraphStyle.lineSpacing
             }
         }
@@ -297,7 +297,7 @@ class CKAlertViewBodyView: CKAlertViewComponent {
         if let indentationPattern2WidthDic = indentationPattern2WidthDic {
             for (indentationPattern, width) in indentationPattern2WidthDic {
                 if let regex = try? NSRegularExpression(pattern: indentationPattern, options: .caseInsensitive) {
-                    let count = regex.numberOfMatches(in: string, options: .anchored, range: NSMakeRange(0, string.characters.count))
+                    let count = regex.numberOfMatches(in: string, options: .anchored, range: NSMakeRange(0, string.count))
                     if count > 0 {
                         isNeedindentation = true
                         indentationWidth = width

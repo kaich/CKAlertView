@@ -101,7 +101,7 @@ public class CKAlertViewRippleAnimator: NSObject, CKAlertViewAnimatable, CAAnima
             containerAnimation.fromValue = scaleRate
             containerAnimation.toValue = 1
             containerAnimation.duration = 0.3
-            containerAnimation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
+            containerAnimation.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
             maskLayer.add(containerAnimation, forKey: "scale")
             
             let overlayAnimation = CABasicAnimation(keyPath: "opacity")
@@ -139,7 +139,7 @@ public class CKAlertViewRippleAnimator: NSObject, CKAlertViewAnimatable, CAAnima
             containerAnimation.fromValue = 1
             containerAnimation.toValue = scaleRate
             containerAnimation.duration = 0.3
-            containerAnimation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
+            containerAnimation.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
             maskLayer.add(containerAnimation, forKey: "scale")
             
             let overlayAnimation = CABasicAnimation(keyPath: "opacity")
@@ -185,7 +185,7 @@ public class CKAlertDropDownAnimator: NSObject, CKAlertViewAnimatable {
             let sreenHeight = UIScreen.main.bounds.height
             let bottom = (sreenHeight - containerView.bounds.height)/2
             let boundaryCollision = UICollisionBehavior(items: [containerView])
-            boundaryCollision.setTranslatesReferenceBoundsIntoBoundary(with: UIEdgeInsetsMake(-sreenHeight, 0, bottom, 0))
+            boundaryCollision.setTranslatesReferenceBoundsIntoBoundary(with: UIEdgeInsets(top: -sreenHeight, left: 0, bottom: bottom, right: 0))
             animator.addBehavior(boundaryCollision)
 
             let bounce = UIDynamicItemBehavior(items: [containerView])

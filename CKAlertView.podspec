@@ -42,6 +42,7 @@ Use simple code to display defined multi styles alert view.You can use String or
   s.subspec 'Extension' do |ss|
      ss.dependency 'CKAlertView/Core'
      ss.dependency 'DACircularProgress'
+     ss.dependency 'NVActivityIndicatorView'
      ss.source_files = 'CKAlertView/Classes/Extension/*'
   end
   

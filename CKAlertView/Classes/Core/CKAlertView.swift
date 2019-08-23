@@ -195,7 +195,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         
         let ownWindow = UIApplication.shared.keyWindow! as UIWindow
         ownWindow.addSubview(view)
-        ownWindow.rootViewController?.addChildViewController(self)
+        ownWindow.rootViewController?.addChild(self)
         updateViewConstraints()
         
         let complete = {
@@ -213,7 +213,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         
         let dismissBlock = {
             self.view.removeFromSuperview()
-            self.removeFromParentViewController()
+            self.removeFromParent()
             self._isShow = false
             if let completeBlock = completeBlock {
                 completeBlock()

@@ -21,13 +21,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import UIKit
 
 /**
 UIView hierarchy category.
 */
-public extension UIView {
+@objc public extension UIView {
     
     ///----------------------
     /// MARK: viewControllers
@@ -36,7 +35,7 @@ public extension UIView {
     /**
     Returns the UIViewController object that manages the receiver.
     */
-    @objc public func viewContainingController()->UIViewController? {
+    @objc func viewContainingController() -> UIViewController? {
         
         var nextResponder: UIResponder? = self
         
@@ -55,7 +54,7 @@ public extension UIView {
     /**
     Returns the topMost UIViewController object in hierarchy.
     */
-    @objc public func topMostController()->UIViewController? {
+    @objc func topMostController() -> UIViewController? {
         
         var controllersHierarchy = [UIViewController]()
 
@@ -69,9 +68,9 @@ public extension UIView {
                 controllersHierarchy.append(presented)
             }
             
-            var matchController :UIResponder? = viewContainingController()
+            var matchController: UIResponder? = viewContainingController()
 
-            while matchController != nil && controllersHierarchy.contains(matchController as! UIViewController) == false {
+            while let mController = matchController as? UIViewController, controllersHierarchy.contains(mController) == false {
                 
                 repeat {
                     matchController = matchController?.next
@@ -89,17 +88,18 @@ public extension UIView {
     /**
      Returns the UIViewController object that is actually the parent of this object. Most of the time it's the viewController object which actually contains it, but result may be different if it's viewController is added as childViewController of another viewController.
      */
-    @objc public func parentContainerViewController()->UIViewController? {
+    @objc func parentContainerViewController() -> UIViewController? {
         
         var matchController = viewContainingController()
-        
+        var parentContainerViewController: UIViewController?
+
         if var navController = matchController?.navigationController {
             
             while let parentNav = navController.navigationController {
                 navController = parentNav
             }
             
-            var parentController : UIViewController = navController
+            var parentController: UIViewController = navController
 
             while let parent = parentController.parent,
                 (parent.isKind(of: UINavigationController.self) == false &&
@@ -110,17 +110,16 @@ public extension UIView {
             }
 
             if navController == parentController {
-                return navController.topViewController
+                parentContainerViewController = navController.topViewController
             } else {
-                return parentController
+                parentContainerViewController = parentController
             }
-        }
-        else if let tabController = matchController?.tabBarController {
+        } else if let tabController = matchController?.tabBarController {
             
             if let navController = tabController.selectedViewController as? UINavigationController {
-                return navController.topViewController
+                parentContainerViewController = navController.topViewController
             } else {
-                return tabController.selectedViewController
+                parentContainerViewController = tabController.selectedViewController
             }
         } else {
             while let parentController = matchController?.parent,
@@ -131,8 +130,13 @@ public extension UIView {
                         matchController = parentController
             }
 
-            return matchController;
+            parentContainerViewController = matchController
         }
+        
+        let finalController = parentContainerViewController?.parentIQContainerViewController() ?? parentContainerViewController
+        
+        return finalController
+
     }
 
     ///-----------------------------------
@@ -141,8 +145,13 @@ public extension UIView {
     
     /**
     Returns the superView of provided class type.
-    */
-    @objc public func superviewOfClassType(_ classType:UIView.Type)->UIView? {
+
+     
+     @param classType class type of the object which is to be search in above hierarchy and return
+     
+     @param belowView view object in upper hierarchy where method should stop searching and return nil
+*/
+    @objc func superviewOfClassType(_ classType: UIView.Type, belowView: UIView? = nil) -> UIView? {
 
         var superView = superview
         
@@ -153,7 +162,7 @@ public extension UIView {
                 //If it's UIScrollView, then validating for special cases
                 if unwrappedSuperView.isKind(of: UIScrollView.self) {
                     
-                    let classNameString = NSStringFromClass(type(of:unwrappedSuperView.self))
+                    let classNameString = NSStringFromClass(type(of: unwrappedSuperView.self))
 
                     //  If it's not UITableViewWrapperView class, this is internal class which is actually manage in UITableview. The speciality of this class is that it's superview is UITableView.
                     //  If it's not UITableViewCellScrollView class, this is internal class which is actually manage in UITableviewCell. The speciality of this class is that it's superview is UITableViewCell.
@@ -163,10 +172,11 @@ public extension UIView {
                         classNameString.hasPrefix("_") == false {
                         return superView
                     }
-                }
-                else {
+                } else {
                     return superView
                 }
+            } else if unwrappedSuperView == belowView {
+                return nil
             }
             
             superView = unwrappedSuperView.superview
@@ -178,7 +188,7 @@ public extension UIView {
     /**
     Returns all siblings of the receiver which canBecomeFirstResponder.
     */
-    internal func responderSiblings()->[UIView] {
+    internal func responderSiblings() -> [UIView] {
 
         //Array of (UITextField/UITextView's).
         var tempTextFields = [UIView]()
@@ -188,7 +198,7 @@ public extension UIView {
             
             for textField in siblings {
                 
-                if (textField == self || textField.ignoreSwitchingByNextPrevious == false) && textField._IQcanBecomeFirstResponder() == true {
+                if (textField == self || textField.ignoreSwitchingByNextPrevious == false) && textField.IQcanBecomeFirstResponder() == true {
                     tempTextFields.append(textField)
                 }
             }
@@ -200,14 +210,14 @@ public extension UIView {
     /**
     Returns all deep subViews of the receiver which canBecomeFirstResponder.
     */
-    internal func deepResponderViews()->[UIView] {
+    internal func deepResponderViews() -> [UIView] {
         
         //Array of (UITextField/UITextView's).
         var textfields = [UIView]()
         
         for textField in subviews {
             
-            if (textField == self || textField.ignoreSwitchingByNextPrevious == false) && textField._IQcanBecomeFirstResponder() == true {
+            if (textField == self || textField.ignoreSwitchingByNextPrevious == false) && textField.IQcanBecomeFirstResponder() == true {
                 textfields.append(textField)
             }
 
@@ -221,40 +231,35 @@ public extension UIView {
         }
         
         //subviews are returning in opposite order. Sorting according the frames 'y'.
-        return textfields.sorted(by: { (view1 : UIView, view2 : UIView) -> Bool in
+        return textfields.sorted(by: { (view1: UIView, view2: UIView) -> Bool in
             
             let frame1 = view1.convert(view1.bounds, to: self)
             let frame2 = view2.convert(view2.bounds, to: self)
 
-            let x1 = frame1.minX
-            let y1 = frame1.minY
-            let x2 = frame2.minX
-            let y2 = frame2.minY
-            
-            if y1 != y2 {
-                return y1 < y2
+            if frame1.minY != frame2.minY {
+                return frame1.minY < frame2.minY
             } else {
-                return x1 < x2
+                return frame1.minX < frame2.minX
             }
         })
     }
     
-    private func _IQcanBecomeFirstResponder() -> Bool {
+    private func IQcanBecomeFirstResponder() -> Bool {
         
-        var _IQcanBecomeFirstResponder = false
+        var IQcanBecomeFirstResponder = false
         
         //  Setting toolbar to keyboard.
         if let textField = self as? UITextField {
-            _IQcanBecomeFirstResponder = textField.isEnabled
+            IQcanBecomeFirstResponder = textField.isEnabled
         } else if let textView = self as? UITextView {
-            _IQcanBecomeFirstResponder = textView.isEditable
+            IQcanBecomeFirstResponder = textView.isEditable
         }
         
-        if _IQcanBecomeFirstResponder == true {
-            _IQcanBecomeFirstResponder = isUserInteractionEnabled == true && isHidden == false && alpha != 0.0 && isAlertViewTextField() == false && searchBar() == nil
+        if IQcanBecomeFirstResponder == true {
+            IQcanBecomeFirstResponder = isUserInteractionEnabled == true && isHidden == false && alpha != 0.0 && isAlertViewTextField() == false && textFieldSearchBar() == nil
         }
 
-        return _IQcanBecomeFirstResponder
+        return IQcanBecomeFirstResponder
     }
 
     ///-------------------------
@@ -264,9 +269,9 @@ public extension UIView {
     /**
      Returns searchBar if receiver object is UISearchBarTextField, otherwise return nil.
     */
-    internal func searchBar()-> UISearchBar? {
+    internal func textFieldSearchBar() -> UISearchBar? {
         
-        var responder : UIResponder? = self.next
+        var responder: UIResponder? = self.next
         
         while let bar = responder {
             
@@ -285,9 +290,9 @@ public extension UIView {
     /**
     Returns YES if the receiver object is UIAlertSheetTextField, otherwise return NO.
     */
-    internal func isAlertViewTextField()->Bool {
+    internal func isAlertViewTextField() -> Bool {
         
-        var alertViewController : UIResponder? = viewContainingController()
+        var alertViewController: UIResponder? = viewContainingController()
         
         var isAlertViewTextField = false
         
@@ -304,8 +309,8 @@ public extension UIView {
         return isAlertViewTextField
     }
     
-    private func depth()->Int {
-        var depth : Int = 0
+    private func depth() -> Int {
+        var depth: Int = 0
         
         if let superView = superview {
             depth = superView.depth()+1
@@ -316,6 +321,12 @@ public extension UIView {
     
 }
 
+@objc public extension UIViewController {
+
+    func parentIQContainerViewController() -> UIViewController? {
+        return self
+    }
+}
 
 extension NSObject {
     
@@ -323,6 +334,3 @@ extension NSObject {
         return "<\(self) \(Unmanaged.passUnretained(self).toOpaque())>"
     }
 }
-
-
-

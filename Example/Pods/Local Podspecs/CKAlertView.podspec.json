@@ -44,6 +44,9 @@
         ],
         "DACircularProgress": [
 
+        ],
+        "NVActivityIndicatorView": [
+
         ]
       },
       "source_files": "CKAlertView/Classes/Extension/*"

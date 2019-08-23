@@ -21,12 +21,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import UIKit
 
-public class IQInvocation : NSObject {
-    public weak var target: AnyObject?
-    public var action: Selector
+@objc public class IQInvocation: NSObject {
+    @objc public weak var target: AnyObject?
+    @objc public var action: Selector
     
     @objc public init(_ target: AnyObject, _ action: Selector) {
         self.target = target
@@ -37,5 +36,9 @@ public class IQInvocation : NSObject {
         if let target = target {
             UIApplication.shared.sendAction(action, to: target, from: from, for: UIEvent())
         }
+    }
+
+    deinit {
+        target = nil
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 extension UIButton {
     
-    func ck_setText(string :CKAlertViewStringable? , isCenter :Bool = true , state :UIControlState = .normal) {
+    func ck_setText(string :CKAlertViewStringable? , isCenter :Bool = true , state :UIControl.State = .normal) {
         
         if let string  = string as? String {
             setTitle(string, for: state)
