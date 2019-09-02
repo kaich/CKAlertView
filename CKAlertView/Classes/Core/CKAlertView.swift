@@ -77,6 +77,8 @@ public class CKAlertViewConfiguration {
     public var containerCornerRadius: CGFloat = 5
     /// 容器视图
     public var containerView: UIView?
+    /// 动画
+    public var animator :CKAlertViewAnimatable?
     
     public init() { }
 }
@@ -340,7 +342,11 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        animator = CKAlertViewSpringAnimator(alertView: self)
+        if let globalAnimator = CKAlertViewConfiguration.shared.animator {
+            animator = globalAnimator
+        } else {
+            animator = CKAlertViewFadeAnimator(alertView: self)
+        }
         interactiveHandler = CKAlertViewAttachmentInteractiveHandler(alertView: self)
     }
 

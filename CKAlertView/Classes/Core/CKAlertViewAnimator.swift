@@ -26,6 +26,41 @@ public protocol CKAlertViewAnimatable {
 
 //MARK: - 动画效果
 
+/// 透明度
+public class CKAlertViewFadeAnimator: CKAlertViewAnimatable {
+    public var alertView :CKAlertView?
+    
+    required public init(alertView: CKAlertView?) {
+        self.alertView = alertView
+    }
+    
+    public func show(completeBlock :(() -> ())?) {
+        alertView?.view.alpha = 0
+        alertView?.containerView.layoutIfNeeded()
+        UIView.animate(withDuration: 0.3, animations: {
+            if let alertView = self.alertView {
+                alertView.view.alpha = 1
+            }
+        }) { (isOK) in
+            if let completeBlock = completeBlock {
+                completeBlock()
+            }
+        }
+    }
+    
+    public func dismiss(completeBlock: (() -> ())?) {
+        UIView.animate(withDuration: 0.3, animations: {
+            if let alertView = self.alertView {
+                alertView.view.alpha = 0
+            }
+        }) { (_) in
+            if let completeBlock = completeBlock {
+                completeBlock()
+            }
+        }
+    }
+}
+
 /// 弹簧缩放
 public class CKAlertViewSpringAnimator: CKAlertViewAnimatable {
     public var alertView :CKAlertView?
