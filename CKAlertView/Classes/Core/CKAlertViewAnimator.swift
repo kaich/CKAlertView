@@ -24,6 +24,10 @@ public protocol CKAlertViewAnimatable {
     
 }
 
+public enum CKAlertViewAnimatorType {
+    case fade, spring, ripple, dropDown, `default`
+}
+
 //MARK: - 动画效果
 
 /// 透明度

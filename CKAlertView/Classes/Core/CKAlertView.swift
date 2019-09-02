@@ -78,7 +78,7 @@ public class CKAlertViewConfiguration {
     /// 容器视图
     public var containerView: UIView?
     /// 动画
-    public var animator :CKAlertViewAnimatable?
+    public var animatorType :CKAlertViewAnimatorType = .default
     
     public init() { }
 }
@@ -342,10 +342,17 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        if let globalAnimator = CKAlertViewConfiguration.shared.animator {
-            animator = globalAnimator
-        } else {
+        switch CKAlertViewConfiguration.shared.animatorType {
+        case .fade:
             animator = CKAlertViewFadeAnimator(alertView: self)
+        case .spring:
+            animator = CKAlertViewSpringAnimator(alertView: self)
+        case .ripple:
+            animator = CKAlertViewRippleAnimator(alertView: self)
+        case .dropDown:
+            animator = CKAlertDropDownAnimator(alertView: self)
+        default:
+            animator = CKAlertViewSpringAnimator(alertView: self)
         }
         interactiveHandler = CKAlertViewAttachmentInteractiveHandler(alertView: self)
     }
