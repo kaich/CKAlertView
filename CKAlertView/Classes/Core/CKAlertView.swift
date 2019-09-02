@@ -76,7 +76,7 @@ public class CKAlertViewConfiguration {
     /// 圆角
     public var containerCornerRadius: CGFloat = 5
     /// 容器视图
-    let containerView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+    public var containerView: UIView?
     
     public init() { }
 }
@@ -155,6 +155,9 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         overlayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         view.addSubview(overlayView)
         
+        if let containerView = CKAlertViewConfiguration.shared.containerView {
+            self.containerView = containerView
+        }
         containerView.center = view.center
         containerView.layer.cornerRadius = CKAlertViewConfiguration.shared.containerCornerRadius
         containerView.layer.masksToBounds = true
