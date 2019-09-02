@@ -72,11 +72,11 @@ public class CKAlertViewConfiguration {
     /// 段落间隔($分割的短路之间的间距)
     public var paragraphSpacing :CGFloat = 10.0
     /// 整个弹框背景颜色
-    public var containerBackgroundColor :UIColor? = nil
-    /// 内容背景颜色
     public var contentBackgroundColor :UIColor? = nil
     /// 圆角
     public var containerCornerRadius: CGFloat = 5
+    /// 容器视图
+    let containerView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
     
     public init() { }
 }
@@ -108,7 +108,13 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
     public var forceGestureBlock: ((UIGestureRecognizer) -> Void)?
     
     var overlayView = UIView()
-    public var containerView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+    public var containerView: UIView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+    public var containerContentView: UIView {
+        if let containerView = self.containerView as? UIVisualEffectView {
+            return containerView.contentView
+        }
+        return self.containerView
+    }
     var contentScrollView = UIScrollView()
     var componentMaker :CKAlertViewComponentBaseMaker!
     
@@ -149,9 +155,6 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         overlayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         view.addSubview(overlayView)
         
-        if let bgColor = CKAlertViewConfiguration.shared.containerBackgroundColor {
-            containerView.backgroundColor = bgColor
-        }
         containerView.center = view.center
         containerView.layer.cornerRadius = CKAlertViewConfiguration.shared.containerCornerRadius
         containerView.layer.masksToBounds = true
@@ -162,8 +165,8 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         contentScrollView.isScrollEnabled = isScrollEnabled
         contentScrollView.showsVerticalScrollIndicator = false
         contentScrollView.showsHorizontalScrollIndicator = false
-        containerView.contentView.addSubview(contentScrollView)
-        
+        containerContentView.addSubview(contentScrollView)
+
         headerView.backgroundColor = UIColor.clear
         contentScrollView.addSubview(headerView)
         
@@ -258,25 +261,25 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         }
         
         contentScrollView.snp.makeConstraints { (make) in
-            make.left.right.top.bottom.equalTo(containerView.contentView)
+            make.left.right.top.bottom.equalTo(containerContentView)
         }
         
         headerView.snp.makeConstraints { (make) in
             make.top.equalTo(contentScrollView)
             make.top.equalTo(containerView).priority(100)
-            make.left.right.equalTo(containerView.contentView)
+            make.left.right.equalTo(containerContentView)
         }
         
         bodyView.snp.makeConstraints { (make) in
             make.top.equalTo(headerView.snp.bottom)
-            make.left.right.equalTo(containerView.contentView)
+            make.left.right.equalTo(containerContentView)
         }
 
         footerView.snp.makeConstraints { (make) in
             make.top.equalTo(bodyView.snp.bottom)
-            make.left.right.equalTo(containerView.contentView)
+            make.left.right.equalTo(containerContentView)
             make.bottom.equalTo(contentScrollView)
-            make.bottom.equalTo(containerView.contentView).priority(100)
+            make.bottom.equalTo(containerContentView).priority(100)
         }
         
     }

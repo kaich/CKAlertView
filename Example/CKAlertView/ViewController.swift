@@ -144,7 +144,7 @@ class ViewController: UIViewController {
         config.otherBackgroundColorColor = HexColor(0x1768c9, 1)
         config.otherTitleColor = .white
         alert?.config = config
-        alert?.containerView.contentView.backgroundColor = UIColor.white
+        alert?.containerContentView.backgroundColor = UIColor.white
         alert?.show()
     }
     
