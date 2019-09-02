@@ -12,6 +12,7 @@ import SnapKit
 public let HexColor = {(hex :Int, alpha :CGFloat) in return UIColor(red: ((CGFloat)((hex & 0xFF0000) >> 16))/255.0, green: ((CGFloat)((hex & 0xFF00) >> 8))/255.0, blue: ((CGFloat)(hex & 0xFF))/255.0, alpha: alpha) }
 public let is4Inc = UIScreen.main.nativeBounds.size.width / UIScreen.main.nativeScale == 320
 
+let kHairLine = 1 / UIScreen.main.scale
 
 public extension UIImage {
     static func make(name: String) -> UIImage? {
@@ -59,7 +60,7 @@ public class CKAlertViewConfiguration {
     /// 分割线颜色
     public var splitLineColor = UIColor.gray
     /// 分割线宽度
-    public var splitLineWidth :CGFloat = 0.5
+    public var splitLineWidth :CGFloat = kHairLine
     /// 按钮默认高度
     public var buttonDefaultHeight :CGFloat = 44
     /// 多行按钮默认高度
@@ -70,8 +71,12 @@ public class CKAlertViewConfiguration {
     public var lineSpacing :CGFloat = 3.0
     /// 段落间隔($分割的短路之间的间距)
     public var paragraphSpacing :CGFloat = 10.0
-    /// 如果值为空
+    /// 整个弹框背景颜色
     public var containerBackgroundColor :UIColor? = nil
+    /// 内容背景颜色
+    public var contentBackgroundColor :UIColor? = nil
+    /// 圆角
+    public var containerCornerRadius: CGFloat = 5
     
     public init() { }
 }
@@ -144,12 +149,15 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         overlayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         view.addSubview(overlayView)
         
+        if let bgColor = CKAlertViewConfiguration.shared.containerBackgroundColor {
+            containerView.backgroundColor = bgColor
+        }
         containerView.center = view.center
-        containerView.layer.cornerRadius = 5
+        containerView.layer.cornerRadius = CKAlertViewConfiguration.shared.containerCornerRadius
         containerView.layer.masksToBounds = true
         view.addSubview(containerView)
         
-        contentScrollView.backgroundColor = UIColor.clear
+        contentScrollView.backgroundColor =  CKAlertViewConfiguration.shared.contentBackgroundColor ?? UIColor.clear
         contentScrollView.bounces = false
         contentScrollView.isScrollEnabled = isScrollEnabled
         contentScrollView.showsVerticalScrollIndicator = false
