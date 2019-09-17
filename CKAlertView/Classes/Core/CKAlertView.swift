@@ -76,7 +76,7 @@ public class CKAlertViewConfiguration {
     /// 圆角
     public var containerCornerRadius: CGFloat = 5
     /// 容器视图
-    public var containerView: UIView?
+    public var containerView: (() -> (UIView))?
     /// 动画
     public var animatorType :CKAlertViewAnimatorType = .default
     
@@ -158,7 +158,7 @@ public class CKAlertView: UIViewController, CKAlertViewComponentDelegate {
         view.addSubview(overlayView)
         
         if let containerView = CKAlertViewConfiguration.shared.containerView {
-            self.containerView = containerView
+            self.containerView = containerView()
         }
         containerView.center = view.center
         containerView.layer.cornerRadius = CKAlertViewConfiguration.shared.containerCornerRadius
