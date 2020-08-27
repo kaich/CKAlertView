@@ -1,7 +1,7 @@
 PODS:
-  - CKAlertView/Core (0.4.0):
+  - CKAlertView/Core (0.5.1):
     - SnapKit
-  - CKAlertView/Extension (0.4.0):
+  - CKAlertView/Extension (0.5.1):
     - CKAlertView/Core
     - DACircularProgress
     - NVActivityIndicatorView
@@ -19,7 +19,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - DACircularProgress
     - IQKeyboardManagerSwift
     - NVActivityIndicatorView
@@ -30,12 +30,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CKAlertView: d7035ac6f60ac378f1a63f050dc4ec569a079326
+  CKAlertView: a26cccb8dd031e11bec0d051d753178b337510e6
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   IQKeyboardManagerSwift: d2df660d0b8d64a15cb2537c9ff303213fa515b2
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: ad563d66221c16845f2bbcc067e9192f1e0fa942
+PODFILE CHECKSUM: 3154e0ebf3575d8a0e0c4bd04e3d4c8d221e39b1
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.9.3
