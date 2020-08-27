@@ -1,6 +1,6 @@
 {
   "name": "CKAlertView",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "summary": "Custom Mutil Styles Alert View.",
   "description": "Use simple code to display defined multi styles alert view.You can use String or NSAttributeString for text. Detail refer to README.md.",
   "homepage": "https://github.com/kaich/CKAlertView",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/kaich/CKAlertView.git",
-    "tag": "0.5.1"
+    "tag": "0.5.2"
   },
   "platforms": {
     "ios": "10.0"

@@ -1,17 +1,17 @@
 PODS:
-  - CKAlertView/Core (0.5.1):
+  - CKAlertView/Core (0.5.2):
     - SnapKit
-  - CKAlertView/Extension (0.5.1):
+  - CKAlertView/Extension (0.5.2):
     - CKAlertView/Core
     - DACircularProgress
     - NVActivityIndicatorView
     - SnapKit
   - DACircularProgress (2.3.1)
-  - IQKeyboardManagerSwift (6.4.1)
-  - NVActivityIndicatorView (4.7.0):
-    - NVActivityIndicatorView/Presenter (= 4.7.0)
-  - NVActivityIndicatorView/Presenter (4.7.0)
-  - SnapKit (4.2.0)
+  - IQKeyboardManagerSwift (6.5.6)
+  - NVActivityIndicatorView (5.0.1):
+    - NVActivityIndicatorView/Base (= 5.0.1)
+  - NVActivityIndicatorView/Base (5.0.1)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - CKAlertView/Core (from `../`)
@@ -19,7 +19,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - DACircularProgress
     - IQKeyboardManagerSwift
     - NVActivityIndicatorView
@@ -30,12 +30,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CKAlertView: a26cccb8dd031e11bec0d051d753178b337510e6
+  CKAlertView: 829dbfe5a84eda19a79c82df86e5b6667dd0e8e7
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  IQKeyboardManagerSwift: d2df660d0b8d64a15cb2537c9ff303213fa515b2
-  NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  NVActivityIndicatorView: 738e843cb8924e9e4fc3e559d0728031624bf860
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 3154e0ebf3575d8a0e0c4bd04e3d4c8d221e39b1
+PODFILE CHECKSUM: cda764c9c5252ae94ccf362a631af767c3a31f34
 
 COCOAPODS: 1.9.3
