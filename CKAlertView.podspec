@@ -53,5 +53,5 @@ Use simple code to display defined multi styles alert view.You can use String or
    s.frameworks = 'AudioToolbox'
    s.dependency 'SnapKit'
 
-   s.requires_arc = true
+   s.swift_version = '5.0'
 end
